@@ -19,3 +19,6 @@
 ### 12/10/22
 - Created the coding standards markdown file
 - Started a minutes log in a markdown file
+- Progress on class diagram
+- Started UI designs (rough sketches)
+- Implemented some empty classes to define structure of C# forms project
