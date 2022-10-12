@@ -1,0 +1,10 @@
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
