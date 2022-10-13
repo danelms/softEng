@@ -8,3 +8,13 @@
 \\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
 \\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
 \\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
