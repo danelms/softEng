@@ -27,3 +27,11 @@
 - Created a design standards markdown file
 - Discussed design options
 - Finalised class diagram
+
+### 16/10/22 S
+- Finalised design of login form
+
+### 17/10/22 SDJ
+- Started coding the classes
+- Begun sequence diagrams
+- Started UI prototyping
