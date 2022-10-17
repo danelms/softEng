@@ -6,22 +6,33 @@ using System.Threading.Tasks;
 
 namespace InvestmentIdeasPlatform
 {
-    class Client : User
+    public class Client : User
     {
         private List<String> preferenceType = new List<String>();
         private List<int> preferenceRisk = new List<int>();
         private List<String> preferenceCurrency = new List<String>();
         private List<String> preferenceRegion = new List<String>();
-        public Client(String username, String password, byte type) : base(username, password, type)
+        public Client(String newName, String newUsername, String newPassword, byte newType) : base(newName, newUsername, newPassword, newType)
         {
-            name = username;
-            pass = password;
-            userType = type;
+            name = newName;
+            username = newUsername;
+            pass = newPassword;
+            userType = newType;
         }
 
         public List<String> getPrefTypes()
         {
             return preferenceType;
+        }
+
+        public void removePreferenceType(String type)
+        {
+            preferenceType.Remove(type);
+        }
+
+        public void addPreferenceType(String type)
+        {
+            preferenceType.Add(type);
         }
 
         public List<int> getPrefRisk()

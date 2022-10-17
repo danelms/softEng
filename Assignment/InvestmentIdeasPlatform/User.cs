@@ -1,32 +1,54 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace InvestmentIdeasPlatform
 {
-    abstract class User
+    /// <summary>
+    /// Abstract base class that all User types (Client, RM, FA) will inherit from
+    /// </summary>
+    public abstract class User
     {
         protected String name;
+        protected String username;
         protected String pass;
         protected byte userType;
+        protected Bitmap profilePicture;
 
-        public User(String username, String password, byte type)
+        public User(String newName, String newUsername, String newPassword, byte newType)
         {
-            name = username;
-            pass = password;
-            userType = type;
+            name = newName;
+            username = newUsername;
+            pass = newPassword;
+            userType = newType;
         }
 
-        public String getUserName()
+        public String getName()
         {
             return name;
+        }
+
+        public String getUsername()
+        {
+            return username;
         }
 
         public String getPass()
         {
             return pass;
+        }
+
+        public Bitmap getProfilePicture()
+        {
+            return profilePicture;
+        }
+
+        public void setProfilePicture(Bitmap picture)
+        {
+            profilePicture = picture;
         }
 
         public byte getUserType()

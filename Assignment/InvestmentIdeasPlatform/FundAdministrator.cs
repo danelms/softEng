@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace InvestmentIdeasPlatform
 {
-    class FundAdministrator : User
+    public class FundAdministrator : User
     {
-        public FundAdministrator(String username, String password, byte type) : base(username, password, type)
+        public FundAdministrator(String newName, String newUsername, String newPassword, byte newType) : base(newName, newUsername, newPassword, newType)
         {
 
         }
