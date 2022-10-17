@@ -8,7 +8,6 @@ namespace InvestmentIdeasPlatform
 {
     class Client : User
     {
-        private List<String> preferenceCountry = new List<String>();
         private List<String> preferenceType = new List<String>();
         private List<int> preferenceRisk = new List<int>();
         private List<String> preferenceCurrency = new List<String>();
