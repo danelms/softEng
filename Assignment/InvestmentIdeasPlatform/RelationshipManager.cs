@@ -8,5 +8,9 @@ namespace InvestmentIdeasPlatform
 {
     class RelationshipManager : User
     {
+        public RelationshipManager(String username, String password, byte type) : base(username, password, type)
+        {
+
+        }
     }
 }

@@ -8,5 +8,9 @@ namespace InvestmentIdeasPlatform
 {
     class FundAdministrator : User
     {
+        public FundAdministrator(String username, String password, byte type) : base(username, password, type)
+        {
+
+        }
     }
 }

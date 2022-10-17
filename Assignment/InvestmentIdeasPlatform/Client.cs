@@ -18,5 +18,25 @@ namespace InvestmentIdeasPlatform
             pass = password;
             userType = type;
         }
+
+        public List<String> getPrefTypes()
+        {
+            return preferenceType;
+        }
+
+        public List<int> getPrefRisk()
+        {
+            return preferenceRisk;
+        }
+
+        public List<String> getPrefCurrency()
+        {
+            return preferenceCurrency;
+        }
+
+        public List<String> getPrefRegion()
+        {
+            return preferenceRegion;
+        }
     }
 }
