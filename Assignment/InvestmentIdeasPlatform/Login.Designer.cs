@@ -32,10 +32,11 @@
             this.usernameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.requestLoginLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loginButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
             this.minimiseButton = new System.Windows.Forms.Button();
             this.loginPictureBox = new System.Windows.Forms.PictureBox();
+            this.continueGuestButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -87,18 +88,18 @@
             this.requestLoginLinkLabel.TabStop = true;
             this.requestLoginLinkLabel.Text = "New User? Request An Account";
             // 
-            // button1
+            // loginButton
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(190)))), ((int)(((byte)(198)))));
-            this.button1.Location = new System.Drawing.Point(233, 360);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 25);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Log In";
-            this.button1.UseVisualStyleBackColor = true;
+            this.loginButton.FlatAppearance.BorderSize = 0;
+            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(190)))), ((int)(((byte)(198)))));
+            this.loginButton.Location = new System.Drawing.Point(233, 360);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(75, 25);
+            this.loginButton.TabIndex = 9;
+            this.loginButton.Text = "Log In";
+            this.loginButton.UseVisualStyleBackColor = true;
             // 
             // exitButton
             // 
@@ -141,15 +142,30 @@
             this.loginPictureBox.TabIndex = 1;
             this.loginPictureBox.TabStop = false;
             // 
+            // continueGuestButton
+            // 
+            this.continueGuestButton.FlatAppearance.BorderSize = 0;
+            this.continueGuestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.continueGuestButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.continueGuestButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(190)))), ((int)(((byte)(198)))));
+            this.continueGuestButton.Location = new System.Drawing.Point(12, 360);
+            this.continueGuestButton.Name = "continueGuestButton";
+            this.continueGuestButton.Size = new System.Drawing.Size(129, 25);
+            this.continueGuestButton.TabIndex = 12;
+            this.continueGuestButton.Text = "Continue as Guest";
+            this.continueGuestButton.UseVisualStyleBackColor = true;
+            this.continueGuestButton.Click += new System.EventHandler(this.continueGuestButton_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(70)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(320, 397);
+            this.Controls.Add(this.continueGuestButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.minimiseButton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loginButton);
             this.Controls.Add(this.requestLoginLinkLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.usernameTextBox);
@@ -159,6 +175,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.loginPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -172,8 +189,9 @@
         private System.Windows.Forms.TextBox usernameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.LinkLabel requestLoginLinkLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loginButton;
         private System.Windows.Forms.Button minimiseButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button continueGuestButton;
     }
 }
