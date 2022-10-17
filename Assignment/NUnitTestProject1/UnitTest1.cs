@@ -25,7 +25,7 @@ namespace NUnitTestProject1
             Assert.AreEqual("Graham", testRM.getName(), "Name not set correctly");
             Assert.AreEqual("securePass", testRM.getPass(), "Password not set correctly");
             Assert.AreEqual("bigG", testRM.getUsername(), "Username not set correctly");
-            Assert.AreEqual(1, testRM.GetUserType());
+            Assert.AreEqual(1, testRM.getUserType());
         }
     }
 }

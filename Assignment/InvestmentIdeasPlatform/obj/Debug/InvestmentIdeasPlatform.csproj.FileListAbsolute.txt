@@ -40,3 +40,4 @@ C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Com
 C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
 C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
 C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
