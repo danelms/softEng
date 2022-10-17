@@ -1,9 +1,11 @@
-﻿using System;
+﻿using InvestmentIdeasPlatform.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace InvestmentIdeasPlatform
 {
@@ -12,11 +14,11 @@ namespace InvestmentIdeasPlatform
     /// </summary>
     public abstract class User
     {
-        protected String name;
-        protected String username;
-        protected String pass;
-        protected byte userType;
-        protected Bitmap profilePicture;
+        protected String name; //Name tied to User
+        protected String username; //Username tied to User
+        protected String pass; //Password tied to User
+        protected byte userType; //Type of user e.g., 1 = Client
+        protected Bitmap profilePicture = new Bitmap(Resources.userIcon);//WON'T WORK!!
 
         /// <summary>
         /// Base Constructor
