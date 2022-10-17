@@ -32,6 +32,7 @@
 - Finalised design of login form
 
 ### 17/10/22 SDJ
-- Started coding the classes
+- Started coding the classes, commenting and testing
 - Begun sequence diagrams
 - Started UI prototyping
+- Added dynamic panels to the project
