@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 
 namespace InvestmentIdeasPlatform
 {
-    class RelationshipManager : User
+    public class RelationshipManager : User
     {
-        public RelationshipManager(String username, String password, byte type) : base(username, password, type)
+        public RelationshipManager(String newName, String newUsername, String newPassword, byte newType) : base(newName, newUsername, newPassword, newType)
         {
-
-        }
+            name = newName;
+            username = newUsername;
+            pass = newPassword;
+            userType = newType;
+        }     
     }
 }

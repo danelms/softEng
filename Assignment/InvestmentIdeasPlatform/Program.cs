@@ -18,5 +18,16 @@ namespace InvestmentIdeasPlatform
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new HomePage());
         }
+
+        /// <summary>
+        /// Used to test functionality
+        /// </summary>
+        private static void Test()
+        {
+            RelationshipManager testRM = new RelationshipManager("John Doe", "isitDoe123", "password123", 3);
+
+    
+        }
     }
+
 }
