@@ -36,3 +36,7 @@
 - Begun sequence diagrams
 - Started UI prototyping
 - Added dynamic panels to the project
+
+### 18/10/22 D
+- Programming progress - Implemented and commented all the classes from the class diagram
+- To finish: gets and sets for InvestmentIdea (sets probably unecessary as ideas won't change)
