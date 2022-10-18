@@ -17,6 +17,22 @@ namespace InvestmentIdeasPlatform
         public HomePage()
         {
             InitializeComponent();
+            Label test = new Label();
+            test.ForeColor = Color.Black;
+            Panel thePanel = new Panel();
+            thePanel.AutoScroll = true;
+            thePanel.Location = new Point(220,30);
+            thePanel.Size = new Size(800,550);
+            thePanel.BackColor = Color.FromArgb(181, 190, 198);
+            thePanel.Visible = true;
+            
+            for (int i = 0; i < 100; i++) 
+            {
+                test.Text = i.ToString();
+                thePanel.Controls.Add(test);
+            }
+            this.Controls.Add(thePanel);
+            login.Show();
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -39,5 +55,7 @@ namespace InvestmentIdeasPlatform
         {
             login.Show();
         }
+
+
     }
 }

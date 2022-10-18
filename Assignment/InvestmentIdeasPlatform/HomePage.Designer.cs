@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomePage));
             this.sidebarPanel = new System.Windows.Forms.Panel();
+            this.homeSidebarButton = new System.Windows.Forms.Button();
             this.loginSidebarButton = new System.Windows.Forms.Button();
             this.usernameLabel = new System.Windows.Forms.Label();
+            this.loginSidebarPicturebox = new System.Windows.Forms.PictureBox();
             this.minimiseButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
-            this.loginSidebarPicturebox = new System.Windows.Forms.PictureBox();
-            this.homeSidebarButton = new System.Windows.Forms.Button();
             this.sidebarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginSidebarPicturebox)).BeginInit();
             this.SuspendLayout();
@@ -51,8 +51,21 @@
             this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
             this.sidebarPanel.Name = "sidebarPanel";
-            this.sidebarPanel.Size = new System.Drawing.Size(225, 580);
+            this.sidebarPanel.Size = new System.Drawing.Size(220, 580);
             this.sidebarPanel.TabIndex = 0;
+            // 
+            // homeSidebarButton
+            // 
+            this.homeSidebarButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.homeSidebarButton.FlatAppearance.BorderSize = 0;
+            this.homeSidebarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.homeSidebarButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeSidebarButton.Location = new System.Drawing.Point(0, 158);
+            this.homeSidebarButton.Name = "homeSidebarButton";
+            this.homeSidebarButton.Size = new System.Drawing.Size(220, 34);
+            this.homeSidebarButton.TabIndex = 6;
+            this.homeSidebarButton.Text = "Home";
+            this.homeSidebarButton.UseVisualStyleBackColor = true;
             // 
             // loginSidebarButton
             // 
@@ -62,7 +75,7 @@
             this.loginSidebarButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginSidebarButton.Location = new System.Drawing.Point(0, 546);
             this.loginSidebarButton.Name = "loginSidebarButton";
-            this.loginSidebarButton.Size = new System.Drawing.Size(225, 34);
+            this.loginSidebarButton.Size = new System.Drawing.Size(220, 34);
             this.loginSidebarButton.TabIndex = 5;
             this.loginSidebarButton.Text = "Log In";
             this.loginSidebarButton.UseVisualStyleBackColor = true;
@@ -79,35 +92,6 @@
             this.usernameLabel.TabIndex = 4;
             this.usernameLabel.Text = "Guest";
             // 
-            // minimiseButton
-            // 
-            this.minimiseButton.BackgroundImage = global::InvestmentIdeasPlatform.Properties.Resources.minimiseIcon;
-            this.minimiseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimiseButton.FlatAppearance.BorderSize = 0;
-            this.minimiseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimiseButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimiseButton.Location = new System.Drawing.Point(928, 0);
-            this.minimiseButton.Name = "minimiseButton";
-            this.minimiseButton.Size = new System.Drawing.Size(45, 30);
-            this.minimiseButton.TabIndex = 2;
-            this.minimiseButton.UseVisualStyleBackColor = true;
-            this.minimiseButton.Click += new System.EventHandler(this.minimiseButton_Click);
-            // 
-            // exitButton
-            // 
-            this.exitButton.BackgroundImage = global::InvestmentIdeasPlatform.Properties.Resources.exitIcon;
-            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.exitButton.FlatAppearance.BorderSize = 0;
-            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitButton.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.exitButton.Location = new System.Drawing.Point(973, 0);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(45, 30);
-            this.exitButton.TabIndex = 1;
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
             // loginSidebarPicturebox
             // 
             this.loginSidebarPicturebox.BackgroundImage = global::InvestmentIdeasPlatform.Properties.Resources.userIcon;
@@ -116,29 +100,45 @@
             this.loginSidebarPicturebox.InitialImage = null;
             this.loginSidebarPicturebox.Location = new System.Drawing.Point(0, 0);
             this.loginSidebarPicturebox.Name = "loginSidebarPicturebox";
-            this.loginSidebarPicturebox.Size = new System.Drawing.Size(225, 158);
+            this.loginSidebarPicturebox.Size = new System.Drawing.Size(220, 158);
             this.loginSidebarPicturebox.TabIndex = 4;
             this.loginSidebarPicturebox.TabStop = false;
             // 
-            // homeSidebarButton
+            // minimiseButton
             // 
-            this.homeSidebarButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.homeSidebarButton.FlatAppearance.BorderSize = 0;
-            this.homeSidebarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeSidebarButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeSidebarButton.Location = new System.Drawing.Point(0, 158);
-            this.homeSidebarButton.Name = "homeSidebarButton";
-            this.homeSidebarButton.Size = new System.Drawing.Size(225, 34);
-            this.homeSidebarButton.TabIndex = 6;
-            this.homeSidebarButton.Text = "Home";
-            this.homeSidebarButton.UseVisualStyleBackColor = true;
+            this.minimiseButton.BackgroundImage = global::InvestmentIdeasPlatform.Properties.Resources.minimiseIconWhite;
+            this.minimiseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.minimiseButton.FlatAppearance.BorderSize = 0;
+            this.minimiseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimiseButton.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimiseButton.Location = new System.Drawing.Point(930, 0);
+            this.minimiseButton.Name = "minimiseButton";
+            this.minimiseButton.Size = new System.Drawing.Size(45, 30);
+            this.minimiseButton.TabIndex = 2;
+            this.minimiseButton.UseVisualStyleBackColor = true;
+            this.minimiseButton.Click += new System.EventHandler(this.minimiseButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.BackgroundImage = global::InvestmentIdeasPlatform.Properties.Resources.exitIconWhite2;
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.exitButton.FlatAppearance.BorderSize = 0;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.exitButton.Location = new System.Drawing.Point(975, 0);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(45, 30);
+            this.exitButton.TabIndex = 1;
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(190)))), ((int)(((byte)(198)))));
-            this.ClientSize = new System.Drawing.Size(1018, 580);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(70)))), ((int)(((byte)(82)))));
+            this.ClientSize = new System.Drawing.Size(1020, 580);
             this.Controls.Add(this.minimiseButton);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.sidebarPanel);
@@ -156,14 +156,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel sidebarPanel;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Button minimiseButton;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.PictureBox loginSidebarPicturebox;
         private System.Windows.Forms.Button loginSidebarButton;
         private System.Windows.Forms.Button homeSidebarButton;
+        private System.Windows.Forms.Panel sidebarPanel;
     }
 }
 
