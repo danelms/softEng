@@ -30,7 +30,7 @@ Comments giving an overview of the functionality of a method or function to be w
 `code;`  <br>
 `}`  <br>
 
-Within any xml comments, datatypes will be <b>bold</b> e.g. "<b>int</b>"
+Within any xml comments, datatypes will be <b>bold</b> e.g. "`<b>int</b>`"
 
 **No inline comments!**
 
