@@ -18,7 +18,7 @@ namespace InvestmentIdeasPlatform
         protected String username; //Username tied to User
         protected String pass; //Password tied to User
         protected byte userType; //Type of user e.g., 1 = Client
-        protected Bitmap profilePicture = new Bitmap(Resources.userIcon);//WON'T WORK!!
+        protected Bitmap profilePicture; //Profile picture, defaults to Resources>userIcon.png
 
         /// <summary>
         /// Base Constructor
@@ -27,12 +27,13 @@ namespace InvestmentIdeasPlatform
         /// <param name="newUsername">Username to be assigned to new User</param>
         /// <param name="newPassword">Password to be assigned to new User</param>
         /// <param name="newType">Byte representing the type of User (1=Client, 2=RelationshipManager, 3=FundAdministrator)</param>
-        public User(String newName, String newUsername, String newPassword, byte newType)
+        protected User(String newName, String newUsername, String newPassword, byte newType)
         {
             name = newName;
             username = newUsername;
             pass = newPassword;
             userType = newType;
+            profilePicture = new Bitmap(Resources.userIcon);
         }
 
         /// <returns>The User's name as a <b>String</b></returns>

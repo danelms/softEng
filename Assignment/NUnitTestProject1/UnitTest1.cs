@@ -2,6 +2,7 @@ using NUnit.Framework;
 using InvestmentIdeasPlatform;
 using InvestmentIdeasPlatform.Properties;
 using System.Drawing;
+using System;
 
 namespace NUnitTestProject1
 {
@@ -15,7 +16,7 @@ namespace NUnitTestProject1
         [Test]
         public void Test1()
         {
-            Client test = new InvestmentIdeasPlatform.Client("Fred", "freddyboi", "password", 2);
+            Client test = new Client("Fred", "freddyboi", "password", 2);
 
             Assert.AreEqual("Fred", test.getName(), "Name not set correctly");
             Assert.AreEqual("password", test.getPass(), "Password not set correctly");
@@ -27,7 +28,12 @@ namespace NUnitTestProject1
             Assert.AreEqual("Graham", testRM.getName(), "Name not set correctly");
             Assert.AreEqual("securePass", testRM.getPass(), "Password not set correctly");
             Assert.AreEqual("bigG", testRM.getUsername(), "Username not set correctly");
-            //Assert.AreEqual(1, testRM.getUserType(), "User Type not set correctly");
+            Assert.AreEqual(1, testRM.getUserType(), "User Type not set correctly");
+        }
+        [Test]
+        public void Test2()
+        {
+            
         }
     }
 }

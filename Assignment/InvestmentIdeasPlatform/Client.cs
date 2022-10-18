@@ -15,20 +15,20 @@ namespace InvestmentIdeasPlatform
         private List<int> preferenceRisk = new List<int>(); //List of preferred risk levels
         private List<String> preferenceCurrency = new List<String>(); //List of preferred currencies
         private List<String> preferenceRegion = new List<String>(); //List of preferred regions
-        
+
         /// <summary>
         /// Class to be utilised as a user account by Clients
         /// </summary>
-        /// <param name="newName"></param>
-        /// <param name="newUsername"></param>
-        /// <param name="newPassword"></param>
-        /// <param name="newType"></param>
-        public Client(String newName, String newUsername, String newPassword, byte newType) : base(newName, newUsername, newPassword, newType)
+        /// <param name="newName">Name to be assigned to the new Client</param>
+        /// <param name="newUsername">Username to be assigned to the new Client</param>
+        /// <param name="newPassword">Password to be assigned to the new Client</param>
+        /// <param name="newType">Byte representing the type of User (Should be 1 for Client)</param>
+        public Client(String name, String username, String pass, byte userType) : base(name, username, pass, userType)
         {
-            name = newName;
-            username = newUsername;
-            pass = newPassword;
-            userType = newType;
+            this.name = name;
+            this.username = username;
+            this.pass = pass;
+            this.userType = userType;
         }
  
         /// <returns>A <b>List</b> of type <b>String</b> containing the Client's preferred invesment types</returns>

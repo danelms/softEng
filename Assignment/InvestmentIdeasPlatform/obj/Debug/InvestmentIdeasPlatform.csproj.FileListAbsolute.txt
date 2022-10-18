@@ -11,7 +11,6 @@
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
@@ -41,3 +40,5 @@ C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Com
 C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
 C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.AssemblyReference.cache
+E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.SuggestedBindingRedirects.cache
