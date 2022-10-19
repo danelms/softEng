@@ -90,6 +90,7 @@
             // 
             // loginButton
             // 
+            this.loginButton.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.loginButton.FlatAppearance.BorderSize = 0;
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,6 +101,7 @@
             this.loginButton.TabIndex = 9;
             this.loginButton.Text = "Log In";
             this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
             // exitButton
             // 
@@ -144,6 +146,7 @@
             // 
             // continueGuestButton
             // 
+            this.continueGuestButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.continueGuestButton.FlatAppearance.BorderSize = 0;
             this.continueGuestButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.continueGuestButton.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -19,7 +19,7 @@ namespace InvestmentIdeasPlatform
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Test();
+            //Test();
 
             Application.Run(new HomePage());
         }

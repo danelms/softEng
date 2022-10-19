@@ -10,10 +10,11 @@ using System.Windows.Forms;
 
 namespace InvestmentIdeasPlatform
 {
-    
+
     public partial class HomePage : Form
     {
         Login login = new Login();
+        RelationshipManager rm = null;
 
         public HomePage()
         {
@@ -22,11 +23,25 @@ namespace InvestmentIdeasPlatform
             showLogin();
         }
 
-        private void showLogin() 
+        private void showLogin()
         {
-            login.ShowDialog();
+            if (login.ShowDialog() == DialogResult.OK)
+                rm = login.getRelationShipManager();
+            else
+                rm = null;
+
+            updateHomePage();
         }
-        private void addPanel() 
+
+        private void updateHomePage()
+        {
+            if (null == rm)
+                usernameLabel.Text = "Guest";
+            else
+                usernameLabel.Text = rm.getName();
+        }
+
+        private void addPanel()
         {
             Panel thePanel = new Panel();
             ListBox test = new ListBox();
@@ -59,13 +74,17 @@ namespace InvestmentIdeasPlatform
 
         private void loginSidebarLabel_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void loginSidebarButton_Click(object sender, EventArgs e)
         {
-            login.Show();
+            showLogin();
         }
 
+        public void updateUsernameLabel(string newLabel)
+        {
+            usernameLabel.Text = newLabel;
+        }
     }
 }

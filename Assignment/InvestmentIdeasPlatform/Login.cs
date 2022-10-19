@@ -7,14 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Diagnostics;
 
 namespace InvestmentIdeasPlatform
 {
     public partial class Login: Form
     {
+        private static int num = 0;
+        RelationshipManager rm = null;
+        public RelationshipManager getRelationShipManager() { return rm;  }
+
         public Login()
         {
             InitializeComponent();
+            num++;
         }
 
         private void usernameTextBox_Click(object sender, EventArgs e)
@@ -47,7 +54,26 @@ namespace InvestmentIdeasPlatform
 
         private void continueGuestButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Debug.Print(num.ToString());
+           
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+
+            String name = File.ReadLines("admin.txt").ElementAtOrDefault(4 - 1);
+            String username = File.ReadLines("admin.txt").ElementAtOrDefault(2 - 1);
+            String password = File.ReadLines("admin.txt").ElementAtOrDefault(3 - 1);
+            String typeName = File.ReadLines("admin.txt").ElementAtOrDefault(1 - 1);
+            byte type= 2;
+            rm = new RelationshipManager(name,username,password,type);
+
+            if (username == usernameTextBox.Text && password == passwordTextBox.Text) 
+            {
+                
+            }
+
+
         }
     }
 }
