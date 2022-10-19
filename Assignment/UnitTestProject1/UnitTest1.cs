@@ -1,21 +1,30 @@
-using NUnit.Framework;
-using InvestmentIdeasPlatform;
-using InvestmentIdeasPlatform.Properties;
+﻿using System;
+using System.Diagnostics;
 using System.Drawing;
-using System;
+using System.IO;
+using InvestmentIdeasPlatform;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NUnitTestProject1
+namespace UnitTestProject1
 {
-    public class Tests
+    [TestClass]
+    public class UnitTest1
     {
-        [SetUp]
-        public void Setup()
+        [TestMethod]
+        public void TestMethod1()
         {
-        }
+            try
+            {
+                var fileName = "test.png";
+                var fs = new FileStream(fileName, FileMode.Open);
+                Bitmap profilePicture = new Bitmap(fs);
+                fs.Close();
+            }
+            catch (Exception e)
+            {
+                Debug.Print(e.Message);
+            }
 
-        [Test]
-        public void Test1()
-        {
             Client test = new Client("Fred", "freddyboi", "password", 2);
 
             Assert.AreEqual("Fred", test.getName(), "Name not set correctly");
@@ -29,11 +38,6 @@ namespace NUnitTestProject1
             Assert.AreEqual("securePass", testRM.getPass(), "Password not set correctly");
             Assert.AreEqual("bigG", testRM.getUsername(), "Username not set correctly");
             Assert.AreEqual(1, testRM.getUserType(), "User Type not set correctly");
-        }
-        [Test]
-        public void Test2()
-        {
-            
         }
     }
 }

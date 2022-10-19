@@ -1,7 +1,9 @@
 ﻿using InvestmentIdeasPlatform.Properties;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +34,7 @@ namespace InvestmentIdeasPlatform
             name = newName;
             username = newUsername;
             pass = newPassword;
-            userType = newType;
+            userType = newType;            
             profilePicture = new Bitmap(Resources.userIcon);
         }
 

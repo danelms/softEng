@@ -36,5 +36,49 @@ namespace InvestmentIdeasPlatform
             this.author = author;
             this.products = products;
         }
+
+        /// <returns>The title of the InvestmentIdea as a <b>String</b></returns>
+        public String getTitle()
+        {
+            return title;
+        }
+
+        /// <returns>The InvestmentIdea overview as a <b>String</b></returns>
+        public String getOverview()
+        {
+            return overview;
+        }
+
+        /// <returns>The publish date as <b>DateTime</b></returns>
+        public DateTime getPublishDate()
+        {
+            return publishDate;
+        }
+
+        /// <returns>The expiry date as <b>DateTime</b></returns>
+        public DateTime getExpiryDate()
+        {
+            return expiryDate;
+        }
+
+        /// <returns>The author's name as a <b>String</b></returns>
+        public String getAuthor()
+        {
+            return author;
+        }
+
+        /// <returns>The list of investment products as <b>List&lt;InvestmentProduct&gt;</b></returns>
+        public List<InvestmentProduct> getProducts()
+        {
+            return products;
+        }
+
+        /// <param name="pos"></param>
+        /// <returns>The product in the idea's <b>List&lt;InvestmentProduct&gt;</b> at position "pos"</returns>
+        public InvestmentProduct getSingleProduct(int pos)
+        {
+            return products[pos];
+        }
+            
     }
 }

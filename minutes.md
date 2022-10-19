@@ -40,3 +40,7 @@
 ### 18/10/22 D
 - Programming progress - Implemented and commented all the classes from the class diagram
 - To finish: gets and sets for InvestmentIdea (sets probably unecessary as ideas won't change)
+
+### 19/10/22 SD
+- Added the last few get functions to InvestmentIdea Class
+- UI design and programming progress
