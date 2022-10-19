@@ -42,3 +42,4 @@ C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Com
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.AssemblyReference.cache
 E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.SuggestedBindingRedirects.cache
+\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
