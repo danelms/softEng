@@ -12,7 +12,7 @@ namespace InvestmentIdeasPlatform
     /// </summary>
     public class Client : User
     {
-        private List<String> preferenceType = new List<String>(); //List of preferred investmen types
+        private List<String> preferenceType = new List<String>(); //List of preferred investment types
         private List<int> preferenceRisk = new List<int>(); //List of preferred risk levels
         private List<String> preferenceCurrency = new List<String>(); //List of preferred currencies
         private List<String> preferenceRegion = new List<String>(); //List of preferred regions
