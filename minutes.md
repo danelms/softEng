@@ -44,3 +44,11 @@
 ### 19/10/22 SD
 - Added the last few get functions to InvestmentIdea Class
 - UI design and programming progress
+
+### 20/10/22
+- Started to implement data validation in the C# winforms project
+- Started to implement the panels specific to user type in the C# winforms project
+- Made various icons that could be used, using the colour palette outlined in the design standards
+- Discussed icon designs, narrowed decision down to two colourways
+- Made two logos based on preferred colourways
+- 
