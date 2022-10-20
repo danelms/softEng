@@ -48,7 +48,7 @@
 ### 20/10/22 SD
 - Started to implement data validation in the C# winforms project
 - Started to implement the panels specific to user type in the C# winforms project
-- Made various icons that could be used, using the colour palette outlined in the design standards
+- Made various program icons, using the colour palette outlined in the design standards
 - Discussed icon designs, narrowed decision down to two colourways
 - Made two logos based on preferred colourways
-- 
+- Some progress made on prototype for RelationshipManager panels
