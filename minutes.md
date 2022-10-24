@@ -52,3 +52,6 @@
 - Discussed icon designs, narrowed decision down to two colourways
 - Made two logos based on preferred colourways
 - Some progress made on prototype for RelationshipManager panels
+
+### 24/10/22 D
+- Prototype progess: RM slides finished
