@@ -51,13 +51,14 @@ namespace InvestmentIdeasPlatform
             thePanel.Visible = true;
 
             PictureBox picLogo = new PictureBox();
-            Bitmap logo = new Bitmap(InvestmentIdeasPlatform.Properties.Resources.EALogoPnkBackLBFront);
+            Bitmap logo = new Bitmap(Properties.Resources.EALogoPnkBackLBFront);
             picLogo.Image = (Image)logo;
             picLogo.Location = new Point(220,30);
-            picLogo.Size = new Size(40, 40);
+            picLogo.Size = new Size(200, 200);
             picLogo.Visible = true;
             picLogo.BackColor = Color.Black;
             thePanel.Controls.Add(picLogo);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Controls.Add(thePanel);
         }
         private void exitButton_Click(object sender, EventArgs e)
