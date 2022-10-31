@@ -61,3 +61,4 @@
 
 ### 31/10/22 SDJ
 - Made a few notes regarding the test strategy
+- Progress on the UI design and programming
