@@ -1,70 +1,11 @@
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.AssemblyReference.cache
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.SuggestedBindingRedirects.cache
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
-C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
-C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.AssemblyReference.cache
-E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.SuggestedBindingRedirects.cache
-<<<<<<< HEAD
-\\dc1\UserData\422376\Documents\Soft Eng Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
-=======
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
->>>>>>> 3d4a900d996bb89afd9f5600f62b2462f263b60b
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
-\\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
+\\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb

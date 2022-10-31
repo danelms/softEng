@@ -42,16 +42,14 @@
             // 
             // sidebarPanel
             // 
-            this.sidebarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(70)))), ((int)(((byte)(82)))));
             this.sidebarPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.sidebarPanel.Controls.Add(this.homeSidebarButton);
             this.sidebarPanel.Controls.Add(this.loginSidebarButton);
             this.sidebarPanel.Controls.Add(this.usernameLabel);
             this.sidebarPanel.Controls.Add(this.loginSidebarPicturebox);
-            this.sidebarPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.sidebarPanel.Location = new System.Drawing.Point(0, 0);
+            this.sidebarPanel.Location = new System.Drawing.Point(0, 30);
             this.sidebarPanel.Name = "sidebarPanel";
-            this.sidebarPanel.Size = new System.Drawing.Size(220, 580);
+            this.sidebarPanel.Size = new System.Drawing.Size(220, 550);
             this.sidebarPanel.TabIndex = 0;
             // 
             // homeSidebarButton
@@ -73,7 +71,7 @@
             this.loginSidebarButton.FlatAppearance.BorderSize = 0;
             this.loginSidebarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginSidebarButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginSidebarButton.Location = new System.Drawing.Point(0, 546);
+            this.loginSidebarButton.Location = new System.Drawing.Point(0, 516);
             this.loginSidebarButton.Name = "loginSidebarButton";
             this.loginSidebarButton.Size = new System.Drawing.Size(220, 34);
             this.loginSidebarButton.TabIndex = 5;
@@ -85,7 +83,7 @@
             // 
             this.usernameLabel.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(190)))), ((int)(((byte)(198)))));
-            this.usernameLabel.Location = new System.Drawing.Point(0, 121);
+            this.usernameLabel.Location = new System.Drawing.Point(0, 113);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(220, 33);
             this.usernameLabel.TabIndex = 4;
