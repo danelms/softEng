@@ -57,3 +57,4 @@ D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\ob
 D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
 D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
 >>>>>>> 3d4a900d996bb89afd9f5600f62b2462f263b60b
+D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.AssemblyReference.cache
