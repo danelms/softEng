@@ -83,14 +83,14 @@
             // 
             // usernameLabel
             // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameLabel.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(181)))), ((int)(((byte)(190)))), ((int)(((byte)(198)))));
-            this.usernameLabel.Location = new System.Drawing.Point(65, 115);
+            this.usernameLabel.Location = new System.Drawing.Point(0, 121);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(93, 33);
+            this.usernameLabel.Size = new System.Drawing.Size(220, 33);
             this.usernameLabel.TabIndex = 4;
             this.usernameLabel.Text = "Guest";
+            this.usernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // loginSidebarPicturebox
             // 
@@ -149,7 +149,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.sidebarPanel.ResumeLayout(false);
-            this.sidebarPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loginSidebarPicturebox)).EndInit();
             this.ResumeLayout(false);
 
