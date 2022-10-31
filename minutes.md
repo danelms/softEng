@@ -55,3 +55,6 @@
 
 ### 24/10/22 D
 - Prototype progess: RM slides finished
+
+### 26/10/22 D
+- Prototype finished
