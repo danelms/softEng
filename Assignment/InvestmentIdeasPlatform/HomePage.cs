@@ -44,22 +44,20 @@ namespace InvestmentIdeasPlatform
         private void addPanel()
         {
             Panel thePanel = new Panel();
-            ListBox test = new ListBox();
-            test.Width = 20;
-            test.ForeColor = Color.Black;
-            test.Height = 1000;
-
             thePanel.AutoScroll = true;
             thePanel.Location = new Point(220, 30);
             thePanel.Size = new Size(800, 550);
             thePanel.BackColor = Color.FromArgb(181, 190, 198);
             thePanel.Visible = true;
 
-            for (int i = 0; i < 100; i++)
-            {
-                test.Items.Add(i);
-                thePanel.Controls.Add(test);
-            }
+            PictureBox picLogo = new PictureBox();
+            Bitmap logo = new Bitmap(InvestmentIdeasPlatform.Properties.Resources.EALogoPnkBackLBFront);
+            picLogo.Image = (Image)logo;
+            picLogo.Location = new Point(220,30);
+            picLogo.Size = new Size(40, 40);
+            picLogo.Visible = true;
+            picLogo.BackColor = Color.Black;
+            thePanel.Controls.Add(picLogo);
             this.Controls.Add(thePanel);
         }
         private void exitButton_Click(object sender, EventArgs e)
