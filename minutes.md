@@ -58,3 +58,6 @@
 
 ### 26/10/22 D
 - Prototype finished
+
+### 31/10/22 SDJ
+- Made a few notes regarding the test strategy
