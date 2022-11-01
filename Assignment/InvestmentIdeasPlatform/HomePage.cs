@@ -25,8 +25,12 @@ namespace InvestmentIdeasPlatform
 
         private void showLogin()
         {
-            if (login.ShowDialog() == DialogResult.OK)
+            if (login.ShowDialog() == DialogResult.OK) 
+            {
                 rm = login.getRelationShipManager();
+                rm.addRmMenu(sidebarPanel);
+                loginSidebarButton.Hide();
+            }
             else
                 rm = null;
 
@@ -107,6 +111,11 @@ namespace InvestmentIdeasPlatform
         public void updateUsernameLabel(string newLabel)
         {
             usernameLabel.Text = newLabel;
+        }
+
+        public Panel getPanel() 
+        {
+            return sidebarPanel;
         }
     }
 }

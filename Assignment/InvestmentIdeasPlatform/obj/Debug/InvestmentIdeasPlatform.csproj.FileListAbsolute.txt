@@ -9,3 +9,15 @@
 \\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
 \\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
 \\klstu1\HS\422376\My Documents\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.AssemblyReference.cache
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.SuggestedBindingRedirects.cache
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
+C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb

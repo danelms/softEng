@@ -57,7 +57,7 @@
             this.homeSidebarButton.Dock = System.Windows.Forms.DockStyle.Top;
             this.homeSidebarButton.FlatAppearance.BorderSize = 0;
             this.homeSidebarButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeSidebarButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeSidebarButton.Font = new System.Drawing.Font("Arial", 14F);
             this.homeSidebarButton.Location = new System.Drawing.Point(0, 158);
             this.homeSidebarButton.Name = "homeSidebarButton";
             this.homeSidebarButton.Size = new System.Drawing.Size(220, 34);
