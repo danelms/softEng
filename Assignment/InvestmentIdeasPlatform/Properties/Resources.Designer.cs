@@ -63,9 +63,6 @@ namespace InvestmentIdeasPlatform.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
-        public static System.Drawing.Bitmap exitIcon {
-=======
         internal static System.Drawing.Bitmap EALogoPnkBackLBFront {
             get {
                 object obj = ResourceManager.GetObject("EALogoPnkBackLBFront", resourceCulture);
@@ -77,7 +74,6 @@ namespace InvestmentIdeasPlatform.Properties {
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap exitIcon {
->>>>>>> sevBranch
             get {
                 object obj = ResourceManager.GetObject("exitIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

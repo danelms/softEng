@@ -113,5 +113,10 @@
   <ItemGroup>
     <None Include="Resources\EALogoPnkBackLBFront.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
