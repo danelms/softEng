@@ -39,7 +39,6 @@ E:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\ob
 D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
 D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
 D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
-D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
 D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
 D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
 D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
@@ -60,3 +59,4 @@ D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\ob
 \\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
 \\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
 \\dc1\UserData\422376\Documents\Soft Eng\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\admin.txt
+D:\ARU Year 2\Software Engineering\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\admin.txt

@@ -3,8 +3,9 @@
     "",
     "\\Assignment",
     "\\Assignment\\InvestmentIdeasPlatform",
-    "\\Assignment\\InvestmentIdeasPlatform\\Resources"
+    "\\Assignment\\InvestmentIdeasPlatform\\Resources",
+    "\\Assignment\\UnitTestProject1"
   ],
-  "SelectedNode": "\\Assignment\\InvestmentIdeasPlatform\\InvestmentIdeasPlatform.sln",
+  "SelectedNode": "\\Assignment\\UnitTestProject1\\UnitTest1.cs",
   "PreviewInSolutionExplorer": false
 }
