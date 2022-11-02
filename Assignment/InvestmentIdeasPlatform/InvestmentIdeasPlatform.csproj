@@ -110,5 +110,8 @@
   <ItemGroup>
     <None Include="Resources\minimiseIconWhite.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EALogoPnkBackLBFront.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

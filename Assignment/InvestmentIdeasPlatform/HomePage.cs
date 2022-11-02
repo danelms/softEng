@@ -25,8 +25,12 @@ namespace InvestmentIdeasPlatform
 
         private void showLogin()
         {
-            if (login.ShowDialog() == DialogResult.OK)
+            if (login.ShowDialog() == DialogResult.OK) 
+            {
                 rm = login.getRelationShipManager();
+                rm.addRmMenu(sidebarPanel);
+                loginSidebarButton.Hide();
+            }
             else
                 rm = null;
 
@@ -44,23 +48,45 @@ namespace InvestmentIdeasPlatform
         private void addPanel()
         {
             Panel thePanel = new Panel();
-            ListBox test = new ListBox();
-            test.Width = 20;
-            test.ForeColor = Color.Black;
-            test.Height = 1000;
-
             thePanel.AutoScroll = true;
             thePanel.Location = new Point(220, 30);
             thePanel.Size = new Size(800, 550);
             thePanel.BackColor = Color.FromArgb(181, 190, 198);
             thePanel.Visible = true;
 
-            for (int i = 0; i < 100; i++)
-            {
-                test.Items.Add(i);
-                thePanel.Controls.Add(test);
-            }
+            PictureBox picLogo = new PictureBox();
+            Bitmap logo = new Bitmap(Properties.Resources.EALogoPnkBackLBFront);
+            picLogo.Image = (Image)logo;
+            picLogo.Location = new Point(20,20);
+            picLogo.Size = new Size(100, 100);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            thePanel.Controls.Add(picLogo);
+
+            Label title = new Label();
+            title.Text = "Edwards && Avey Investments";
+            title.Font = new Font("Arial", 32);
+            title.Location = new Point(130, 50);
+            title.ForeColor = Color.Black;
+            title.Width = 600;
+            title.Height = 60;
+            thePanel.Controls.Add(title);
+
+            Panel textContainer = new Panel();
+            Label description = new Label();
+            textContainer.Location = new Point(60, 140);
+            textContainer.Size = new Size(680, 300);
+            textContainer.BackColor = Color.FromArgb(54, 70, 82);
+            description.Text = "Edwards and Avey Investments is your go-to solution for tailored investment bundles. We offer up-to-the-day investment opportunities in groups of assets provided by our highly-experienced partners. These partners collate groups of relevant assets into investment “ideas”. These ideas make it easy for you as an investor to find collections of individual assets that meet your desired investment interests, without the need to personally hand pick them, saving you time and allowing you to grow your investment portfolio much faster, and easier.";
+            description.Location = new Point(20, 35);
+            description.MaximumSize = new Size(640,0);
+            description.AutoSize = true;
+            description.Font = new Font("Arial", 16);
+            textContainer.Controls.Add(description);
+            thePanel.Controls.Add(textContainer);
+
+
             this.Controls.Add(thePanel);
+           
         }
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -85,6 +111,11 @@ namespace InvestmentIdeasPlatform
         public void updateUsernameLabel(string newLabel)
         {
             usernameLabel.Text = newLabel;
+        }
+
+        public Panel getPanel() 
+        {
+            return sidebarPanel;
         }
     }
 }
