@@ -60,5 +60,10 @@
 - Prototype finished
 
 ### 31/10/22 SDJ
+- Had a meeting with the client, presented the prototype to confirm they were happy with the overall design and planned functionality
 - Made a few notes regarding the test strategy
 - Progress on the UI design and programming
+
+### 02/11/22 SDJ
+- General programming progress (mainly UI based)
+- Database design (ERD)
