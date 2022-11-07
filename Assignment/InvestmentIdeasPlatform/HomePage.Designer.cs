@@ -64,6 +64,7 @@
             this.homeSidebarButton.TabIndex = 6;
             this.homeSidebarButton.Text = "Home";
             this.homeSidebarButton.UseVisualStyleBackColor = true;
+            this.homeSidebarButton.Click += new System.EventHandler(this.homeSidebarButton_Click);
             // 
             // loginSidebarButton
             // 
