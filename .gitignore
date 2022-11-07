@@ -376,3 +376,7 @@ InteropTests/NativeTests/out
 /src/System.Windows.Forms/src/comctl32.dll
 *.received.*
 .vs/softEng/v16/.suo
+
+# Ignore bin and obj directories
+bin/
+obj/
