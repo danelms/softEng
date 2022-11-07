@@ -377,6 +377,7 @@ InteropTests/NativeTests/out
 *.received.*
 .vs/softEng/v16/.suo
 
-# Ignore bin and obj directories
+# Ignore bin, .vs and obj directories
 bin/
 obj/
+.vs/
