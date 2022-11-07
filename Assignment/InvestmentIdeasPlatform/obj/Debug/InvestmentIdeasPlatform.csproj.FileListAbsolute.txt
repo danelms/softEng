@@ -21,3 +21,14 @@ C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasP
 C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
 C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
 C:\Users\sevda\OneDrive\Documents\MyProjects\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe.config
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.exe
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\bin\Debug\InvestmentIdeasPlatform.pdb
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csprojAssemblyReference.cache
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.HomePage.resources
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Login.resources
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.Properties.Resources.resources
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.GenerateResource.cache
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.csproj.CoreCompileInputs.cache
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.exe
+C:\Users\422376.COL-WESTANGLIA\OneDrive - The College of West Anglia\Sev\BCS Computing\Software Engineering\Assignment\softEng\Assignment\InvestmentIdeasPlatform\obj\Debug\InvestmentIdeasPlatform.pdb

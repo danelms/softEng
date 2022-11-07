@@ -15,21 +15,26 @@ namespace InvestmentIdeasPlatform
     {
         Login login = new Login();
         RelationshipManager rm = null;
+        Panel homePanel = new Panel();
+
+        public object accessHomePage { get; private set; }
 
         public HomePage()
         {
             InitializeComponent();
-            addPanel();
+            addHomePanel();
             showLogin();
         }
-
+        
         private void showLogin()
         {
             if (login.ShowDialog() == DialogResult.OK) 
             {
                 rm = login.getRelationShipManager();
                 rm.addRmMenu(sidebarPanel);
+                rm.addRmPanels(this);
                 loginSidebarButton.Hide();
+                
             }
             else
                 rm = null;
@@ -45,14 +50,14 @@ namespace InvestmentIdeasPlatform
                 usernameLabel.Text = rm.getName();
         }
 
-        private void addPanel()
+        private void addHomePanel()
         {
-            Panel thePanel = new Panel();
-            thePanel.AutoScroll = true;
-            thePanel.Location = new Point(220, 30);
-            thePanel.Size = new Size(800, 550);
-            thePanel.BackColor = Color.FromArgb(181, 190, 198);
-            thePanel.Visible = true;
+            
+            homePanel.AutoScroll = true;
+            homePanel.Location = new Point(220, 30);
+            homePanel.Size = new Size(800, 550);
+            homePanel.BackColor = Color.FromArgb(181, 190, 198);
+            homePanel.Visible = true;
 
             PictureBox picLogo = new PictureBox();
             Bitmap logo = new Bitmap(Properties.Resources.EALogoPnkBackLBFront);
@@ -60,7 +65,7 @@ namespace InvestmentIdeasPlatform
             picLogo.Location = new Point(20,20);
             picLogo.Size = new Size(100, 100);
             picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
-            thePanel.Controls.Add(picLogo);
+            homePanel.Controls.Add(picLogo);
 
             Label title = new Label();
             title.Text = "Edwards && Avey Investments";
@@ -69,7 +74,7 @@ namespace InvestmentIdeasPlatform
             title.ForeColor = Color.Black;
             title.Width = 600;
             title.Height = 60;
-            thePanel.Controls.Add(title);
+            homePanel.Controls.Add(title);
 
             Panel textContainer = new Panel();
             Label description = new Label();
@@ -82,12 +87,13 @@ namespace InvestmentIdeasPlatform
             description.AutoSize = true;
             description.Font = new Font("Arial", 16);
             textContainer.Controls.Add(description);
-            thePanel.Controls.Add(textContainer);
+            homePanel.Controls.Add(textContainer);
 
 
-            this.Controls.Add(thePanel);
+            this.Controls.Add(homePanel);
            
         }
+       
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -116,6 +122,11 @@ namespace InvestmentIdeasPlatform
         public Panel getPanel() 
         {
             return sidebarPanel;
+        }
+
+        private void homeSidebarButton_Click(object sender, EventArgs e)
+        {
+            homePanel.BringToFront();
         }
     }
 }
