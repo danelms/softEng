@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace InvestmentIdeasPlatform
 {
@@ -24,6 +26,36 @@ namespace InvestmentIdeasPlatform
             username = newUsername;
             pass = newPassword;
             userType = newType;
-        }     
+        }
+
+        public void addRmMenu(Panel panel) 
+        {
+            Button viewIdeas = new Button();
+            Button viewClient = new Button();
+            Button createUser = new Button();
+            Button logout = new Button();
+
+            void styleButton(Button button , String title) 
+            {
+                button.Width = 220;
+                button.Height = 34;
+                button.Dock = DockStyle.Top;
+                button.Text = title;
+                button.FlatStyle = FlatStyle.Flat;
+                button.Font = new Font("Arial", 14);
+                button.FlatAppearance.BorderSize = 0;
+                button.BringToFront();
+            }
+
+            panel.Controls.Add(viewIdeas);
+            panel.Controls.Add(viewClient);
+            panel.Controls.Add(createUser);
+            panel.Controls.Add(logout);
+
+            styleButton(viewIdeas, "View Ideas");
+            styleButton(viewClient, "View Clients");
+            styleButton(createUser, "Create User");
+            styleButton(logout, "Log Out");
+        }
     }
 }
