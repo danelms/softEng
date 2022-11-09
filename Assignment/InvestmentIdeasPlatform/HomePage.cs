@@ -14,7 +14,7 @@ namespace InvestmentIdeasPlatform
     public partial class HomePage : Form
     {
         Login login = new Login();
-        RelationshipManager rm = null;
+        User user = null;
         Panel homePanel = new Panel();
 
         public object accessHomePage { get; private set; }
@@ -30,24 +30,42 @@ namespace InvestmentIdeasPlatform
         {
             if (login.ShowDialog() == DialogResult.OK) 
             {
-                rm = login.getRelationShipManager();
-                rm.addRmMenu(sidebarPanel);
-                rm.addRmPanels(this);
-                loginSidebarButton.Hide();
-                
+                user = login.getCurrentUser();
+                try
+                {
+                    if (user.getUserType() == 1)
+                    {
+
+                    }
+                    else if (user.getUserType() == 2)
+                    {
+                        RelationshipManager rm = new RelationshipManager(user.getName(), user.getUsername(), user.getPass(), 2);
+                        rm.addRmMenu(sidebarPanel);
+                        rm.addRmPanels(this);
+                    }
+                    else if (user.getUserType() == 3)
+                    {
+
+                    }
+                    loginSidebarButton.Hide();
+                }
+                catch (NullReferenceException ex)
+                {
+                    MessageBox.Show("Login credentials were correct but an invalid usertype was pulled from the database.\nLogged in as Guest.\n\nIf the problem persists, contact the database administrator for help.", "FATAL ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
-                rm = null;
+                user = null;
 
             updateHomePage();
         }
 
         private void updateHomePage()
         {
-            if (null == rm)
+            if (null == user)
                 usernameLabel.Text = "Guest";
             else
-                usernameLabel.Text = rm.getName();
+                usernameLabel.Text = user.getName();
         }
 
         private void addHomePanel()
