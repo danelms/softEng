@@ -67,3 +67,8 @@
 ### 02/11/22 SDJ
 - General programming progress (mainly UI based)
 - Database design (ERD)
+
+### 07/11/22 S
+- Programmed the Relationship Manager UI
+
+### 09/11/22 
