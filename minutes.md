@@ -71,4 +71,6 @@
 ### 07/11/22 S
 - Programmed the Relationship Manager UI
 
-### 09/11/22 
+### 09/11/22  SDJ
+- Progress on database implementation
+- Added usertype checks for login that create Client, RM, FA objects
