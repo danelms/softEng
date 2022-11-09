@@ -123,7 +123,7 @@ namespace InvestmentIdeasPlatform
 
         private void Logout_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void CreateUser_Click(object sender, EventArgs e)
