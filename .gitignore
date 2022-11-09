@@ -375,4 +375,8 @@ Temporary Items
 InteropTests/NativeTests/out
 /src/System.Windows.Forms/src/comctl32.dll
 *.received.*
-.vs/softEng/v16/.suo
+
+# Ignore bin, .vs and obj directories
+bin/
+obj/
+.vs/

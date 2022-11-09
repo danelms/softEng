@@ -15,18 +15,27 @@ namespace InvestmentIdeasPlatform
     {
         Login login = new Login();
         RelationshipManager rm = null;
+        Panel homePanel = new Panel();
+
+        public object accessHomePage { get; private set; }
 
         public HomePage()
         {
             InitializeComponent();
-            addPanel();
+            addHomePanel();
             showLogin();
         }
-
+        
         private void showLogin()
         {
-            if (login.ShowDialog() == DialogResult.OK)
+            if (login.ShowDialog() == DialogResult.OK) 
+            {
                 rm = login.getRelationShipManager();
+                rm.addRmMenu(sidebarPanel);
+                rm.addRmPanels(this);
+                loginSidebarButton.Hide();
+                
+            }
             else
                 rm = null;
 
@@ -41,27 +50,50 @@ namespace InvestmentIdeasPlatform
                 usernameLabel.Text = rm.getName();
         }
 
-        private void addPanel()
+        private void addHomePanel()
         {
-            Panel thePanel = new Panel();
-            ListBox test = new ListBox();
-            test.Width = 20;
-            test.ForeColor = Color.Black;
-            test.Height = 1000;
+            
+            homePanel.AutoScroll = true;
+            homePanel.Location = new Point(220, 30);
+            homePanel.Size = new Size(800, 550);
+            homePanel.BackColor = Color.FromArgb(181, 190, 198);
+            homePanel.Visible = true;
 
-            thePanel.AutoScroll = true;
-            thePanel.Location = new Point(220, 30);
-            thePanel.Size = new Size(800, 550);
-            thePanel.BackColor = Color.FromArgb(181, 190, 198);
-            thePanel.Visible = true;
+            PictureBox picLogo = new PictureBox();
+            Bitmap logo = new Bitmap(Properties.Resources.EALogoPnkBackLBFront);
+            picLogo.Image = (Image)logo;
+            picLogo.Location = new Point(20,20);
+            picLogo.Size = new Size(100, 100);
+            picLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            homePanel.Controls.Add(picLogo);
 
-            for (int i = 0; i < 100; i++)
-            {
-                test.Items.Add(i);
-                thePanel.Controls.Add(test);
-            }
-            this.Controls.Add(thePanel);
+            Label title = new Label();
+            title.Text = "Edwards && Avey Investments";
+            title.Font = new Font("Arial", 32);
+            title.Location = new Point(130, 50);
+            title.ForeColor = Color.Black;
+            title.Width = 600;
+            title.Height = 60;
+            homePanel.Controls.Add(title);
+
+            Panel textContainer = new Panel();
+            Label description = new Label();
+            textContainer.Location = new Point(60, 140);
+            textContainer.Size = new Size(680, 300);
+            textContainer.BackColor = Color.FromArgb(54, 70, 82);
+            description.Text = "Edwards and Avey Investments is your go-to solution for tailored investment bundles. We offer up-to-the-day investment opportunities in groups of assets provided by our highly-experienced partners. These partners collate groups of relevant assets into investment “ideas”. These ideas make it easy for you as an investor to find collections of individual assets that meet your desired investment interests, without the need to personally hand pick them, saving you time and allowing you to grow your investment portfolio much faster, and easier.";
+            description.Location = new Point(20, 35);
+            description.MaximumSize = new Size(640,0);
+            description.AutoSize = true;
+            description.Font = new Font("Arial", 16);
+            textContainer.Controls.Add(description);
+            homePanel.Controls.Add(textContainer);
+
+
+            this.Controls.Add(homePanel);
+           
         }
+       
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -85,6 +117,16 @@ namespace InvestmentIdeasPlatform
         public void updateUsernameLabel(string newLabel)
         {
             usernameLabel.Text = newLabel;
+        }
+
+        public Panel getPanel() 
+        {
+            return sidebarPanel;
+        }
+
+        private void homeSidebarButton_Click(object sender, EventArgs e)
+        {
+            homePanel.BringToFront();
         }
     }
 }
