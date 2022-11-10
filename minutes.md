@@ -74,3 +74,6 @@
 ### 09/11/22  SDJ
 - Progress on database implementation
 - Added usertype checks for login that create Client, RM, FA objects
+
+### 10/11/22 SDJ
+- Held a scrum meeting to assign tasks for the weekend
