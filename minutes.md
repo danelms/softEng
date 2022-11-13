@@ -82,4 +82,4 @@
 - Populated database with products
 
 ### 13/11/22 D
-- 
+- RelationshipManager>CreateUser panel design done & 'show password' checkbox implemented
