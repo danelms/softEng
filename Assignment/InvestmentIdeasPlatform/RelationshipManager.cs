@@ -39,12 +39,15 @@ namespace InvestmentIdeasPlatform
         Panel viewClientPanel = new Panel();
         Panel createUserPanel = new Panel();
 
-        //Create user panel placeholders
+        //Create user panel placeholders (used for EventHandler access)
         CheckBox checkShowPass = null;
         TextBox txtPass1 = null, txtPass2 = null;
         Button btnCreateAccount = null;
 
-
+        /// <summary>
+        /// Adds the RelationshipManager menu to a panel
+        /// </summary>
+        /// <param name="panel">The panel affected</param>
         public void addRmMenu(Panel panel) 
         {
             
@@ -160,7 +163,6 @@ namespace InvestmentIdeasPlatform
             lblShowPass.ForeColor = Color.White;
             lblShowPass.Location = new Point(215, 365);
             createUserPanel.Controls.Add(lblShowPass);
-
 
             addButtonEventHandlers();
             
