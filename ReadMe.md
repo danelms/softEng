@@ -1,4 +1,4 @@
-# This is the read me file
+# This is the read me file 🤓
 
 **softEng/Assignment/** is the folder to open in VS to access the C# forms project
 
