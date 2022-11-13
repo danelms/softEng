@@ -77,3 +77,9 @@
 
 ### 10/11/22 SDJ
 - Held a scrum meeting to assign tasks for the weekend
+
+### 12/11/22 J
+- Populated database with products
+
+### 13/11/22 D
+- 
