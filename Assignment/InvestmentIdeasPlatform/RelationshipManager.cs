@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -32,10 +34,15 @@ namespace InvestmentIdeasPlatform
         Button viewClient = new Button();
         Button createUser = new Button();
         Button logout = new Button();
-
+     
         Panel viewIdeasPanel = new Panel();
         Panel viewClientPanel = new Panel();
         Panel createUserPanel = new Panel();
+
+        //Create user panel placeholders
+        CheckBox checkShowPass = null;
+        TextBox txtPass1 = null, txtPass2 = null;
+        Button btnCreateAccount = null;
 
 
         public void addRmMenu(Panel panel) 
@@ -64,12 +71,17 @@ namespace InvestmentIdeasPlatform
             styleButton(logout, "Log Out");
         }
 
+        /// <summary>
+        /// Loads RM specific panels to a form
+        /// </summary>
+        /// <param name="form">The form the panels will be displayed on</param>
         public void addRmPanels(Form form)
         {
             stylePanel(viewIdeasPanel);
             stylePanel(viewClientPanel);
             stylePanel(createUserPanel);
-
+            
+            //View ideas
             Label title = new Label();
             title.Text = "1";
             title.Font = new Font("Arial", 32);
@@ -78,7 +90,8 @@ namespace InvestmentIdeasPlatform
             title.Width = 600;
             title.Height = 60;
             viewIdeasPanel.Controls.Add(title);
-
+            
+            //View clients
             Label title2 = new Label();
             title2.Text = "2";
             title2.Font = new Font("Arial", 32);
@@ -87,15 +100,67 @@ namespace InvestmentIdeasPlatform
             title2.Width = 600;
             title2.Height = 60;
             viewClientPanel.Controls.Add(title2);
+            
+            //Create user
+            PictureBox pb = new PictureBox();
+            Bitmap userImage = new Bitmap(Properties.Resources.userIcon, 50, 50);
+            pb.Image = (Image)userImage;
+            pb.Location = new Point(350, 100);
+            pb.Size = new Size(100, 100);
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            createUserPanel.Controls.Add(pb);
+            
+            ComboBox cmbAccType = new ComboBox();
+            cmbAccType.Text = "Account Type";
+            cmbAccType.Location = new Point(200, 240);
+            cmbAccType.Size= new Size(400, 40);
+            cmbAccType.BackColor = Color.White;
+            cmbAccType.ForeColor = Color.Black;
+            cmbAccType.Items.Add("Client");
+            cmbAccType.Items.Add("Relationship Manager");
+            cmbAccType.Items.Add("Fund Administrator");
+            createUserPanel.Controls.Add(cmbAccType);
 
-            Label title3 = new Label();
-            title3.Text = "3";
-            title3.Font = new Font("Arial", 32);
-            title3.Location = new Point(130, 50);
-            title3.ForeColor = Color.Black;
-            title3.Width = 600;
-            title3.Height = 60;
-            createUserPanel.Controls.Add(title3);
+            TextBox txtUsername = new TextBox();
+            txtUsername.Text = "Username";
+            txtUsername.Location = new Point(200, 270);
+            txtUsername.Size = new Size(400, 40);
+            createUserPanel.Controls.Add(txtUsername);
+
+            txtPass1 = new TextBox();
+            txtPass1.Text = "Password";
+            txtPass1.Location = new Point(200, 300);
+            txtPass1.Size = new Size(400, 40);
+            createUserPanel.Controls.Add(txtPass1);
+
+            txtPass2 = new TextBox();
+            txtPass2.Text = "Confirm password";
+            txtPass2.Location = new Point(200, 330);
+            txtPass2.Size = new Size(400, 40);
+            createUserPanel.Controls.Add(txtPass2);
+            
+            btnCreateAccount = new Button();
+            btnCreateAccount.Text = "Create account";
+            btnCreateAccount.BackColor = Color.FromArgb(52, 70, 82);
+            btnCreateAccount.ForeColor = Color.White;
+            btnCreateAccount.Size = new Size(100, 40);
+            btnCreateAccount.Location = new Point(350, 360);
+            createUserPanel.Controls.Add(btnCreateAccount);
+
+            checkShowPass = new CheckBox();
+            checkShowPass.Checked = true;
+            checkShowPass.Size = new Size(15, 15);
+            checkShowPass.Location = new Point(200, 365);
+            createUserPanel.Controls.Add(checkShowPass);
+
+            Label lblShowPass = new Label();
+            lblShowPass.Font = new Font(Label.DefaultFont, FontStyle.Bold);
+            lblShowPass.Text = "Show password";
+            lblShowPass.Size = new Size(200, 40);
+            lblShowPass.ForeColor = Color.White;
+            lblShowPass.Location = new Point(215, 365);
+            createUserPanel.Controls.Add(lblShowPass);
+
 
             addButtonEventHandlers();
             
@@ -104,6 +169,10 @@ namespace InvestmentIdeasPlatform
             form.Controls.Add(createUserPanel);
         }
 
+        /// <summary>
+        /// Applies default styling to a panel
+        /// </summary>
+        /// <param name="panel">The panel the changes will be applied to</param>
         public void stylePanel(Panel panel)
         {
             panel.AutoScroll = true;
@@ -113,17 +182,23 @@ namespace InvestmentIdeasPlatform
             panel.Visible = true;
         }
 
+        /// <summary>
+        /// Adds event handlers to objects, such as buttons
+        /// </summary>
         private void addButtonEventHandlers() 
         {
             viewClient.Click += ViewClient_Click;
             viewIdeas.Click += ViewIdeas_Click;
             createUser.Click += CreateUser_Click;
             logout.Click += Logout_Click;
+            checkShowPass.CheckedChanged += checkShowPass_CheckedChanged;
         }
+
+
 
         private void Logout_Click(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            Application.Restart();
         }
 
         private void CreateUser_Click(object sender, EventArgs e)
@@ -140,5 +215,20 @@ namespace InvestmentIdeasPlatform
         {
             viewIdeasPanel.BringToFront();
         }
+
+        private void checkShowPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkShowPass.Checked) 
+            {
+                txtPass1.UseSystemPasswordChar = false;
+                txtPass2.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                txtPass1.UseSystemPasswordChar = true;
+                txtPass2.UseSystemPasswordChar = true;
+            }
+        }
+
     }
 }
