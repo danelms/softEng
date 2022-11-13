@@ -61,16 +61,11 @@ namespace InvestmentIdeasPlatform
            
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
         private void loginButton_Click(object sender, EventArgs e)
         {
-
             String name = File.ReadLines("admin.txt").ElementAtOrDefault(4 - 1);
             String username = File.ReadLines("admin.txt").ElementAtOrDefault(2 - 1);
             String password = File.ReadLines("admin.txt").ElementAtOrDefault(3 - 1);
-            //String typeName = File.ReadLines("admin.txt").ElementAtOrDefault(1 - 1);
             byte type= 2;
 
             switch (type)
