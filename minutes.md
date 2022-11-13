@@ -71,4 +71,15 @@
 ### 07/11/22 S
 - Programmed the Relationship Manager UI
 
-### 09/11/22 
+### 09/11/22  SDJ
+- Progress on database implementation
+- Added usertype checks for login that create Client, RM, FA objects
+
+### 10/11/22 SDJ
+- Held a scrum meeting to assign tasks for the weekend
+
+### 12/11/22 J
+- Populated database with products
+
+### 13/11/22 D
+- 
