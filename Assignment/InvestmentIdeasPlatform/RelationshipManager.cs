@@ -30,14 +30,9 @@ namespace InvestmentIdeasPlatform
             userType = newType;
         }
 
-        Button viewIdeas = new Button();
-        Button viewClient = new Button();
-        Button createUser = new Button();
-        Button logout = new Button();
+        Button viewIdeas = new Button(), viewClient = new Button(), createUser = new Button(), logout = new Button();
      
-        Panel viewIdeasPanel = new Panel();
-        Panel viewClientPanel = new Panel();
-        Panel createUserPanel = new Panel();
+        Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel();
 
         //Create user panel placeholders (used for EventHandler access)
         CheckBox checkShowPass = null;
