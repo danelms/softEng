@@ -83,3 +83,6 @@
 
 ### 13/11/22 D
 - RelationshipManager>CreateUser panel design done & 'show password' checkbox implemented
+
+### 14/11/22 DJ
+- Discussed database connectivity options, assigned a task for the week (fully implement the database connectivity)
