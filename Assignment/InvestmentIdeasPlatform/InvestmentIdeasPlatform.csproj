@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
