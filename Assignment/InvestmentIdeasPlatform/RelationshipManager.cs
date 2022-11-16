@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace InvestmentIdeasPlatform
 {
+    
     /// <summary>
     /// Class to be utilised as a user account by Relationship Managers
     /// </summary>
@@ -78,7 +79,7 @@ namespace InvestmentIdeasPlatform
             stylePanel(viewIdeasPanel);
             stylePanel(viewClientPanel);
             stylePanel(createUserPanel);
-            
+           
             //View ideas
             Label title = new Label();
             title.Text = "1";
