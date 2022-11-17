@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using System.Data.Common;
 using System.IO;
 using System.Diagnostics;
 namespace InvestmentIdeasPlatform
@@ -79,7 +80,7 @@ namespace InvestmentIdeasPlatform
     }
 
 
-    class DBException : System.Exception
+    class DBException : Exception
     {
         public DBException(string message) : base(message) { }
     }
@@ -90,6 +91,8 @@ namespace InvestmentIdeasPlatform
         bool OpenConnection();
 
         bool CloseConnection();
+
+        DbDataReader Select(String query);
 
         DataSet getDataSet(string sqlStatement);
     }

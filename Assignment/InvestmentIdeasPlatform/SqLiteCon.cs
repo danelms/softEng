@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Data;
 using System.Windows.Forms;
+using System.Data.Common;
 
 namespace InvestmentIdeasPlatform
 {
@@ -73,5 +74,22 @@ namespace InvestmentIdeasPlatform
             return connected;
         }
 
+        public DbDataReader Select(string query)
+        {
+            DbDataReader dr = null;
+
+            if (null != connection)
+            {
+                //Create Command
+                SQLiteCommand cmd = connection.CreateCommand();
+                cmd.CommandText = query;
+                //Create a data reader and Execute the command
+                dr = cmd.ExecuteReader();
+            }
+            return dr;
+        }
+
     }
+
+    
 }

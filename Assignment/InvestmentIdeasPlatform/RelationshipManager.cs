@@ -7,6 +7,7 @@ using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace InvestmentIdeasPlatform
 {
@@ -30,6 +31,9 @@ namespace InvestmentIdeasPlatform
             pass = newPassword;
             userType = newType;
         }
+        List<InvestmentProduct> memProducts;
+        BindingSource memBindingSource;
+        DataSet dataSet = null;
 
         Button viewIdeas = new Button(), viewClient = new Button(), createUser = new Button(), logout = new Button();
      
@@ -79,16 +83,11 @@ namespace InvestmentIdeasPlatform
             stylePanel(viewIdeasPanel);
             stylePanel(viewClientPanel);
             stylePanel(createUserPanel);
-           
+
             //View ideas
-            Label title = new Label();
-            title.Text = "1";
-            title.Font = new Font("Arial", 32);
-            title.Location = new Point(130, 50);
-            title.ForeColor = Color.Black;
-            title.Width = 600;
-            title.Height = 60;
-            viewIdeasPanel.Controls.Add(title);
+            Button test = new Button();
+            test.Click += Test_Click;
+            viewIdeasPanel.Controls.Add(test);
             
             //View clients
             Label title2 = new Label();
@@ -165,6 +164,24 @@ namespace InvestmentIdeasPlatform
             form.Controls.Add(viewIdeasPanel);
             form.Controls.Add(viewClientPanel);
             form.Controls.Add(createUserPanel);
+        }
+
+        private void Test_Click(object sender, EventArgs e)
+        {
+            BusinessMetaLayer ml = BusinessMetaLayer.instance();
+            memProducts = ml.getInvestmentProducts();
+            memBindingSource.DataSource = memProducts;
+            memBindingSource.ResetBindings(false);
+            DataGrid dt = new DataGrid();
+            // Fill data grid
+            DBConnection con = DBFactory.instance();
+            con.OpenConnection();
+            dataSet = con.getDataSet("Select * from customers");
+            DataTable table = dataSet.Tables[0];
+            //FillInTextFields(table, 1);
+            //set up the data grid view
+            dt.DataSource = table;
+            
         }
 
         /// <summary>
