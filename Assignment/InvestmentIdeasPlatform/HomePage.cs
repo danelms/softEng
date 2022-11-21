@@ -22,10 +22,11 @@ namespace InvestmentIdeasPlatform
         public HomePage()
         {
             InitializeComponent();
+
             addHomePanel();
             showLogin();
         }
-        
+
         private void showLogin()
         {
             if (login.ShowDialog() == DialogResult.OK) 
