@@ -31,8 +31,7 @@ namespace InvestmentIdeasPlatform
             pass = newPassword;
             userType = newType;
         }
-        List<InvestmentProduct> memProducts;
-        BindingSource memBindingSource;
+
         DataSet dataSet = null;
 
         Button viewIdeas = new Button(), viewClient = new Button(), createUser = new Button(), logout = new Button();
@@ -167,21 +166,18 @@ namespace InvestmentIdeasPlatform
         }
 
         private void Test_Click(object sender, EventArgs e)
-        {
-            BusinessMetaLayer ml = BusinessMetaLayer.instance();
-            memProducts = ml.getInvestmentProducts();
-            memBindingSource.DataSource = memProducts;
-            memBindingSource.ResetBindings(false);
+        {  
             DataGrid dt = new DataGrid();
-            // Fill data grid
             DBConnection con = DBFactory.instance();
+
             con.OpenConnection();
-            dataSet = con.getDataSet("Select * from customers");
+            dataSet = con.getDataSet("Select * from InvestmentProduct");
             DataTable table = dataSet.Tables[0];
-            //FillInTextFields(table, 1);
-            //set up the data grid view
+
             dt.DataSource = table;
-            
+            dt.Width = 300;
+            dt.Height = 300;
+            viewIdeasPanel.Controls.Add(dt);
         }
 
         /// <summary>

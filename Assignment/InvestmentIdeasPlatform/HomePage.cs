@@ -36,7 +36,7 @@ namespace InvestmentIdeasPlatform
                 {
                     if (user.getUserType() == 1)
                     {
-
+                        Client client = new Client(user.getName(), user.getUsername(), user.getPass(), 1);
                     }
                     else if (user.getUserType() == 2)
                     {
@@ -46,7 +46,7 @@ namespace InvestmentIdeasPlatform
                     }
                     else if (user.getUserType() == 3)
                     {
-
+                        FundAdministrator fa = new FundAdministrator(user.getName(), user.getUsername(), user.getPass(), 3);
                     }
                     loginSidebarButton.Hide();
                 }

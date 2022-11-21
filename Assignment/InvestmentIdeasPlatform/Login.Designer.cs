@@ -63,6 +63,7 @@
             this.usernameTextBox.TabStop = false;
             this.usernameTextBox.Text = "Username";
             this.usernameTextBox.Click += new System.EventHandler(this.usernameTextBox_Click);
+            this.usernameTextBox.TextChanged += new System.EventHandler(this.usernameTextBox_TextChanged);
             // 
             // passwordTextBox
             // 
@@ -76,6 +77,7 @@
             this.passwordTextBox.TabStop = false;
             this.passwordTextBox.Text = "Password";
             this.passwordTextBox.Click += new System.EventHandler(this.passwordTextBox_Click);
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // requestLoginLinkLabel
             // 
@@ -157,7 +159,6 @@
             this.continueGuestButton.TabIndex = 12;
             this.continueGuestButton.Text = "Continue as Guest";
             this.continueGuestButton.UseVisualStyleBackColor = true;
-            this.continueGuestButton.Click += new System.EventHandler(this.continueGuestButton_Click);
             // 
             // Login
             // 
