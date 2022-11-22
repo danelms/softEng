@@ -23,7 +23,7 @@ namespace InvestmentIdeasPlatform
         protected Bitmap profilePicture; //Profile picture, defaults to Resources>userIcon.png
 
         /// <summary>
-        /// Base Constructor
+        /// Constructor for User (Abstract)
         /// </summary>
         /// <param name="newName">Name to be assigned to new User</param>
         /// <param name="newUsername">Username to be assigned to new User</param>
