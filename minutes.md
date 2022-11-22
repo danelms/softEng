@@ -86,3 +86,19 @@
 
 ### 14/11/22 DJ
 - Discussed database connectivity options, assigned a task for the week (fully implement the database connectivity)
+
+### 15/11/22 D
+- Began to implement a DB connection factory
+
+### 16/11/22 SDJ
+- Decided against a DB factory in favour of SQLite connectivity only
+
+### 17/11/22 S
+-Began implementation of new DB connection approach
+
+### 19/11/22 S
+- DB connection implementation progress
+
+### 21/11/22 SDJ
+- DB connection fully implemented
+- Tweaked use case diagrams to reflect RMs as the sole creators of new accounts
