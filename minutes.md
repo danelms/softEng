@@ -102,3 +102,6 @@
 ### 21/11/22 SDJ
 - DB connection fully implemented
 - Tweaked use case diagrams to reflect RMs as the sole creators of new accounts
+
+### 22/11/22 D
+- Mass commenting of previously-implemented code
