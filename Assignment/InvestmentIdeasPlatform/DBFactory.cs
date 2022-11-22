@@ -94,6 +94,8 @@ namespace InvestmentIdeasPlatform
 
         DbDataReader Select(String query);
 
+        void Insert(String query, int accountType, String username, String password);
+
         DataSet getDataSet(string sqlStatement);
     }
 }

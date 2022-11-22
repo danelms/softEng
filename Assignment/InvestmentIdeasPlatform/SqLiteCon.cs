@@ -89,6 +89,19 @@ namespace InvestmentIdeasPlatform
             return dr;
         }
 
+        public void Insert(string query, int accountType, String username, String password)
+        {
+            if (null != connection)
+            {
+                //Create Command
+                SQLiteCommand cmd = new SQLiteCommand(query, connection);
+                cmd.Parameters.Add("@accountType", DbType.Int64).Value = accountType;
+                cmd.Parameters.Add("@username", DbType.String).Value = username;
+                cmd.Parameters.Add("@password", DbType.String).Value = password;
+                //Create a data reader and Execute the command
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 
     

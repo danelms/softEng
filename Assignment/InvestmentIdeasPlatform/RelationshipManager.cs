@@ -38,6 +38,8 @@ namespace InvestmentIdeasPlatform
      
         Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel();
 
+        ComboBox memCmbAccType { get; set; }
+        TextBox memtxtUsername { get; set; }
         //Create user panel placeholders (used for EventHandler access)
         CheckBox checkShowPass = null;
         TextBox txtPass1 = null, txtPass2 = null;
@@ -116,12 +118,14 @@ namespace InvestmentIdeasPlatform
             cmbAccType.Items.Add("Client");
             cmbAccType.Items.Add("Relationship Manager");
             cmbAccType.Items.Add("Fund Administrator");
+            memCmbAccType = cmbAccType;
             createUserPanel.Controls.Add(cmbAccType);
 
             TextBox txtUsername = new TextBox();
             txtUsername.Text = "Username";
             txtUsername.Location = new Point(200, 270);
             txtUsername.Size = new Size(400, 40);
+            memtxtUsername = txtUsername;
             createUserPanel.Controls.Add(txtUsername);
 
             txtPass1 = new TextBox();
@@ -165,6 +169,13 @@ namespace InvestmentIdeasPlatform
             form.Controls.Add(createUserPanel);
         }
 
+        private void BtnCreateAccount_Click(object sender, EventArgs e)
+        {
+
+            BusinessMetaLayer bl = BusinessMetaLayer.instance();
+            bl.insertUserData("INSERT INTO RelationshipManager ([UserType], [Username], [Password]) values(@accountType,@username,@password)", 2, "testUser", "Password2");
+        }
+
         private void Test_Click(object sender, EventArgs e)
         {  
             DataGrid dt = new DataGrid();
@@ -203,6 +214,7 @@ namespace InvestmentIdeasPlatform
             createUser.Click += CreateUser_Click;
             logout.Click += Logout_Click;
             checkShowPass.CheckedChanged += checkShowPass_CheckedChanged;
+            btnCreateAccount.Click += BtnCreateAccount_Click;
         }
 
 

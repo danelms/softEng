@@ -171,5 +171,17 @@ namespace InvestmentIdeasPlatform
 
             return clients;
         }
+
+        public void insertUserData(String query, int accountType, String username, String password) 
+        {
+            DBConnection con = DBFactory.instance();
+
+            if (con.OpenConnection()) 
+            {
+                con.Insert(query, accountType, username, password);
+            }
+
+            con.CloseConnection();
+        }
     }
 }
