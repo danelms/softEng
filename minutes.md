@@ -94,7 +94,7 @@
 - Decided against a DB factory in favour of SQLite connectivity only
 
 ### 17/11/22 S
--Began implementation of new DB connection approach
+- Began implementation of new DB connection approach
 
 ### 19/11/22 S
 - DB connection implementation progress
