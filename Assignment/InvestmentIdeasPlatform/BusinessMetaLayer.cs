@@ -7,12 +7,19 @@ using System.Data.Common;
 
 namespace InvestmentIdeasPlatform
 {
+    /// <summary>
+    /// Class used to instantiate BusinessMetaLayer objects
+    /// </summary>
     class BusinessMetaLayer
     {
         static private BusinessMetaLayer memInstance = null;
 
         private BusinessMetaLayer() { }
 
+        /// <summary>
+        /// Singleton constructor for BusinessMetaLayer class
+        /// </summary>
+        /// <returns></returns>
         static public BusinessMetaLayer instance()
         {
             if (null == memInstance)
@@ -22,6 +29,10 @@ namespace InvestmentIdeasPlatform
             return memInstance;
         }
 
+        /// <summary>
+        /// Fetches a list of all the <b>InvestmentProduct</b>s currently stored in the database
+        /// </summary>
+        /// <returns>The list of <b>InvestmentProduct</b>s</returns>
         public List<InvestmentProduct> getInvestmentProducts() 
         {
             List<InvestmentProduct> products = new List<InvestmentProduct>();
@@ -84,6 +95,10 @@ namespace InvestmentIdeasPlatform
 
         }
 
+        /// <summary>
+        /// Fetches a list of all <b>RelationshipManager</b>s currently stored in the database
+        /// </summary>
+        /// <returns>The list of <b>RelationshipManager</b>s</returns>
         public List<RelationshipManager> getRelationshipManagers() 
         {
             List<RelationshipManager> relationshipManagerList = new List<RelationshipManager>();
@@ -111,6 +126,10 @@ namespace InvestmentIdeasPlatform
             return relationshipManagerList;
         }
 
+        /// <summary>
+        /// Fetches a list of all <b>FundAdministrator</b>s currently stored in the database
+        /// </summary>
+        /// <returns>The list of <b>FundAdministrator</b>s</returns>
         public List<FundAdministrator> getFundAdministrators() 
         {
             List<FundAdministrator> fundAdministrators = new List<FundAdministrator>();
@@ -141,6 +160,10 @@ namespace InvestmentIdeasPlatform
             
         }
 
+        /// <summary>
+        /// Fetches a list of all <b>Client</b>s currently stored in the database
+        /// </summary>
+        /// <returns>The list of <b>Client</b>s</returns>
         public List<Client> getClients() 
         {
             List<Client> clients = new List<Client>();
