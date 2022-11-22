@@ -8,7 +8,7 @@ using System.Drawing;
 namespace InvestmentIdeasPlatform
 {
     /// <summary>
-    /// Class to instantiate a Client object
+    /// Class used to instantiate a Client object
     /// </summary>
     public class Client : User
     {
