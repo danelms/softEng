@@ -108,4 +108,4 @@
 
 ### 23/11/22 SDJ
 - Discussed ways to streamline program by eliminating redundant classes
-- Begun mass reformatting to fit new class structure
+- Begun mass reformatting of code to fit new class structure
