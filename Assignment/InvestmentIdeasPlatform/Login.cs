@@ -60,8 +60,6 @@ namespace InvestmentIdeasPlatform
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-
-
             String name = "";
             String username = usernameTextBox.Text;
             String password = passwordTextBox.Text;

@@ -96,9 +96,9 @@ namespace InvestmentIdeasPlatform
         }
 
         /// <summary>
-        /// Fetches a list of all <b>Client</b>s currently stored in the database
+        /// Fetches a list of all <b>User</b>s currently stored in the database
         /// </summary>
-        /// <returns>The list of <b>Client</b>s</returns>
+        /// <returns>The list of <b>User</b>s</returns>
         public List<User> getUsers() 
         {
             List<User> users = new List<User>();
@@ -106,7 +106,7 @@ namespace InvestmentIdeasPlatform
 
             if (con.OpenConnection()) 
             {
-                DbDataReader dr = con.Select("SELECT UserType, Name, Username, Password, FROM User;");
+                DbDataReader dr = con.Select("SELECT UserType, Name, Username, Password FROM User;");
                 while (dr.Read()) 
                 {
                     byte userType = dr.GetByte(0);

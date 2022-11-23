@@ -119,7 +119,7 @@ namespace InvestmentIdeasPlatform
             DataSet clients = new DataSet();
 
             List<Client> clientsList = new List<Client>();
-            clients = con.getDataSet("Select Name from Client");
+            clients = con.getDataSet("Select Name from User WHERE UserType = '1'");
 
             //End view clients
 

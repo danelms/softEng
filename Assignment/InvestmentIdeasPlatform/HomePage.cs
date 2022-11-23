@@ -40,13 +40,14 @@ namespace InvestmentIdeasPlatform
                     }
                     else if (user.getUserType() == 2)
                     {
-                        RelationshipManager rm = new RelationshipManager(user.getName(), user.getUsername(), user.getPass(), 2);
-                        rm.addRmMenu(sidebarPanel);
-                        rm.addRmPanels(this);
+                        User rm = new User(user.getName(), user.getUsername(), user.getPass(), 2);
+                        UIManager uiManager = new UIManager(rm);
+                        uiManager.addRmMenu(sidebarPanel);
+                        uiManager.addRmPanels(this);
                     }
                     else if (user.getUserType() == 3)
                     {
-                        FundAdministrator fa = new FundAdministrator(user.getName(), user.getUsername(), user.getPass(), 3);
+                        User fa = new User(user.getName(), user.getUsername(), user.getPass(), 3);
                     }
                     loginSidebarButton.Hide();
                 }
