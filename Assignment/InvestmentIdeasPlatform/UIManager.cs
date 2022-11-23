@@ -18,6 +18,7 @@ namespace InvestmentIdeasPlatform
     public class UIManager
     {
         byte userType;
+        User currentUser;
 
         /// <summary>
         /// Constructor used to isntantiate UIManager
@@ -25,6 +26,7 @@ namespace InvestmentIdeasPlatform
         /// <param name="user"></param>
         public UIManager(User user)
         {
+            currentUser = user;
             userType = user.getUserType();
         }
 
@@ -48,7 +50,8 @@ namespace InvestmentIdeasPlatform
             switch (userType)
             {
                 case 1:
-
+                    addClientMenu(panel);
+                    
                     break;
                 case 2:
                     addRmMenu(panel);
@@ -56,6 +59,7 @@ namespace InvestmentIdeasPlatform
                     break;
 
                 case 3:
+                    addFaMenu(panel);
                     break;
             }
         }
@@ -87,6 +91,30 @@ namespace InvestmentIdeasPlatform
             styleButton(viewClient, "View Clients");
             styleButton(createUser, "Create User");
             styleButton(logout, "Log Out");
+        }
+
+        /// <summary>
+        /// Adds the Client menu to a panel
+        /// </summary>
+        /// <param name="panel">The panel affected</param>
+        public void addClientMenu(Panel panel)
+        {
+            panel.Controls.Add(logout);
+
+            styleButton(logout, "Log Out");
+            addButtonEventHandlers(currentUser); //MOVE TO PANELS
+        }
+
+        /// <summary>
+        /// Adds the FundAdministrator menu to a panel
+        /// </summary>
+        /// <param name="panel">The panel affected</param>
+        public void addFaMenu(Panel panel)
+        {
+            panel.Controls.Add(logout);
+
+            styleButton(logout, "Log Out");
+            addButtonEventHandlers(currentUser); //MOVE TO PANELS
         }
 
         /// <summary>
@@ -186,7 +214,7 @@ namespace InvestmentIdeasPlatform
             createUserPanel.Controls.Add(lblShowPass);
             //End create user
 
-            addButtonEventHandlers();
+            addButtonEventHandlers(currentUser);
 
             form.Controls.Add(viewIdeasPanel);
             form.Controls.Add(viewClientPanel);
@@ -229,14 +257,25 @@ namespace InvestmentIdeasPlatform
         /// <summary>
         /// Adds event handlers to objects, such as buttons
         /// </summary>
-        private void addButtonEventHandlers()
+        private void addButtonEventHandlers(User user)
         {
-            viewClient.Click += ViewClient_Click;
-            viewIdeas.Click += ViewIdeas_Click;
-            createUser.Click += CreateUser_Click;
             logout.Click += Logout_Click;
-            checkShowPass.CheckedChanged += checkShowPass_CheckedChanged;
-            btnCreateAccount.Click += BtnCreateAccount_Click;
+
+            switch (user.getUserType())
+            {
+                case 1:
+                    break;
+                case 2:
+                    viewClient.Click += ViewClient_Click;
+                    viewIdeas.Click += ViewIdeas_Click;
+                    createUser.Click += CreateUser_Click;
+                    checkShowPass.CheckedChanged += checkShowPass_CheckedChanged;
+                    btnCreateAccount.Click += BtnCreateAccount_Click;
+                    break;
+                case 3:
+                    break;
+            }
+            
         }
 
 
