@@ -105,3 +105,7 @@
 
 ### 22/11/22 D
 - Mass commenting of previously-implemented code
+
+### 23/11/22 SDJ
+- Discussed ways to streamline program by eliminating redundant classes
+- Begun mass reformatting to fit new class structure
