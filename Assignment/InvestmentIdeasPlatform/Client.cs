@@ -13,7 +13,7 @@ namespace InvestmentIdeasPlatform
     public class Client : User
     {
         private List<String> preferenceType = new List<String>(); //List of preferred investment types
-        private List<int> preferenceRisk = new List<int>(); //List of preferred risk levels
+        private int preferenceRisk; //Preferred risk level
         private List<String> preferenceCurrency = new List<String>(); //List of preferred currencies
         private List<String> preferenceRegion = new List<String>(); //List of preferred regions
 
@@ -57,27 +57,18 @@ namespace InvestmentIdeasPlatform
         }
 
         /// <returns>A <b>List</b> of type <b>int</b> containing the Client's preferred invesment risk levels</returns>
-        public List<int> getPrefRisk()
+        public int getPrefRisk()
         {
             return preferenceRisk;
         }
 
         /// <summary>
-        /// Used to remove a risk level from the Client's preferences
-        /// </summary>
-        /// <param name="risk">The risk level to be removed</param>
-        public void removePreferenceRisk(int risk)
-        {
-            preferenceRisk.Remove(risk);
-        }
-
-        /// <summary>
-        /// Used to add an investment risk level to the Client's preferences
+        /// Used to set Client's preferred investment risk level (max)
         /// </summary>
         /// <param name="risk">The investment risk level to be added</param>
-        public void addPreferenceRisk(int risk)
+        public void setPreferenceRisk(int risk)
         {
-            preferenceRisk.Add(risk);
+            preferenceRisk = risk;
         }
 
         /// <returns>A <b>List</b> of type <b>String</b> containing the Client's preferred currencies</returns>

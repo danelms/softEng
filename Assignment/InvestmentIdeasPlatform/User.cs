@@ -16,11 +16,11 @@ namespace InvestmentIdeasPlatform
     /// </summary>
     public class User
     {
-        String name; //Name tied to User
-        String username; //Username tied to User
-        String pass; //Password tied to User
-        byte userType; //Type of user e.g., 1 = Client
-        Bitmap profilePicture; //Profile picture, defaults to Resources>userIcon.png
+        protected String name; //Name tied to User
+        protected String username; //Username tied to User
+        protected String pass; //Password tied to User
+        protected byte userType; //Type of user e.g., 1 = Client
+        protected Bitmap profilePicture; //Profile picture, defaults to Resources>userIcon.png
 
         /// <summary>
         /// Constructor for User (Abstract)
