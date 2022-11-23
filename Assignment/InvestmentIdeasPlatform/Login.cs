@@ -15,12 +15,10 @@ namespace InvestmentIdeasPlatform
     public partial class Login: Form
     {
         BusinessMetaLayer ml = BusinessMetaLayer.instance();
-        List<RelationshipManager> rm = new List<RelationshipManager>();
-        List<FundAdministrator> fa = new List<FundAdministrator>();
-        List<Client> clients = new List<Client>();
+        List<User> users = new List<User>();
 
-        
         User user = null;
+
         public User getCurrentUser() 
         {
             return user;  
@@ -29,9 +27,7 @@ namespace InvestmentIdeasPlatform
         public Login()
         {
             InitializeComponent();
-            rm = ml.getRelationshipManagers();
-            fa = ml.getFundAdministrators();
-            clients = ml.getClients();
+            users = ml.getUsers();
         }
 
         private void usernameTextBox_Click(object sender, EventArgs e)
@@ -71,80 +67,26 @@ namespace InvestmentIdeasPlatform
             String password = passwordTextBox.Text;
             byte type = 0;
 
-            foreach (RelationshipManager rmanager in rm)
+            foreach (User user in users)
             {
-                if (rmanager.getUsername() == usernameTextBox.Text && rmanager.getPass() == passwordTextBox.Text)
+                if (user.getUsername() == usernameTextBox.Text && user.getPass() == passwordTextBox.Text)
                 {
-                    name = rmanager.getName();
-                    type = rmanager.getUserType();
+                    name = user.getName();
+                    type = user.getUserType();
                 }
             }
 
-            foreach (FundAdministrator fundAdmin in fa)
-            {
-                if (fundAdmin.getUsername() == usernameTextBox.Text && fundAdmin.getPass() == passwordTextBox.Text)
-                {
-                    name = fundAdmin.getName();
-                    type = fundAdmin.getUserType();
-                }
-            }
-
-            foreach (Client client in clients)
-            {
-                if (client.getUsername() == usernameTextBox.Text && client.getPass() == passwordTextBox.Text)
-                {
-                    name = client.getName();
-                    type = client.getUserType();
-                }
-            }
-
-
-            switch (type)
-            {
-                case 0:
-                    user = null;
-                    break;
-                case 1:
-                    user = new Client(name, username, password, type);
-                    break;
-                case 2:
-                    user = new RelationshipManager(name, username, password, type);
-                    break;
-                case 3:
-                    user = new FundAdministrator(name, username, password, type);
-                    break;
-            }
+            user = new User(name, username, password, type);
         }
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
-            foreach (RelationshipManager rmanager in rm) 
-            {
-                if (rm != null) 
-                {
-                    if (usernameTextBox.Text == rmanager.getUsername() && passwordTextBox.Text == rmanager.getPass())
-                    {
-                        loginButton.DialogResult = DialogResult.OK;
-                    }
-                }
-            }
 
-            foreach (FundAdministrator fundAdmin in fa)
+            foreach (User user in users)
             {
-                if (rm != null)
+                if (user != null)
                 {
-                    if (usernameTextBox.Text == fundAdmin.getUsername() && passwordTextBox.Text == fundAdmin.getPass())
-                    {
-                        loginButton.DialogResult = DialogResult.OK;
-                    }
-                }
-            }
-
-            foreach (Client client in clients)
-            {
-                if (rm != null)
-                {
-                    if (usernameTextBox.Text == client.getUsername() && passwordTextBox.Text == client.getPass())
+                    if (usernameTextBox.Text == user.getUsername() && passwordTextBox.Text == user.getPass())
                     {
                         loginButton.DialogResult = DialogResult.OK;
                     }
@@ -154,36 +96,12 @@ namespace InvestmentIdeasPlatform
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
-            foreach (RelationshipManager rmanager in rm)
+            foreach (User user in users)
             {
-                if (rm != null)
+                if (user != null)
                 {
-                    if (usernameTextBox.Text == rmanager.getUsername() && passwordTextBox.Text == rmanager.getPass())
+                    if (usernameTextBox.Text == user.getUsername() && passwordTextBox.Text == user.getPass())
                     {
-
-                        loginButton.DialogResult = DialogResult.OK;
-                    }
-                }
-            }
-
-            foreach (FundAdministrator fundAdmin in fa)
-            {
-                if (rm != null)
-                {
-                    if (usernameTextBox.Text == fundAdmin.getUsername() && passwordTextBox.Text == fundAdmin.getPass())
-                    {
-                        loginButton.DialogResult = DialogResult.OK;
-                    }
-                }
-            }
-
-            foreach (Client client in clients)
-            {
-                if (rm != null)
-                {
-                    if (usernameTextBox.Text == client.getUsername() && passwordTextBox.Text == client.getPass())
-                    {
-
                         loginButton.DialogResult = DialogResult.OK;
                     }
                 }

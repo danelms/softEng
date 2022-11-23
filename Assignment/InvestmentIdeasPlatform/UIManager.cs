@@ -11,32 +11,30 @@ using System.Data;
 
 namespace InvestmentIdeasPlatform
 {
-    
+
     /// <summary>
-    /// Class to be utilised as a user account by Relationship Managers
+    /// Class to handle dynamic UI for each usertype
     /// </summary>
-    public class RelationshipManager : User
+    public class UIManager
     {
+        byte userType;
+
         /// <summary>
-        /// Constructor, inherits from User
+        /// Constructor used to isntantiate UIManager
         /// </summary>
-        /// <param name="newName">Name to be assigned to the new RelationshipManager</param>
-        /// <param name="newUsername">Username to be assigned to the new RelationshipManager</param>
-        /// <param name="newPassword">Password to be assigned to the new RelationshipManager</param>
-        /// <param name="newType">Byte representing the type of User (Should be 2 for RelationshipManager)</param>
-        public RelationshipManager(String newName, String newUsername, String newPassword, byte newType) : base(newName, newUsername, newPassword, newType)
+        /// <param name="user"></param>
+        public UIManager(User user)
         {
-            name = newName;
-            username = newUsername;
-            pass = newPassword;
-            userType = newType;
+            userType = user.getUserType();
         }
 
         DataSet dataSet = null;
 
         Button viewIdeas = new Button(), viewClient = new Button(), createUser = new Button(), logout = new Button();
-     
+
         Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel();
+
+        DBConnection con = DBFactory.instance();
 
         ComboBox memCmbAccType { get; set; }
         TextBox memtxtUsername { get; set; }
@@ -45,25 +43,43 @@ namespace InvestmentIdeasPlatform
         TextBox txtPass1 = null, txtPass2 = null;
         Button btnCreateAccount = null;
 
+        public void getUI(Panel panel)
+        {
+            switch (userType)
+            {
+                case 1:
+
+                    break;
+                case 2:
+
+                    break;
+
+                case 3:
+                    break;
+            }
+        }
+
+        private void styleButton(Button button, String title)
+        {
+            button.Width = 220;
+            button.Height = 34;
+            button.Dock = DockStyle.Top;
+            button.Text = title;
+            button.FlatStyle = FlatStyle.Flat;
+            button.Font = new Font("Arial", 14);
+            button.FlatAppearance.BorderSize = 0;
+            button.BringToFront();
+        }
+
         /// <summary>
         /// Adds the RelationshipManager menu to a panel
         /// </summary>
         /// <param name="panel">The panel affected</param>
-        public void addRmMenu(Panel panel) 
+        public void addRmMenu(Panel panel)
         {
+
             
-            void styleButton(Button button , String title) 
-            {
-                button.Width = 220;
-                button.Height = 34;
-                button.Dock = DockStyle.Top;
-                button.Text = title;
-                button.FlatStyle = FlatStyle.Flat;
-                button.Font = new Font("Arial", 14);
-                button.FlatAppearance.BorderSize = 0;
-                button.BringToFront();
-            }
-            
+
             panel.Controls.Add(viewIdeas);
             panel.Controls.Add(viewClient);
             panel.Controls.Add(createUser);
@@ -89,17 +105,26 @@ namespace InvestmentIdeasPlatform
             Button test = new Button();
             test.Click += Test_Click;
             viewIdeasPanel.Controls.Add(test);
-            
+            //End view ideas
+
             //View clients
             Label title2 = new Label();
-            title2.Text = "2";
-            title2.Font = new Font("Arial", 32);
-            title2.Location = new Point(130, 50);
-            title2.ForeColor = Color.Black;
+            title2.Text = "Clients";
+            title2.Font = new Font("Arial", 15);
+            title2.Location = new Point(100, 40);
+            title2.ForeColor = Color.White;
             title2.Width = 600;
             title2.Height = 60;
             viewClientPanel.Controls.Add(title2);
-            
+
+            ListBox listboxClients = new ListBox();
+            DataSet clients = new DataSet();
+
+            List<Client> clientsList = new List<Client>();
+            clients = con.getDataSet("Select Name from Client");
+
+            //End view clients
+
             //Create user
             PictureBox pb = new PictureBox();
             Bitmap userImage = new Bitmap(Properties.Resources.userIcon, 50, 50);
@@ -108,11 +133,11 @@ namespace InvestmentIdeasPlatform
             pb.Size = new Size(100, 100);
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
             createUserPanel.Controls.Add(pb);
-            
+
             ComboBox cmbAccType = new ComboBox();
             cmbAccType.Text = "Account Type";
             cmbAccType.Location = new Point(200, 240);
-            cmbAccType.Size= new Size(400, 40);
+            cmbAccType.Size = new Size(400, 40);
             cmbAccType.BackColor = Color.White;
             cmbAccType.ForeColor = Color.Black;
             cmbAccType.Items.Add("Client");
@@ -139,7 +164,7 @@ namespace InvestmentIdeasPlatform
             txtPass2.Location = new Point(200, 330);
             txtPass2.Size = new Size(400, 40);
             createUserPanel.Controls.Add(txtPass2);
-            
+
             btnCreateAccount = new Button();
             btnCreateAccount.Text = "Create account";
             btnCreateAccount.BackColor = Color.FromArgb(52, 70, 82);
@@ -161,9 +186,10 @@ namespace InvestmentIdeasPlatform
             lblShowPass.ForeColor = Color.White;
             lblShowPass.Location = new Point(215, 365);
             createUserPanel.Controls.Add(lblShowPass);
+            //End create user
 
             addButtonEventHandlers();
-            
+
             form.Controls.Add(viewIdeasPanel);
             form.Controls.Add(viewClientPanel);
             form.Controls.Add(createUserPanel);
@@ -171,15 +197,13 @@ namespace InvestmentIdeasPlatform
 
         private void BtnCreateAccount_Click(object sender, EventArgs e)
         {
-
             BusinessMetaLayer bl = BusinessMetaLayer.instance();
             bl.insertUserData("INSERT INTO RelationshipManager ([UserType], [Username], [Password]) values(@accountType,@username,@password)", 2, "testUser", "Password2");
         }
 
         private void Test_Click(object sender, EventArgs e)
-        {  
+        {
             DataGrid dt = new DataGrid();
-            DBConnection con = DBFactory.instance();
 
             con.OpenConnection();
             dataSet = con.getDataSet("Select * from InvestmentProduct");
@@ -207,7 +231,7 @@ namespace InvestmentIdeasPlatform
         /// <summary>
         /// Adds event handlers to objects, such as buttons
         /// </summary>
-        private void addButtonEventHandlers() 
+        private void addButtonEventHandlers()
         {
             viewClient.Click += ViewClient_Click;
             viewIdeas.Click += ViewIdeas_Click;
@@ -241,7 +265,7 @@ namespace InvestmentIdeasPlatform
 
         private void checkShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkShowPass.Checked) 
+            if (checkShowPass.Checked)
             {
                 txtPass1.UseSystemPasswordChar = false;
                 txtPass2.UseSystemPasswordChar = false;

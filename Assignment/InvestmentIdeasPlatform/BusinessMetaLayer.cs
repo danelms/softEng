@@ -96,95 +96,26 @@ namespace InvestmentIdeasPlatform
         }
 
         /// <summary>
-        /// Fetches a list of all <b>RelationshipManager</b>s currently stored in the database
-        /// </summary>
-        /// <returns>The list of <b>RelationshipManager</b>s</returns>
-        public List<RelationshipManager> getRelationshipManagers() 
-        {
-            List<RelationshipManager> relationshipManagerList = new List<RelationshipManager>();
-            DBConnection con = DBFactory.instance();
-
-            if (con.OpenConnection()) 
-            {
-                DbDataReader dr = con.Select("SELECT UserType, Name, Username, Password FROM RelationshipManager;");
-                while (dr.Read()) 
-                {
-                    byte userType = dr.GetByte(0);
-                    String name = dr.GetString(1);
-                    String username = dr.GetString(2);
-                    String password = dr.GetString(3);
-
-                    RelationshipManager rm = new RelationshipManager(name, username, password, userType);
-                    relationshipManagerList.Add(rm);
-
-                }
-                dr.Close();
-                con.CloseConnection();
-                
-            }
-
-            return relationshipManagerList;
-        }
-
-        /// <summary>
-        /// Fetches a list of all <b>FundAdministrator</b>s currently stored in the database
-        /// </summary>
-        /// <returns>The list of <b>FundAdministrator</b>s</returns>
-        public List<FundAdministrator> getFundAdministrators() 
-        {
-            List<FundAdministrator> fundAdministrators = new List<FundAdministrator>();
-            DBConnection con = DBFactory.instance();
-
-            if (con.OpenConnection()) 
-            {
-                DbDataReader dr = con.Select("SELECT CompanyID, UserType, Name, Username, Password, InvestmentProductList FROM FundAdministrator;");
-                while (dr.Read()) 
-                {
-                    int companyId = dr.GetInt32(0);
-                    byte userType = dr.GetByte(1);
-                    String name = dr.GetString(2);
-                    String username = dr.GetString(3);
-                    String password = dr.GetString(4);
-                    String investmentProductList = dr.GetString(5);
-
-                    FundAdministrator fa = new FundAdministrator(name, username, password, userType);
-                    fundAdministrators.Add(fa);
-                }
-
-                dr.Close();
-                con.CloseConnection();
-            
-            }
-
-            return fundAdministrators;
-            
-        }
-
-        /// <summary>
         /// Fetches a list of all <b>Client</b>s currently stored in the database
         /// </summary>
         /// <returns>The list of <b>Client</b>s</returns>
-        public List<Client> getClients() 
+        public List<User> getUsers() 
         {
-            List<Client> clients = new List<Client>();
+            List<User> users = new List<User>();
             DBConnection con = DBFactory.instance();
 
             if (con.OpenConnection()) 
             {
-                DbDataReader dr = con.Select("SELECT UserType, Name, Username, Password, InvestProductPreferences, RiskLevel, Country FROM Client;");
+                DbDataReader dr = con.Select("SELECT UserType, Name, Username, Password, FROM User;");
                 while (dr.Read()) 
                 {
                     byte userType = dr.GetByte(0);
                     String name = dr.GetString(1);
                     String username = dr.GetString(2);
                     String password = dr.GetString(3);
-                    String investProductPref = dr.GetString(4);
-                    int riskLevel = dr.GetInt32(5);
-                    String country = dr.GetString(6);
 
-                    Client client = new Client(name, username, password, userType);
-                    client.addPreferenceType(investProductPref);
-                    clients.Add(client);
+                    User user = new User(name, username, password, userType);
+                    users.Add(user);
                 }
 
                 dr.Close();
@@ -192,7 +123,7 @@ namespace InvestmentIdeasPlatform
                 
             }
 
-            return clients;
+            return users;
         }
 
         public void insertUserData(String query, int accountType, String username, String password) 
