@@ -43,7 +43,7 @@ namespace InvestmentIdeasPlatform
         TextBox txtPass1 = null, txtPass2 = null;
         Button btnCreateAccount = null;
 
-        public void getUI(Panel panel)
+        public void getUI(Panel panel, Form form)
         {
             switch (userType)
             {
@@ -51,7 +51,8 @@ namespace InvestmentIdeasPlatform
 
                     break;
                 case 2:
-
+                    addRmMenu(panel);
+                    addRmPanels(form);
                     break;
 
                 case 3:
@@ -77,9 +78,6 @@ namespace InvestmentIdeasPlatform
         /// <param name="panel">The panel affected</param>
         public void addRmMenu(Panel panel)
         {
-
-            
-
             panel.Controls.Add(viewIdeas);
             panel.Controls.Add(viewClient);
             panel.Controls.Add(createUser);
