@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Common;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Xml.Linq;
 
 namespace InvestmentIdeasPlatform
 {
@@ -107,6 +110,7 @@ namespace InvestmentIdeasPlatform
             if (con.OpenConnection()) 
             {
                 DbDataReader dr = con.Select("SELECT UserType, Name, Username, Password FROM User;");
+
                 while (dr.Read()) 
                 {
                     byte userType = dr.GetByte(0);
@@ -126,13 +130,14 @@ namespace InvestmentIdeasPlatform
             return users;
         }
 
-        public void insertUserData(String query, int accountType, String username, String password) 
+        public void insertUserData(String name, int userType, String username, String password) 
         {
             DBConnection con = DBFactory.instance();
-
-            if (con.OpenConnection()) 
+            if (con.OpenConnection())
             {
-                con.Insert(query, accountType, username, password);
+                String itemsString = "INSERT INTO User([Name], [UserType], [Username], [Password]) values(@name, @accountType, @username, @password)";
+                String[] values = { name, userType.ToString(), username, password };
+                con.Insert(1, itemsString, values);
             }
 
             con.CloseConnection();

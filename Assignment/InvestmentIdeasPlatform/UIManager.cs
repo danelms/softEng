@@ -42,8 +42,9 @@ namespace InvestmentIdeasPlatform
         TextBox memtxtUsername { get; set; }
         //Create user panel placeholders (used for EventHandler access)
         CheckBox checkShowPass = null;
-        TextBox txtPass1 = null, txtPass2 = null;
+        TextBox txtPass1 = null, txtPass2 = null, txtUsername = null;
         Button btnCreateAccount = null;
+        ComboBox cmbAccType = null;
 
         public void getUI(Panel panel, Form form)
         {
@@ -160,7 +161,7 @@ namespace InvestmentIdeasPlatform
             pb.SizeMode = PictureBoxSizeMode.StretchImage;
             createUserPanel.Controls.Add(pb);
 
-            ComboBox cmbAccType = new ComboBox();
+            cmbAccType = new ComboBox();
             cmbAccType.Text = "Account Type";
             cmbAccType.Location = new Point(200, 240);
             cmbAccType.Size = new Size(400, 40);
@@ -172,7 +173,7 @@ namespace InvestmentIdeasPlatform
             memCmbAccType = cmbAccType;
             createUserPanel.Controls.Add(cmbAccType);
 
-            TextBox txtUsername = new TextBox();
+            txtUsername = new TextBox();
             txtUsername.Text = "Username";
             txtUsername.Location = new Point(200, 270);
             txtUsername.Size = new Size(400, 40);
@@ -223,8 +224,12 @@ namespace InvestmentIdeasPlatform
 
         private void BtnCreateAccount_Click(object sender, EventArgs e)
         {
-            BusinessMetaLayer bl = BusinessMetaLayer.instance();
-            bl.insertUserData("INSERT INTO RelationshipManager ([UserType], [Username], [Password]) values(@accountType,@username,@password)", 2, "testUser", "Password2");
+            if (txtUsername.Text != "Username" && txtUsername != null && txtPass1.Text == txtPass2.Text)
+            {
+                BusinessMetaLayer bl = BusinessMetaLayer.instance();
+                bl.insertUserData("NAMEPLACEHOLDER", (cmbAccType.SelectedIndex + 1), txtUsername.Text, txtPass1.Text);
+            }
+            
         }
 
         private void Test_Click(object sender, EventArgs e)

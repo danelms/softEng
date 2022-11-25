@@ -7,6 +7,8 @@ using System.Data.SQLite;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.Common;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Xml.Linq;
 
 namespace InvestmentIdeasPlatform
 {
@@ -119,17 +121,24 @@ namespace InvestmentIdeasPlatform
             return dr;
         }
 
-        public void Insert(string query, int accountType, String username, String password)
+        public void Insert(int queryType, String query, params String[] values)
         {
             if (null != connection)
             {
-                //Create Command
-                SQLiteCommand cmd = new SQLiteCommand(query, connection);
-                cmd.Parameters.Add("@accountType", DbType.Int64).Value = accountType;
-                cmd.Parameters.Add("@username", DbType.String).Value = username;
-                cmd.Parameters.Add("@password", DbType.String).Value = password;
-                //Create a data reader and Execute the command
-                cmd.ExecuteNonQuery();
+                switch (queryType)
+                {
+                    //Insert User
+                    case 1:
+                        //Create Command
+                        SQLiteCommand cmd = new SQLiteCommand(query, connection);
+                        cmd.Parameters.Add("@name", DbType.String).Value = values[0];
+                        cmd.Parameters.Add("@accountType", DbType.Int64).Value = values[1];
+                        cmd.Parameters.Add("@username", DbType.String).Value = values[2];
+                        cmd.Parameters.Add("@password", DbType.String).Value = values[3];
+                        //Create a data reader and Execute the command
+                        cmd.ExecuteNonQuery();
+                        break;
+                }
             }
         }
     }
