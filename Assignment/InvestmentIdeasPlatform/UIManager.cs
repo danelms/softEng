@@ -32,7 +32,7 @@ namespace InvestmentIdeasPlatform
 
         DataSet dataSet = null;
 
-        Button viewIdeas = new Button(), viewClient = new Button(), createUser = new Button(), logout = new Button();
+        Button viewIdeas = new Button(), viewClient = new Button(), createUser = new Button(), logout = new Button(), viewSuggestedIdeas = new Button(), createIdea = new Button();
 
         Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel();
 
@@ -100,8 +100,10 @@ namespace InvestmentIdeasPlatform
         /// <param name="panel">The panel affected</param>
         public void addClientMenu(Panel panel)
         {
+            panel.Controls.Add(viewSuggestedIdeas);
             panel.Controls.Add(logout);
 
+            styleButton(viewSuggestedIdeas, "View suggest ideas");
             styleButton(logout, "Log Out");
             addButtonEventHandlers(currentUser); //MOVE TO PANELS
         }
@@ -113,7 +115,9 @@ namespace InvestmentIdeasPlatform
         public void addFaMenu(Panel panel)
         {
             panel.Controls.Add(logout);
+            panel.Controls.Add(createIdea);
 
+            styleButton(createIdea, "Create idea");
             styleButton(logout, "Log Out");
             addButtonEventHandlers(currentUser); //MOVE TO PANELS
         }
