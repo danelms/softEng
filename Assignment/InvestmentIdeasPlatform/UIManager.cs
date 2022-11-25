@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace InvestmentIdeasPlatform
 {
@@ -40,11 +41,14 @@ namespace InvestmentIdeasPlatform
 
         ComboBox memCmbAccType { get; set; }
         TextBox memtxtUsername { get; set; }
-        //Create user panel placeholders (used for EventHandler access)
+        //RM>Create user panel placeholders (used for EventHandler access)
         CheckBox checkShowPass = null;
         TextBox txtPass1 = null, txtPass2 = null, txtUsername = null;
         Button btnCreateAccount = null;
         ComboBox cmbAccType = null;
+        //RM>View ideas panel placeholders
+        ListBox listBoxIdeas = null, listBoxClients = null;
+        Button btnSeePreferences = null, btnSuggestIdea = null;
 
         public void getUI(Panel panel, Form form)
         {
@@ -133,27 +137,76 @@ namespace InvestmentIdeasPlatform
             stylePanel(createUserPanel);
 
             //View ideas
-            Button test = new Button();
-            test.Click += Test_Click;
-            viewIdeasPanel.Controls.Add(test);
+            
+            //Button test = new Button();
+            //test.Click += Test_Click;
+            //viewIdeasPanel.Controls.Add(test);
+            
             //End view ideas
 
             //View clients
-            Label title2 = new Label();
-            title2.Text = "Clients";
-            title2.Font = new Font("Arial", 15);
-            title2.Location = new Point(100, 40);
-            title2.ForeColor = Color.White;
-            title2.Width = 600;
-            title2.Height = 60;
-            viewClientPanel.Controls.Add(title2);
+            Label lblClients = new Label();
+            lblClients.Text = "Clients";
+            lblClients.Font = new Font("Arial", 15);
+            lblClients.Location = new Point(100, 40);
+            lblClients.ForeColor = Color.White;
+            lblClients.Width = 600;
+            lblClients.Height = 60;
+            viewClientPanel.Controls.Add(lblClients);
 
             ListBox listboxClients = new ListBox();
+            listboxClients.Location = new Point(100, 70);
+            listboxClients.Size = new Size(600, 100);
             DataSet clients = new DataSet();
 
-            List<Client> clientsList = new List<Client>();
             clients = con.getDataSet("Select Name from User WHERE UserType = '1'");
+            List<String> clientNames = clients.Tables[0].AsEnumerable().Select(r => r.Field<String>("Name")).ToList();
+            foreach (String clientName in clientNames)
+            {
+                listboxClients.Items.Add(clientName);
+            }
 
+            viewClientPanel.Controls.Add(listboxClients);
+            listboxClients.BringToFront();
+
+            btnSeePreferences = new Button();
+            btnSeePreferences.Text = "See preferences";
+            btnSeePreferences.BackColor = Color.FromArgb(52, 70, 82);
+            btnSeePreferences.ForeColor = Color.White;
+            btnSeePreferences.Size = new Size(100, 40);
+            btnSeePreferences.Location = new Point(350, 180);
+            viewClientPanel.Controls.Add(btnSeePreferences);
+
+            Label lblIdeas = new Label();
+            lblIdeas.Text = "Ideas";
+            lblIdeas.Font = new Font("Arial", 15);
+            lblIdeas.Location = new Point(100, 220);
+            lblIdeas.ForeColor = Color.White;
+            lblIdeas.Width = 600;
+            lblIdeas.Height = 30;
+            viewClientPanel.Controls.Add(lblIdeas);
+
+            ListBox listboxIdeas = new ListBox();
+            listboxIdeas.Location = new Point(100, 250);
+            listboxIdeas.Size = new Size(600, 100);
+            DataSet ideas = new DataSet();
+
+            ideas = con.getDataSet("Select Overview from InvestmentIdea");
+            List<String> ideaOverviews = ideas.Tables[0].AsEnumerable().Select(r => r.Field<String>("Overview")).ToList();
+            foreach (String ideaOverview in ideaOverviews)
+            {
+                listboxClients.Items.Add(ideaOverview);
+            }
+
+            viewClientPanel.Controls.Add(listboxIdeas);
+
+            btnSuggestIdea = new Button();
+            btnSuggestIdea.Text = "Suggest Idea";
+            btnSuggestIdea.BackColor = Color.FromArgb(52, 70, 82);
+            btnSuggestIdea.ForeColor = Color.White;
+            btnSuggestIdea.Size = new Size(100, 40);
+            btnSuggestIdea.Location = new Point(350, 360);
+            viewClientPanel.Controls.Add(btnSuggestIdea);
             //End view clients
 
             //Create user
