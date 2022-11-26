@@ -69,7 +69,7 @@ namespace InvestmentIdeasPlatform
             }
         }
 
-        private void styleButton(Button button, String title)
+        private void styleMenuButton(Button button, String title)
         {
             button.Width = 220;
             button.Height = 34;
@@ -92,10 +92,10 @@ namespace InvestmentIdeasPlatform
             panel.Controls.Add(createUser);
             panel.Controls.Add(logout);
 
-            styleButton(viewIdeas, "View Ideas");
-            styleButton(viewClient, "View Clients");
-            styleButton(createUser, "Create User");
-            styleButton(logout, "Log Out");
+            styleMenuButton(viewIdeas, "View Ideas");
+            styleMenuButton(viewClient, "View Clients");
+            styleMenuButton(createUser, "Create User");
+            styleMenuButton(logout, "Log Out");
         }
 
         /// <summary>
@@ -107,8 +107,8 @@ namespace InvestmentIdeasPlatform
             panel.Controls.Add(viewSuggestedIdeas);
             panel.Controls.Add(logout);
 
-            styleButton(viewSuggestedIdeas, "View suggest ideas");
-            styleButton(logout, "Log Out");
+            styleMenuButton(viewSuggestedIdeas, "View suggest ideas");
+            styleMenuButton(logout, "Log Out");
             addButtonEventHandlers(currentUser); //MOVE TO PANELS
         }
 
@@ -121,8 +121,8 @@ namespace InvestmentIdeasPlatform
             panel.Controls.Add(logout);
             panel.Controls.Add(createIdea);
 
-            styleButton(createIdea, "Create idea");
-            styleButton(logout, "Log Out");
+            styleMenuButton(createIdea, "Create idea");
+            styleMenuButton(logout, "Log Out");
             addButtonEventHandlers(currentUser); //MOVE TO PANELS
         }
 
