@@ -40,20 +40,19 @@ namespace InvestmentIdeasPlatform
                     {
                         Client client = new Client(user.getName(), user.getUsername(), user.getPass(), 1);
                         uiManager = new UIManager(client);
-                        uiManager.addClientMenu(sidebarPanel);
+                        uiManager.getUI(sidebarPanel, this);
                     }
                     else if (user.getUserType() == 2)
                     {
                         User rm = new User(user.getName(), user.getUsername(), user.getPass(), 2);
                         uiManager = new UIManager(rm);
-                        uiManager.addRmMenu(sidebarPanel);
-                        uiManager.addRmPanels(this);
+                        uiManager.getUI(sidebarPanel, this);
                     }
                     else if (user.getUserType() == 3)
                     {
                         User fa = new User(user.getName(), user.getUsername(), user.getPass(), 3);
                         uiManager = new UIManager(fa);
-                        uiManager.addFaMenu(sidebarPanel);
+                        uiManager.getUI(sidebarPanel, this);
                     }
                     loginSidebarButton.Hide();
                 }

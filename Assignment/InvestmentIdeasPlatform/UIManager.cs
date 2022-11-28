@@ -35,7 +35,7 @@ namespace InvestmentIdeasPlatform
 
         Button viewIdeas = new Button(), viewClient = new Button(), createUser = new Button(), logout = new Button(), viewSuggestedIdeas = new Button(), createIdea = new Button();
 
-        Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel();
+        Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel(), createIdeaPanel = new Panel();
 
         DBConnection con = DBFactory.instance();
 
@@ -49,6 +49,8 @@ namespace InvestmentIdeasPlatform
         //RM>View ideas panel placeholders
         ListBox listBoxIdeas = null, listBoxClients = null;
         Button btnSeePreferences = null, btnSuggestIdea = null;
+        //FA>Create ideas panel placeholders
+        Button btnAddMajorSector = null, btnRemoveMajorSector = null;
 
         public void getUI(Panel panel, Form form)
         {
@@ -56,7 +58,7 @@ namespace InvestmentIdeasPlatform
             {
                 case 1:
                     addClientMenu(panel);
-                    
+                    //addClientPanels(form);
                     break;
                 case 2:
                     addRmMenu(panel);
@@ -65,6 +67,7 @@ namespace InvestmentIdeasPlatform
 
                 case 3:
                     addFaMenu(panel);
+                    addFAPanels(form);
                     break;
             }
         }
@@ -123,7 +126,6 @@ namespace InvestmentIdeasPlatform
 
             styleMenuButton(createIdea, "Create idea");
             styleMenuButton(logout, "Log Out");
-            addButtonEventHandlers(currentUser); //MOVE TO PANELS
         }
 
         /// <summary>
@@ -279,6 +281,89 @@ namespace InvestmentIdeasPlatform
             form.Controls.Add(createUserPanel);
         }
 
+        public void addFAPanels(Form form)
+        {
+            stylePanel(createIdeaPanel);
+
+            Label lblCreateIdea = new Label();
+            lblCreateIdea.Text = "Filters";
+            lblCreateIdea.Font = new Font("Arial", 15, FontStyle.Bold);
+            lblCreateIdea.Location = new Point(100, 40);
+            lblCreateIdea.ForeColor = Color.White;
+            lblCreateIdea.Width = 600;
+            lblCreateIdea.Height = 25;
+            createIdeaPanel.Controls.Add(lblCreateIdea);
+
+            Label lblIndSectorMaj = new Label();
+            lblIndSectorMaj.Text = "Industry Sector - Major";
+            lblIndSectorMaj.Font = new Font("Arial", 15);
+            lblIndSectorMaj.Location = new Point(100, 65);
+            lblIndSectorMaj.ForeColor = Color.White;
+            lblIndSectorMaj.Width = 600;
+            lblIndSectorMaj.Height = 25;
+            createIdeaPanel.Controls.Add(lblIndSectorMaj);
+
+            ListBox lbMajorSector = new ListBox();
+            lbMajorSector.Location = new Point(100, 100);
+            lbMajorSector.Size = new Size(350, 80);
+            createIdeaPanel.Controls.Add(lbMajorSector);
+
+            ComboBox cbMajorSector = new ComboBox();
+            cbMajorSector.Location = new Point(470, 100);
+            cbMajorSector.Font = new Font("Arial", 14);
+            cbMajorSector.Size = new Size(230, 30);
+            createIdeaPanel.Controls.Add(cbMajorSector);
+
+            btnAddMajorSector = new Button();
+            btnAddMajorSector.Text = "Add";
+            btnAddMajorSector.BackColor = Color.FromArgb(52, 70, 82);
+            btnAddMajorSector.ForeColor = Color.White;
+            btnAddMajorSector.Size = new Size(110, 40);
+            btnAddMajorSector.Location = new Point(470, 135);
+            createIdeaPanel.Controls.Add(btnAddMajorSector);
+
+            btnRemoveMajorSector = new Button();
+            btnRemoveMajorSector.Text = "Remove";
+            btnRemoveMajorSector.BackColor = Color.FromArgb(52, 70, 82);
+            btnRemoveMajorSector.ForeColor = Color.White;
+            btnRemoveMajorSector.Size = new Size(110, 40);
+            btnRemoveMajorSector.Location = new Point(590, 135);
+            createIdeaPanel.Controls.Add(btnRemoveMajorSector);
+
+            Label lblMinorSector = new Label();
+            lblMinorSector.Location = new Point(100, 180);
+            lblMinorSector.Text = "Industry Sector - Minor";
+            lblMinorSector.ForeColor = Color.White;
+            lblMinorSector.Font = new Font("Arial", 15);
+            lblMinorSector.Width = 600;
+            lblMinorSector.Height = 25;
+            createIdeaPanel.Controls.Add(lblMinorSector);
+
+            ListBox lbMinorSector = new ListBox();
+            lbMinorSector.Location = new Point(100, 215);
+            lbMinorSector.Size = new Size(350, 80);
+            createIdeaPanel.Controls.Add(lbMinorSector);
+
+            btnAdd = new Button();
+            btnAddMajorSector.Text = "Add";
+            btnAddMajorSector.BackColor = Color.FromArgb(52, 70, 82);
+            btnAddMajorSector.ForeColor = Color.White;
+            btnAddMajorSector.Size = new Size(110, 40);
+            btnAddMajorSector.Location = new Point(470, 135);
+            createIdeaPanel.Controls.Add(btnAddMajorSector);
+
+            btnRemoveMajorSector = new Button();
+            btnRemoveMajorSector.Text = "Remove";
+            btnRemoveMajorSector.BackColor = Color.FromArgb(52, 70, 82);
+            btnRemoveMajorSector.ForeColor = Color.White;
+            btnRemoveMajorSector.Size = new Size(110, 40);
+            btnRemoveMajorSector.Location = new Point(590, 135);
+            createIdeaPanel.Controls.Add(btnRemoveMajorSector);
+
+            addButtonEventHandlers(currentUser);
+            form.Controls.Add(createIdeaPanel);
+        }
+
         private void BtnCreateAccount_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text != "Username" && txtUsername != null && txtPass1.Text == txtPass2.Text)
@@ -326,7 +411,7 @@ namespace InvestmentIdeasPlatform
             switch (user.getUserType())
             {
                 case 1:
-                    break;
+                    
                 case 2:
                     viewClient.Click += ViewClient_Click;
                     viewIdeas.Click += ViewIdeas_Click;
@@ -335,6 +420,7 @@ namespace InvestmentIdeasPlatform
                     btnCreateAccount.Click += BtnCreateAccount_Click;
                     break;
                 case 3:
+                    createIdea.Click += CreateIdea_Click;
                     break;
             }
             
@@ -350,6 +436,11 @@ namespace InvestmentIdeasPlatform
         private void CreateUser_Click(object sender, EventArgs e)
         {
             createUserPanel.BringToFront();
+        }
+
+        private void CreateIdea_Click(object sender, EventArgs e)
+        {
+            createIdeaPanel.BringToFront();
         }
 
         private void ViewClient_Click(object sender, EventArgs e)
