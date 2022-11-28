@@ -8,22 +8,22 @@ using System.Drawing;
 namespace InvestmentIdeasPlatform
 {
     /// <summary>
-    /// Class to be utilised as a user account by Clients
+    /// Class used to instantiate a Client object
     /// </summary>
     public class Client : User
     {
         private List<String> preferenceType = new List<String>(); //List of preferred investment types
-        private List<int> preferenceRisk = new List<int>(); //List of preferred risk levels
+        private int preferenceRisk; //Preferred risk level
         private List<String> preferenceCurrency = new List<String>(); //List of preferred currencies
         private List<String> preferenceRegion = new List<String>(); //List of preferred regions
 
         /// <summary>
         /// Class to be utilised as a user account by Clients
         /// </summary>
-        /// <param name="newName">Name to be assigned to the new Client</param>
-        /// <param name="newUsername">Username to be assigned to the new Client</param>
-        /// <param name="newPassword">Password to be assigned to the new Client</param>
-        /// <param name="newType">Byte representing the type of User (Should be 1 for Client)</param>
+        /// <param name="name">Name to be assigned to the new Client</param>
+        /// <param name="username">Username to be assigned to the new Client</param>
+        /// <param name="pass">Password to be assigned to the new Client</param>
+        /// <param name="userType">Byte representing the type of User (Should be 1 for Client)</param>
         public Client(String name, String username, String pass, byte userType) : base(name, username, pass, userType)
         {
             this.name = name;
@@ -57,9 +57,18 @@ namespace InvestmentIdeasPlatform
         }
 
         /// <returns>A <b>List</b> of type <b>int</b> containing the Client's preferred invesment risk levels</returns>
-        public List<int> getPrefRisk()
+        public int getPrefRisk()
         {
             return preferenceRisk;
+        }
+
+        /// <summary>
+        /// Used to set Client's preferred investment risk level (max)
+        /// </summary>
+        /// <param name="risk">The investment risk level to be added</param>
+        public void setPreferenceRisk(int risk)
+        {
+            preferenceRisk = risk;
         }
 
         /// <returns>A <b>List</b> of type <b>String</b> containing the Client's preferred currencies</returns>
@@ -68,10 +77,46 @@ namespace InvestmentIdeasPlatform
             return preferenceCurrency;
         }
 
+        /// <summary>
+        /// Used to remove a currency from the Client's preferences
+        /// </summary>
+        /// <param name="currency">The currency to be removed</param>
+        public void removePreferenceCurrency(String currency)
+        {
+            preferenceCurrency.Remove(currency);
+        }
+
+        /// <summary>
+        /// Used to add an investment currency to the Client's preferences
+        /// </summary>
+        /// <param name="currency">The investment currency to be added</param>
+        public void addPreferenceCurrency(String currency)
+        {
+            preferenceCurrency.Add(currency);
+        }
+
         /// <returns>A <b>List</b> of type <b>String</b> containing the Client's preferred regions</returns>
         public List<String> getPrefRegion()
         {
             return preferenceRegion;
+        }
+
+        /// <summary>
+        /// Used to remove a region from the Client's preferences
+        /// </summary>
+        /// <param name="region">The region to be removed</param>
+        public void removePreferenceRegion(String region)
+        {
+            preferenceRegion.Remove(region);
+        }
+
+        /// <summary>
+        /// Used to add an investment region to the Client's preferences
+        /// </summary>
+        /// <param name="currency">The region to be added</param>
+        public void addPreferenceRegion(string region)
+        {
+            preferenceRegion.Add(region);
         }
     }
 }

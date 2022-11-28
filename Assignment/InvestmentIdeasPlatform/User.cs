@@ -14,7 +14,7 @@ namespace InvestmentIdeasPlatform
     /// <summary>
     /// Abstract base class that all User types (Client, RM, FA) will inherit from
     /// </summary>
-    public abstract class User
+    public class User
     {
         protected String name; //Name tied to User
         protected String username; //Username tied to User
@@ -23,13 +23,13 @@ namespace InvestmentIdeasPlatform
         protected Bitmap profilePicture; //Profile picture, defaults to Resources>userIcon.png
 
         /// <summary>
-        /// Base Constructor
+        /// Constructor for User (Abstract)
         /// </summary>
         /// <param name="newName">Name to be assigned to new User</param>
         /// <param name="newUsername">Username to be assigned to new User</param>
         /// <param name="newPassword">Password to be assigned to new User</param>
         /// <param name="newType">Byte representing the type of User (1=Client, 2=RelationshipManager, 3=FundAdministrator)</param>
-        protected User(String newName, String newUsername, String newPassword, byte newType)
+        public User(String newName, String newUsername, String newPassword, byte newType)
         {
             name = newName;
             username = newUsername;

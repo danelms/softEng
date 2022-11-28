@@ -22,10 +22,11 @@ namespace InvestmentIdeasPlatform
         public HomePage()
         {
             InitializeComponent();
+
             addHomePanel();
             showLogin();
         }
-        
+
         private void showLogin()
         {
             if (login.ShowDialog() == DialogResult.OK) 
@@ -33,19 +34,26 @@ namespace InvestmentIdeasPlatform
                 user = login.getCurrentUser();
                 try
                 {
+                    UIManager uiManager = null;
+
                     if (user.getUserType() == 1)
                     {
-
+                        Client client = new Client(user.getName(), user.getUsername(), user.getPass(), 1);
+                        uiManager = new UIManager(client);
+                        uiManager.addClientMenu(sidebarPanel);
                     }
                     else if (user.getUserType() == 2)
                     {
-                        RelationshipManager rm = new RelationshipManager(user.getName(), user.getUsername(), user.getPass(), 2);
-                        rm.addRmMenu(sidebarPanel);
-                        rm.addRmPanels(this);
+                        User rm = new User(user.getName(), user.getUsername(), user.getPass(), 2);
+                        uiManager = new UIManager(rm);
+                        uiManager.addRmMenu(sidebarPanel);
+                        uiManager.addRmPanels(this);
                     }
                     else if (user.getUserType() == 3)
                     {
-
+                        User fa = new User(user.getName(), user.getUsername(), user.getPass(), 3);
+                        uiManager = new UIManager(fa);
+                        uiManager.addFaMenu(sidebarPanel);
                     }
                     loginSidebarButton.Hide();
                 }
@@ -112,6 +120,9 @@ namespace InvestmentIdeasPlatform
            
         }
        
+
+
+
         private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
