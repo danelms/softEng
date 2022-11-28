@@ -57,8 +57,9 @@ namespace InvestmentIdeasPlatform
         //FA>Create ideas panel placeholders
         Button btnAddMajorSector = null, btnRemoveMajorSector = null, btnAddMinorSector = null, btnRemoveMinorSector = null, btnAddCurrency = null, btnAddProducts = null, btnRemoveProducts = null, btnCreateIdea = null;
         TextBox txtProductTitle = null;
-        ComboBox cbMajorSector = null, cbMinorSector = null, cbCurrency = null;
-        ListBox lbMajorSector = null, lbMinorSector = null, lbCurrency = null;
+        ComboBox cbMajorSector = null, cbMinorSector = null, cbCurrency = null, cbProducts = null;
+        ListBox lbMajorSector = null, lbMinorSector = null, lbCurrency = null, lbProducts = null;
+        RichTextBox txtProductOverview = null;
 
         public void getUI(Panel panel, Form form)
         {
@@ -420,17 +421,17 @@ namespace InvestmentIdeasPlatform
             lblProducts.Location = new Point(100, 415);
             lblProducts.Text = "Products";
             lblProducts.ForeColor = Color.White;
-            lblProducts.Font = new Font("Arial", 15, FontStyle.Bold);
+            lblProducts.Font = new Font("Arial", 15);
             lblProducts.Width = 600;
             lblProducts.Height = 25;
             createIdeaPanel.Controls.Add(lblProducts);
 
-            ListBox lbProducts = new ListBox();
+            lbProducts = new ListBox();
             lbProducts.Location = new Point(100, 445);
             lbProducts.Size = new Size(350, 80);
             createIdeaPanel.Controls.Add(lbProducts);
 
-            ComboBox cbProducts = new ComboBox();
+            cbProducts = new ComboBox();
             cbProducts.Location = new Point(470, 445);
             cbProducts.Font = new Font("Arial", 14);
             cbProducts.Size = new Size(230, 30);
@@ -452,23 +453,42 @@ namespace InvestmentIdeasPlatform
             btnRemoveProducts.Location = new Point(590, 480);
             createIdeaPanel.Controls.Add(btnRemoveProducts);
 
+            Label lblIdeaTitle = new Label();
+            lblIdeaTitle.Location = new Point(100, 530);
+            lblIdeaTitle.Text = "Idea Title";
+            lblIdeaTitle.ForeColor = Color.White;
+            lblIdeaTitle.Font = new Font("Arial", 15, FontStyle.Bold);
+            lblIdeaTitle.Width = 600;
+            lblIdeaTitle.Height = 25;
+            createIdeaPanel.Controls.Add(lblIdeaTitle);
+
             txtProductTitle = new TextBox();
-            txtProductTitle.Location = new Point(100, 530);
+            txtProductTitle.Location = new Point(100, 560);
             txtProductTitle.Font = new Font("Arial", 14);
             txtProductTitle.Size = new Size(350, 20);
             createIdeaPanel.Controls.Add(txtProductTitle);
+
+            Label lblIdeaOverview = new Label();
+            lblIdeaOverview.Location = new Point(100, 590);
+            lblIdeaOverview.Text = "Idea Overview";
+            lblIdeaOverview.ForeColor = Color.White;
+            lblIdeaOverview.Font = new Font("Arial", 15, FontStyle.Bold);
+            lblIdeaOverview.Width = 300;
+            lblIdeaOverview.Height = 25;
+            createIdeaPanel.Controls.Add(lblIdeaOverview);
+
+            txtProductOverview = new RichTextBox();
+            txtProductOverview.Size = new Size(350, 300);
+            txtProductOverview.Location = new Point(100, 620);
+            createIdeaPanel.Controls.Add(txtProductOverview);
 
             btnCreateIdea = new Button();
             btnCreateIdea.Text = "Create Idea";
             btnCreateIdea.BackColor = Color.FromArgb(52, 70, 82);
             btnCreateIdea.ForeColor = Color.White;
             btnCreateIdea.Size = new Size(230, 40);
-            btnCreateIdea.Location = new Point(470, 530);
+            btnCreateIdea.Location = new Point(470, 560);
             createIdeaPanel.Controls.Add(btnCreateIdea);
-
-            Label lblBlank = new Label();
-            lblBlank.Location = new Point(10, 500);
-            createIdeaPanel.Controls.Add(lblBlank);
 
             updateCBIndustryMajor();
             addButtonEventHandlers(currentUser);
@@ -482,7 +502,6 @@ namespace InvestmentIdeasPlatform
                 BusinessMetaLayer bl = BusinessMetaLayer.instance();
                 bl.insertUserData(txtName.Text, (cmbAccType.SelectedIndex + 1), txtUsername.Text, txtPass1.Text);
             }
-            
         }
 
         private void Test_Click(object sender, EventArgs e)
@@ -536,6 +555,7 @@ namespace InvestmentIdeasPlatform
                     btnAddMajorSector.Click += btnAddMajorSector_Click;
                     btnAddMinorSector.Click += btnAddMinorSector_Click;
                     btnAddCurrency.Click += btnAddCurrency_Click;
+                    btnAddProducts.Click += btnAddProducts_Click;
                     break;
             }
             
@@ -591,6 +611,15 @@ namespace InvestmentIdeasPlatform
             if (!lbCurrency.Items.Contains(cbCurrency.SelectedItem))
             {
                 lbCurrency.Items.Add(cbCurrency.SelectedItem);
+            }
+            updateCBProducts();
+        }
+
+        private void btnAddProducts_Click(object sender, EventArgs e)
+        {
+            if (!lbProducts.Items.Contains(cbProducts.SelectedItem))
+            {
+                lbProducts.Items.Add(cbProducts.SelectedItem);
             }
         }
 
@@ -660,7 +689,16 @@ namespace InvestmentIdeasPlatform
 
         public void updateCBProducts()
         {
-
+            foreach (InvestmentProduct product in products)
+            {
+                if (lbCurrency.Items.Contains(product.getCurrency()) && lbMinorSector.Items.Contains(product.getSectorL2()) && lbCurrency.Items.Contains(product.getCurrency()))
+                {
+                    if (!cbProducts.Items.Contains(product.getInstrumentName()))
+                    {
+                        cbProducts.Items.Add(product.getInstrumentName());
+                    }
+                }
+            }
         }
     }
 }

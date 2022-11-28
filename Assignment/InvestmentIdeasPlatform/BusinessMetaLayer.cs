@@ -142,15 +142,16 @@ namespace InvestmentIdeasPlatform
             con.CloseConnection();
         }
 
-        public void insertIdeaData(String name, String overview, String publishDate, String expiryDate, String author, int rmID, int faID)
+        public void insertIdeaData(String title, String overview, String publishDate, String expiryDate, String author, int rmID, int faID)
         {
             DBConnection con = DBFactory.instance();
             if (con.OpenConnection())
             {
                 String itemString = "INSERT INTO InvestmentIdea([Title], [Overview], [PublishDate], [ExpiryDate], [Author], [rm_id], [fa_id]) values(@title, @overview, @publishDate, @expiryDate, @author, @rm_id, @fa_id)"; 
-                String[] values = { name, overview, publishDate, expiryDate, author, rmID.ToString(), faID.ToString() };
+                String[] values = { title, overview, publishDate, expiryDate, author, rmID.ToString(), faID.ToString() };
                 con.Insert(2, itemString, values);
             }
+            con.CloseConnection();
         }
     }
 }
