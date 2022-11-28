@@ -125,17 +125,29 @@ namespace InvestmentIdeasPlatform
         {
             if (null != connection)
             {
+                SQLiteCommand cmd = new SQLiteCommand(query, connection);
+                
                 switch (queryType)
                 {
                     //Insert User
                     case 1:
                         //Create Command
-                        SQLiteCommand cmd = new SQLiteCommand(query, connection);
                         cmd.Parameters.Add("@name", DbType.String).Value = values[0];
                         cmd.Parameters.Add("@accountType", DbType.Int64).Value = values[1];
                         cmd.Parameters.Add("@username", DbType.String).Value = values[2];
                         cmd.Parameters.Add("@password", DbType.String).Value = values[3];
                         //Create a data reader and Execute the command
+                        cmd.ExecuteNonQuery();
+                        break;
+                    //Insert Idea
+                    case 2:
+                        cmd.Parameters.Add("@title", DbType.String).Value = values[0];
+                        cmd.Parameters.Add("@overview", DbType.String).Value = values[1];
+                        cmd.Parameters.Add("@publishDate", DbType.String).Value = values[2];
+                        cmd.Parameters.Add("@expiryDate", DbType.String).Value = values[3];
+                        cmd.Parameters.Add("@author", DbType.String).Value = values[4];
+                        cmd.Parameters.Add("@rm_id", DbType.Int64).Value = values[5];
+                        cmd.Parameters.Add("@fa_id", DbType.Int64).Value = values[6];
                         cmd.ExecuteNonQuery();
                         break;
                 }
