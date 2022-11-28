@@ -22,7 +22,6 @@ namespace InvestmentIdeasPlatform
         public HomePage()
         {
             InitializeComponent();
-
             addHomePanel();
             showLogin();
         }

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Entity.Core.Metadata.Edm;
+using System.Xml.Linq;
+using System.Data.SQLite;
 
 namespace InvestmentIdeasPlatform
 {
@@ -38,19 +41,24 @@ namespace InvestmentIdeasPlatform
         Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel(), createIdeaPanel = new Panel();
 
         DBConnection con = DBFactory.instance();
+        static BusinessMetaLayer bml = BusinessMetaLayer.instance();
+        List<InvestmentProduct> products = bml.getInvestmentProducts();
 
         ComboBox memCmbAccType { get; set; }
         TextBox memtxtUsername { get; set; }
         //RM>Create user panel placeholders (used for EventHandler access)
         CheckBox checkShowPass = null;
-        TextBox txtPass1 = null, txtPass2 = null, txtUsername = null;
+        TextBox txtPass1 = null, txtPass2 = null, txtUsername = null, txtName = null;
         Button btnCreateAccount = null;
         ComboBox cmbAccType = null;
         //RM>View ideas panel placeholders
         ListBox listBoxIdeas = null, listBoxClients = null;
         Button btnSeePreferences = null, btnSuggestIdea = null;
         //FA>Create ideas panel placeholders
-        Button btnAddMajorSector = null, btnRemoveMajorSector = null;
+        Button btnAddMajorSector = null, btnRemoveMajorSector = null, btnAddMinorSector = null, btnRemoveMinorSector = null, btnAddCurrency = null, btnAddProducts = null, btnRemoveProducts = null, btnCreateIdea = null;
+        TextBox txtProductTitle = null;
+        ComboBox cbMajorSector = null, cbMinorSector = null, cbCurrency = null;
+        ListBox lbMajorSector = null, lbMinorSector = null, lbCurrency = null;
 
         public void getUI(Panel panel, Form form)
         {
@@ -137,13 +145,12 @@ namespace InvestmentIdeasPlatform
             stylePanel(viewIdeasPanel);
             stylePanel(viewClientPanel);
             stylePanel(createUserPanel);
-
             //View ideas
-            
+
             //Button test = new Button();
             //test.Click += Test_Click;
             //viewIdeasPanel.Controls.Add(test);
-            
+
             //End view ideas
 
             //View clients
@@ -232,22 +239,29 @@ namespace InvestmentIdeasPlatform
             memCmbAccType = cmbAccType;
             createUserPanel.Controls.Add(cmbAccType);
 
+            txtName = new TextBox();
+            txtName.Text = "Name";
+            txtName.Location = new Point(200, 270);
+            txtName.Size = new Size(400, 40);
+            memtxtUsername = txtName;
+            createUserPanel.Controls.Add(txtName);
+
             txtUsername = new TextBox();
             txtUsername.Text = "Username";
-            txtUsername.Location = new Point(200, 270);
+            txtUsername.Location = new Point(200, 300);
             txtUsername.Size = new Size(400, 40);
             memtxtUsername = txtUsername;
             createUserPanel.Controls.Add(txtUsername);
 
             txtPass1 = new TextBox();
             txtPass1.Text = "Password";
-            txtPass1.Location = new Point(200, 300);
+            txtPass1.Location = new Point(200, 330);
             txtPass1.Size = new Size(400, 40);
             createUserPanel.Controls.Add(txtPass1);
 
             txtPass2 = new TextBox();
             txtPass2.Text = "Confirm password";
-            txtPass2.Location = new Point(200, 330);
+            txtPass2.Location = new Point(200, 360);
             txtPass2.Size = new Size(400, 40);
             createUserPanel.Controls.Add(txtPass2);
 
@@ -256,13 +270,13 @@ namespace InvestmentIdeasPlatform
             btnCreateAccount.BackColor = Color.FromArgb(52, 70, 82);
             btnCreateAccount.ForeColor = Color.White;
             btnCreateAccount.Size = new Size(100, 40);
-            btnCreateAccount.Location = new Point(350, 360);
+            btnCreateAccount.Location = new Point(350, 390);
             createUserPanel.Controls.Add(btnCreateAccount);
 
             checkShowPass = new CheckBox();
             checkShowPass.Checked = true;
             checkShowPass.Size = new Size(15, 15);
-            checkShowPass.Location = new Point(200, 365);
+            checkShowPass.Location = new Point(200, 395);
             createUserPanel.Controls.Add(checkShowPass);
 
             Label lblShowPass = new Label();
@@ -270,7 +284,7 @@ namespace InvestmentIdeasPlatform
             lblShowPass.Text = "Show password";
             lblShowPass.Size = new Size(200, 40);
             lblShowPass.ForeColor = Color.White;
-            lblShowPass.Location = new Point(215, 365);
+            lblShowPass.Location = new Point(215, 395);
             createUserPanel.Controls.Add(lblShowPass);
             //End create user
 
@@ -303,12 +317,12 @@ namespace InvestmentIdeasPlatform
             lblIndSectorMaj.Height = 25;
             createIdeaPanel.Controls.Add(lblIndSectorMaj);
 
-            ListBox lbMajorSector = new ListBox();
+            lbMajorSector = new ListBox();
             lbMajorSector.Location = new Point(100, 100);
             lbMajorSector.Size = new Size(350, 80);
             createIdeaPanel.Controls.Add(lbMajorSector);
 
-            ComboBox cbMajorSector = new ComboBox();
+            cbMajorSector = new ComboBox();
             cbMajorSector.Location = new Point(470, 100);
             cbMajorSector.Font = new Font("Arial", 14);
             cbMajorSector.Size = new Size(230, 30);
@@ -339,27 +353,124 @@ namespace InvestmentIdeasPlatform
             lblMinorSector.Height = 25;
             createIdeaPanel.Controls.Add(lblMinorSector);
 
-            ListBox lbMinorSector = new ListBox();
+            lbMinorSector = new ListBox();
             lbMinorSector.Location = new Point(100, 215);
             lbMinorSector.Size = new Size(350, 80);
             createIdeaPanel.Controls.Add(lbMinorSector);
 
-            btnAdd = new Button();
-            btnAddMajorSector.Text = "Add";
-            btnAddMajorSector.BackColor = Color.FromArgb(52, 70, 82);
-            btnAddMajorSector.ForeColor = Color.White;
-            btnAddMajorSector.Size = new Size(110, 40);
-            btnAddMajorSector.Location = new Point(470, 135);
-            createIdeaPanel.Controls.Add(btnAddMajorSector);
+            cbMinorSector = new ComboBox();
+            cbMinorSector.Location = new Point(470, 215);
+            cbMinorSector.Font = new Font("Arial", 14);
+            cbMinorSector.Size = new Size(230, 30);
+            createIdeaPanel.Controls.Add(cbMinorSector);
 
-            btnRemoveMajorSector = new Button();
-            btnRemoveMajorSector.Text = "Remove";
-            btnRemoveMajorSector.BackColor = Color.FromArgb(52, 70, 82);
-            btnRemoveMajorSector.ForeColor = Color.White;
-            btnRemoveMajorSector.Size = new Size(110, 40);
-            btnRemoveMajorSector.Location = new Point(590, 135);
-            createIdeaPanel.Controls.Add(btnRemoveMajorSector);
+            btnAddMinorSector = new Button();
+            btnAddMinorSector.Text = "Add";
+            btnAddMinorSector.BackColor = Color.FromArgb(52, 70, 82);
+            btnAddMinorSector.ForeColor = Color.White;
+            btnAddMinorSector.Size = new Size(110, 40);
+            btnAddMinorSector.Location = new Point(470, 250);
+            createIdeaPanel.Controls.Add(btnAddMinorSector);
 
+            btnRemoveMinorSector = new Button();
+            btnRemoveMinorSector.Text = "Remove";
+            btnRemoveMinorSector.BackColor = Color.FromArgb(52, 70, 82);
+            btnRemoveMinorSector.ForeColor = Color.White;
+            btnRemoveMinorSector.Size = new Size(110, 40);
+            btnRemoveMinorSector.Location = new Point(590, 250);
+            createIdeaPanel.Controls.Add(btnRemoveMinorSector);
+
+            Label lblCurrency = new Label();
+            lblCurrency.Location = new Point(100, 300);
+            lblCurrency.Text = "Currency";
+            lblCurrency.ForeColor = Color.White;
+            lblCurrency.Font = new Font("Arial", 15);
+            lblCurrency.Width = 600;
+            lblCurrency.Height = 25;
+            createIdeaPanel.Controls.Add(lblCurrency);
+
+            lbCurrency = new ListBox();
+            lbCurrency.Location = new Point(100, 330);
+            lbCurrency.Size = new Size(350, 80);
+            createIdeaPanel.Controls.Add(lbCurrency);
+
+            cbCurrency = new ComboBox();
+            cbCurrency.Location = new Point(470, 330);
+            cbCurrency.Font = new Font("Arial", 14);
+            cbCurrency.Size = new Size(230, 30);
+            createIdeaPanel.Controls.Add(cbCurrency);
+
+            btnAddCurrency = new Button();
+            btnAddCurrency.Text = "Add";
+            btnAddCurrency.BackColor = Color.FromArgb(52, 70, 82);
+            btnAddCurrency.ForeColor = Color.White;
+            btnAddCurrency.Size = new Size(110, 40);
+            btnAddCurrency.Location = new Point(470, 365);
+            createIdeaPanel.Controls.Add(btnAddCurrency);
+
+            btnRemoveMinorSector = new Button();
+            btnRemoveMinorSector.Text = "Remove";
+            btnRemoveMinorSector.BackColor = Color.FromArgb(52, 70, 82);
+            btnRemoveMinorSector.ForeColor = Color.White;
+            btnRemoveMinorSector.Size = new Size(110, 40);
+            btnRemoveMinorSector.Location = new Point(590, 365);
+            createIdeaPanel.Controls.Add(btnRemoveMinorSector);
+            /////////////
+            Label lblProducts = new Label();
+            lblProducts.Location = new Point(100, 415);
+            lblProducts.Text = "Products";
+            lblProducts.ForeColor = Color.White;
+            lblProducts.Font = new Font("Arial", 15, FontStyle.Bold);
+            lblProducts.Width = 600;
+            lblProducts.Height = 25;
+            createIdeaPanel.Controls.Add(lblProducts);
+
+            ListBox lbProducts = new ListBox();
+            lbProducts.Location = new Point(100, 445);
+            lbProducts.Size = new Size(350, 80);
+            createIdeaPanel.Controls.Add(lbProducts);
+
+            ComboBox cbProducts = new ComboBox();
+            cbProducts.Location = new Point(470, 445);
+            cbProducts.Font = new Font("Arial", 14);
+            cbProducts.Size = new Size(230, 30);
+            createIdeaPanel.Controls.Add(cbProducts);
+
+            btnAddProducts = new Button();
+            btnAddProducts.Text = "Add";
+            btnAddProducts.BackColor = Color.FromArgb(52, 70, 82);
+            btnAddProducts.ForeColor = Color.White;
+            btnAddProducts.Size = new Size(110, 40);
+            btnAddProducts.Location = new Point(470, 480);
+            createIdeaPanel.Controls.Add(btnAddProducts);
+
+            btnRemoveProducts = new Button();
+            btnRemoveProducts.Text = "Remove";
+            btnRemoveProducts.BackColor = Color.FromArgb(52, 70, 82);
+            btnRemoveProducts.ForeColor = Color.White;
+            btnRemoveProducts.Size = new Size(110, 40);
+            btnRemoveProducts.Location = new Point(590, 480);
+            createIdeaPanel.Controls.Add(btnRemoveProducts);
+
+            txtProductTitle = new TextBox();
+            txtProductTitle.Location = new Point(100, 530);
+            txtProductTitle.Font = new Font("Arial", 14);
+            txtProductTitle.Size = new Size(350, 20);
+            createIdeaPanel.Controls.Add(txtProductTitle);
+
+            btnCreateIdea = new Button();
+            btnCreateIdea.Text = "Create Idea";
+            btnCreateIdea.BackColor = Color.FromArgb(52, 70, 82);
+            btnCreateIdea.ForeColor = Color.White;
+            btnCreateIdea.Size = new Size(230, 40);
+            btnCreateIdea.Location = new Point(470, 530);
+            createIdeaPanel.Controls.Add(btnCreateIdea);
+
+            Label lblBlank = new Label();
+            lblBlank.Location = new Point(10, 500);
+            createIdeaPanel.Controls.Add(lblBlank);
+
+            updateCBIndustryMajor();
             addButtonEventHandlers(currentUser);
             form.Controls.Add(createIdeaPanel);
         }
@@ -369,7 +480,7 @@ namespace InvestmentIdeasPlatform
             if (txtUsername.Text != "Username" && txtUsername != null && txtPass1.Text == txtPass2.Text)
             {
                 BusinessMetaLayer bl = BusinessMetaLayer.instance();
-                bl.insertUserData("NAMEPLACEHOLDER", (cmbAccType.SelectedIndex + 1), txtUsername.Text, txtPass1.Text);
+                bl.insertUserData(txtName.Text, (cmbAccType.SelectedIndex + 1), txtUsername.Text, txtPass1.Text);
             }
             
         }
@@ -411,7 +522,8 @@ namespace InvestmentIdeasPlatform
             switch (user.getUserType())
             {
                 case 1:
-                    
+                    break;
+
                 case 2:
                     viewClient.Click += ViewClient_Click;
                     viewIdeas.Click += ViewIdeas_Click;
@@ -421,6 +533,9 @@ namespace InvestmentIdeasPlatform
                     break;
                 case 3:
                     createIdea.Click += CreateIdea_Click;
+                    btnAddMajorSector.Click += btnAddMajorSector_Click;
+                    btnAddMinorSector.Click += btnAddMinorSector_Click;
+                    btnAddCurrency.Click += btnAddCurrency_Click;
                     break;
             }
             
@@ -453,6 +568,32 @@ namespace InvestmentIdeasPlatform
             viewIdeasPanel.BringToFront();
         }
 
+        private void btnAddMajorSector_Click(object sender, EventArgs e)
+        {
+            if (!lbMajorSector.Items.Contains(cbMajorSector.SelectedItem))
+            {
+                lbMajorSector.Items.Add(cbMajorSector.SelectedItem);
+            }
+            updateCBIndustryMinor();
+        }
+
+        private void btnAddMinorSector_Click(object sender, EventArgs e)
+        {
+            if (!lbMinorSector.Items.Contains(cbMinorSector.SelectedItem))
+            {
+                lbMinorSector.Items.Add(cbMinorSector.SelectedItem);
+            }
+            updateCBCurrency();
+        }
+
+        private void btnAddCurrency_Click(object sender, EventArgs e)
+        {
+            if (!lbCurrency.Items.Contains(cbCurrency.SelectedItem))
+            {
+                lbCurrency.Items.Add(cbCurrency.SelectedItem);
+            }
+        }
+
         private void checkShowPass_CheckedChanged(object sender, EventArgs e)
         {
             if (checkShowPass.Checked)
@@ -466,6 +607,60 @@ namespace InvestmentIdeasPlatform
                 txtPass2.UseSystemPasswordChar = true;
             }
         }
+        public void updateCBIndustryMajor()
+        {
+            foreach (InvestmentProduct product in products)
+            {
+                if (!cbMajorSector.Items.Contains(product.getSectorL1()))
+                {
+                    cbMajorSector.Items.Add(product.getSectorL1());
+                }
+            }
+        }
 
+        public void updateCBIndustryMinor()
+        {
+            foreach(String sector in lbMajorSector.Items)
+            {
+                if (lbMajorSector.Items.Contains(sector))
+                {
+                    foreach(InvestmentProduct product in products)
+                    {
+                        if (product.getSectorL1().Equals(sector))
+                        {
+                            if (!cbMinorSector.Items.Contains(product.getSectorL2()))
+                            {
+                                cbMinorSector.Items.Add(product.getSectorL2());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public void updateCBCurrency()
+        {
+            foreach (String minorSector in lbMinorSector.Items)
+            {
+                if (lbMinorSector.Items.Contains(minorSector))
+                {
+                    foreach (InvestmentProduct product in products)
+                    {
+                        if (product.getSectorL2().Equals(minorSector))
+                        {
+                            if (!cbCurrency.Items.Contains(product.getCurrency()))
+                            {
+                                cbCurrency.Items.Add(product.getCurrency());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public void updateCBProducts()
+        {
+
+        }
     }
 }
