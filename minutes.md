@@ -111,3 +111,12 @@
 - Begun mass reformatting of code to fit new class structure
 - Redesigned database
 - Implemented database redesign
+
+### 25/11/22 SDJ
+- Finalised reformatting of classes
+
+### 28/11/22 SDJ
+- General programming progress
+
+### 29/11/22 SD
+- General programming progress
