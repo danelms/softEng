@@ -405,7 +405,7 @@ namespace InvestmentIdeasPlatform
             listboxClients.Size = new Size(600, 100);
             DataSet clients = new DataSet();
 
-            clients = con.getDataSet("Select Name from User WHERE UserType = '1'");
+            clients = con.getDataSet("Select Name from User WHERE UserType='1'");
             List<String> clientNames = clients.Tables[0].AsEnumerable().Select(r => r.Field<String>("Name")).ToList();
             foreach (String clientName in clientNames)
             {
@@ -437,11 +437,11 @@ namespace InvestmentIdeasPlatform
             listboxIdeas.Size = new Size(600, 100);
             DataSet ideas = new DataSet();
 
-            ideas = con.getDataSet("Select Overview from InvestmentIdea");
-            List<String> ideaOverviews = ideas.Tables[0].AsEnumerable().Select(r => r.Field<String>("Overview")).ToList();
+            ideas = con.getDataSet("Select Title from InvestmentIdea");
+            List<String> ideaOverviews = ideas.Tables[0].AsEnumerable().Select(r => r.Field<String>("Title")).ToList();
             foreach (String ideaOverview in ideaOverviews)
             {
-                listboxClients.Items.Add(ideaOverview);
+                listboxIdeas.Items.Add(ideaOverview);
             }
 
             viewClientPanel.Controls.Add(listboxIdeas);
