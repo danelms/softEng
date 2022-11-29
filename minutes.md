@@ -116,7 +116,8 @@
 - Finalised reformatting of classes
 
 ### 28/11/22 SDJ
-- General programming progress
+- Implemented filters on FA>Create idea
 
 ### 29/11/22 SD
-- General programming progress
+- Implemented necessary code for FA to upload ideas to the database
+- Implemented more panel styling
