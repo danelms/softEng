@@ -122,3 +122,4 @@
 - Implemented necessary code for FA to upload ideas to the database
 - Implemented more panel styling
 - Implemented insert for ProductIdeaLink (db)
+- FA>Create idea finished
