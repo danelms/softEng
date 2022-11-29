@@ -7,6 +7,7 @@ using System.Data.Common;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
+using System.Security.Cryptography;
 
 namespace InvestmentIdeasPlatform
 {
@@ -130,6 +131,109 @@ namespace InvestmentIdeasPlatform
             return users;
         }
 
+        public List<User> getRelationshipManagers()
+        {
+            List<User> users = new List<User>();
+            DBConnection con = DBFactory.instance();
+
+            if (con.OpenConnection())
+            {
+                DbDataReader dr = con.Select("SELECT Name, Username, Password FROM User WHERE UserType=\"2\"");
+
+                while (dr.Read())
+                {
+                    String name = dr.GetString(0);
+                    String username = dr.GetString(1);
+                    String password = dr.GetString(2);
+
+                    User user = new User(name, username, password, 2);
+                    users.Add(user);
+                }
+
+                dr.Close();
+                con.CloseConnection();
+
+            }
+
+            return users;
+        }
+
+        public int getUserID(User user)
+        {
+            DBConnection con = DBFactory.instance();
+            String username = user.getUsername();
+
+            if (con.OpenConnection())
+            {
+                int userID = 0;
+                DbDataReader dr = con.Select("SELECT id FROM User WHERE Username='" + username + "'");
+
+                while (dr.Read())
+                {
+                    userID = dr.GetInt32(0);
+                }
+                dr.Close();
+                con.CloseConnection();
+                return userID;
+            }
+            else
+            {
+                MessageBox.Show("Failed to retrieve id from database for user: " + username);
+                con.CloseConnection();
+                return 0;
+            }
+        }
+
+        public int getIdeaID(String ideaTitle)
+        {
+            DBConnection con = DBFactory.instance();
+
+            if (con.OpenConnection())
+            {
+                int id = 0;
+                DbDataReader dr = con.Select("SELECT id FROM InvestmentIdea WHERE Title='" + ideaTitle + "'");
+
+                while (dr.Read())
+                {
+                    id = dr.GetInt32(0);
+                }
+                dr.Close();
+                con.CloseConnection();
+                return id;
+            }
+            else
+            {
+                MessageBox.Show("Failed to retrieve id from database for InvestmentIdea: " + ideaTitle);
+                con.CloseConnection();
+                return 0;
+            }
+        }
+
+        public int getProductID(InvestmentProduct product)
+        {
+            DBConnection con = DBFactory.instance();
+
+            if (con.OpenConnection())
+            {
+                int userID = 0;
+                DbDataReader dr = con.Select("SELECT id FROM InvestmentProduct WHERE InstrumentDisplayName='" + product.getInstrumentDisplayName() + "'");
+
+                while (dr.Read())
+                {
+                    userID = dr.GetInt32(0);
+                }
+                dr.Close();
+                con.CloseConnection();
+                return userID;
+            }
+            else
+            {
+                MessageBox.Show("Failed to retrieve id from database for InvesmentProduct: " + product.getInstrumentName());
+                con.CloseConnection();
+                return 0;
+            }
+        }
+
         public void insertUserData(String name, int userType, String username, String password) 
         {
             DBConnection con = DBFactory.instance();
@@ -150,6 +254,18 @@ namespace InvestmentIdeasPlatform
                 String itemString = "INSERT INTO InvestmentIdea([Title], [Overview], [PublishDate], [ExpiryDate], [Author], [rm_id], [fa_id]) values(@title, @overview, @publishDate, @expiryDate, @author, @rm_id, @fa_id)"; 
                 String[] values = { title, overview, publishDate, expiryDate, author, rmID.ToString(), faID.ToString() };
                 con.Insert(2, itemString, values);
+            }
+            con.CloseConnection();
+        }
+
+        public void insertProductIdeaLink(int ideaID, int productID)
+        {
+            DBConnection con = DBFactory.instance();
+            if (con.OpenConnection())
+            {
+                String itemString = "INSERT INTO ProductIdeaLink([idea_id], [product_id]) values(@ideaID, @productID)";
+                String[] values = { ideaID.ToString(), productID.ToString() };
+                con.Insert(3, itemString, values);
             }
             con.CloseConnection();
         }
