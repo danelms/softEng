@@ -386,10 +386,6 @@ namespace InvestmentIdeasPlatform
             viewIdeasPanel.Controls.Add(clientsListPanel);
             //End view ideas
 
-
-
-
-
             //View clients
             Label lblClients = new Label();
             lblClients.Text = "Clients";
