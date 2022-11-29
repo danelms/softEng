@@ -121,3 +121,4 @@
 ### 29/11/22 SD
 - Implemented necessary code for FA to upload ideas to the database
 - Implemented more panel styling
+- Implemented insert for ProductIdeaLink (db)
