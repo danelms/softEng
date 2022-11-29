@@ -111,3 +111,14 @@
 - Begun mass reformatting of code to fit new class structure
 - Redesigned database
 - Implemented database redesign
+
+### 25/11/22 SDJ
+- Finalised reformatting of classes
+
+### 28/11/22 SDJ
+- Implemented filters on FA>Create idea
+
+### 29/11/22 SD
+- Implemented necessary code for FA to upload ideas to the database
+- Implemented more panel styling
+- Implemented insert for ProductIdeaLink (db)
