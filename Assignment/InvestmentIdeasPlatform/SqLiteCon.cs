@@ -150,6 +150,12 @@ namespace InvestmentIdeasPlatform
                         cmd.Parameters.Add("@fa_id", DbType.Int64).Value = values[6];
                         cmd.ExecuteNonQuery();
                         break;
+                    //Insert ProductIdeaLink
+                    case 3:
+                        cmd.Parameters.Add("@ideaID", DbType.Int32).Value = values[0];
+                        cmd.Parameters.Add("@productID", DbType.Int32).Value = values[1];
+                        cmd.ExecuteNonQuery();
+                        break;
                 }
             }
         }

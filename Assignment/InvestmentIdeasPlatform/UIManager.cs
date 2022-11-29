@@ -43,6 +43,7 @@ namespace InvestmentIdeasPlatform
         DBConnection con = DBFactory.instance();
         static BusinessMetaLayer bml = BusinessMetaLayer.instance();
         List<InvestmentProduct> products = bml.getInvestmentProducts();
+        List<User> RMs = new List<User>();
 
         ComboBox memCmbAccType { get; set; }
         TextBox memtxtUsername { get; set; }
@@ -56,10 +57,10 @@ namespace InvestmentIdeasPlatform
         Button btnSeePreferences = null, btnSuggestIdea = null;
         //FA>Create ideas panel placeholders
         Button btnAddMajorSector = null, btnRemoveMajorSector = null, btnAddMinorSector = null, btnRemoveMinorSector = null, btnAddCurrency = null, btnAddProducts = null, btnRemoveProducts = null, btnCreateIdea = null;
-        TextBox txtProductTitle = null;
-        ComboBox cbMajorSector = null, cbMinorSector = null, cbCurrency = null, cbProducts = null;
+        TextBox txtIdeaTitle = null;
+        ComboBox cbMajorSector = null, cbMinorSector = null, cbCurrency = null, cbProducts = null, cbRMs = null;
         ListBox lbMajorSector = null, lbMinorSector = null, lbCurrency = null, lbProducts = null;
-        RichTextBox txtProductOverview = null;
+        RichTextBox txtIdeaOverview = null;
 
         public void getUI(Panel panel, Form form)
         {
@@ -416,7 +417,7 @@ namespace InvestmentIdeasPlatform
             btnRemoveMinorSector.Size = new Size(110, 40);
             btnRemoveMinorSector.Location = new Point(590, 365);
             createIdeaPanel.Controls.Add(btnRemoveMinorSector);
-            /////////////
+            
             Label lblProducts = new Label();
             lblProducts.Location = new Point(100, 415);
             lblProducts.Text = "Products";
@@ -454,7 +455,7 @@ namespace InvestmentIdeasPlatform
             createIdeaPanel.Controls.Add(btnRemoveProducts);
 
             Label lblIdeaTitle = new Label();
-            lblIdeaTitle.Location = new Point(100, 530);
+            lblIdeaTitle.Location = new Point(225, 530);
             lblIdeaTitle.Text = "Idea Title";
             lblIdeaTitle.ForeColor = Color.White;
             lblIdeaTitle.Font = new Font("Arial", 15, FontStyle.Bold);
@@ -462,14 +463,14 @@ namespace InvestmentIdeasPlatform
             lblIdeaTitle.Height = 25;
             createIdeaPanel.Controls.Add(lblIdeaTitle);
 
-            txtProductTitle = new TextBox();
-            txtProductTitle.Location = new Point(100, 560);
-            txtProductTitle.Font = new Font("Arial", 14);
-            txtProductTitle.Size = new Size(350, 20);
-            createIdeaPanel.Controls.Add(txtProductTitle);
+            txtIdeaTitle = new TextBox();
+            txtIdeaTitle.Location = new Point(225, 560);
+            txtIdeaTitle.Font = new Font("Arial", 14);
+            txtIdeaTitle.Size = new Size(350, 20);
+            createIdeaPanel.Controls.Add(txtIdeaTitle);
 
             Label lblIdeaOverview = new Label();
-            lblIdeaOverview.Location = new Point(100, 590);
+            lblIdeaOverview.Location = new Point(225, 590);
             lblIdeaOverview.Text = "Idea Overview";
             lblIdeaOverview.ForeColor = Color.White;
             lblIdeaOverview.Font = new Font("Arial", 15, FontStyle.Bold);
@@ -477,17 +478,37 @@ namespace InvestmentIdeasPlatform
             lblIdeaOverview.Height = 25;
             createIdeaPanel.Controls.Add(lblIdeaOverview);
 
-            txtProductOverview = new RichTextBox();
-            txtProductOverview.Size = new Size(350, 300);
-            txtProductOverview.Location = new Point(100, 620);
-            createIdeaPanel.Controls.Add(txtProductOverview);
+            txtIdeaOverview = new RichTextBox();
+            txtIdeaOverview.Size = new Size(350, 300);
+            txtIdeaOverview.Location = new Point(225, 620);
+            createIdeaPanel.Controls.Add(txtIdeaOverview);
+
+            Label lblSendRM = new Label();
+            lblSendRM.Location = new Point(225, 940);
+            lblSendRM.Text = "Select RM to manage idea";
+            lblSendRM.ForeColor = Color.White;
+            lblSendRM.Font = new Font("Arial", 15, FontStyle.Bold);
+            lblSendRM.Width = 300;
+            lblSendRM.Height = 25;
+            createIdeaPanel.Controls.Add(lblSendRM);
+
+            cbRMs = new ComboBox();
+            RMs = bml.getRelationshipManagers();
+            foreach (User rm in RMs)
+            {
+                cbRMs.Items.Add(rm.getName());
+            }
+            cbRMs.Location = new Point(225, 970);
+            cbRMs.Size = new Size(350, 30);
+            cbRMs.Font = new Font("Arial", 14);
+            createIdeaPanel.Controls.Add(cbRMs);
 
             btnCreateIdea = new Button();
             btnCreateIdea.Text = "Create Idea";
             btnCreateIdea.BackColor = Color.FromArgb(52, 70, 82);
             btnCreateIdea.ForeColor = Color.White;
-            btnCreateIdea.Size = new Size(230, 40);
-            btnCreateIdea.Location = new Point(470, 560);
+            btnCreateIdea.Size = new Size(350, 40);
+            btnCreateIdea.Location = new Point(225, 1010);
             createIdeaPanel.Controls.Add(btnCreateIdea);
 
             updateCBIndustryMajor();
@@ -556,12 +577,11 @@ namespace InvestmentIdeasPlatform
                     btnAddMinorSector.Click += btnAddMinorSector_Click;
                     btnAddCurrency.Click += btnAddCurrency_Click;
                     btnAddProducts.Click += btnAddProducts_Click;
+                    btnCreateIdea.Click += btnCreateIdea_Click;
                     break;
             }
             
         }
-
-
 
         private void Logout_Click(object sender, EventArgs e)
         {
@@ -590,36 +610,48 @@ namespace InvestmentIdeasPlatform
 
         private void btnAddMajorSector_Click(object sender, EventArgs e)
         {
-            if (!lbMajorSector.Items.Contains(cbMajorSector.SelectedItem))
+            if (cbMajorSector.SelectedItem != null)
             {
-                lbMajorSector.Items.Add(cbMajorSector.SelectedItem);
+                if (!lbMajorSector.Items.Contains(cbMajorSector.SelectedItem))
+                {
+                    lbMajorSector.Items.Add(cbMajorSector.SelectedItem);
+                }
+                updateCBIndustryMinor();
             }
-            updateCBIndustryMinor();
         }
 
         private void btnAddMinorSector_Click(object sender, EventArgs e)
         {
-            if (!lbMinorSector.Items.Contains(cbMinorSector.SelectedItem))
+            if (cbMinorSector.SelectedItem != null)
             {
-                lbMinorSector.Items.Add(cbMinorSector.SelectedItem);
+                if (!lbMinorSector.Items.Contains(cbMinorSector.SelectedItem))
+                {
+                    lbMinorSector.Items.Add(cbMinorSector.SelectedItem);
+                }
+                updateCBCurrency();
             }
-            updateCBCurrency();
         }
 
         private void btnAddCurrency_Click(object sender, EventArgs e)
         {
-            if (!lbCurrency.Items.Contains(cbCurrency.SelectedItem))
+            if (cbCurrency.SelectedItem != null)
             {
-                lbCurrency.Items.Add(cbCurrency.SelectedItem);
+                if (!lbCurrency.Items.Contains(cbCurrency.SelectedItem))
+                {
+                    lbCurrency.Items.Add(cbCurrency.SelectedItem);
+                }
+                updateCBProducts();
             }
-            updateCBProducts();
         }
 
         private void btnAddProducts_Click(object sender, EventArgs e)
         {
-            if (!lbProducts.Items.Contains(cbProducts.SelectedItem))
+            if (cbProducts.SelectedItem != null)
             {
-                lbProducts.Items.Add(cbProducts.SelectedItem);
+                if (!lbProducts.Items.Contains(cbProducts.SelectedItem))
+                {
+                    lbProducts.Items.Add(cbProducts.SelectedItem);
+                }
             }
         }
 
@@ -636,6 +668,41 @@ namespace InvestmentIdeasPlatform
                 txtPass2.UseSystemPasswordChar = true;
             }
         }
+
+        private void btnCreateIdea_Click(object sender, EventArgs e)
+        {
+            String publishDate = DateTime.Today.ToString("dd/MM/yyyy");
+            String expiryDate = DateTime.Today.AddDays(90).ToString("dd/MM/yyyy");
+            BusinessMetaLayer bml = BusinessMetaLayer.instance();
+
+            BusinessMetaLayer bl = BusinessMetaLayer.instance();
+            bl.insertIdeaData(txtIdeaTitle.Text, txtIdeaOverview.Text, publishDate, expiryDate, currentUser.getName(), bml.getUserID(RMs[cbRMs.SelectedIndex]) ,bml.getUserID(currentUser));
+            
+            foreach (InvestmentProduct product in products)
+            {
+                if (lbProducts.Items.Contains(product.getInstrumentName()))
+                {
+                    bml.insertProductIdeaLink(bml.getIdeaID(txtIdeaTitle.Text), bml.getProductID(product));
+                }
+            }
+
+            MessageBox.Show("Idea uploaded to the database.");
+            cbCurrency.Items.Clear();
+            cbCurrency.Text = "";
+            cbMajorSector.Text = "";
+            cbMinorSector.Items.Clear();
+            cbMinorSector.Text = "";
+            cbProducts.Items.Clear();
+            cbProducts.Text = "";
+            cbRMs.Text = "";
+            txtIdeaOverview.Clear();
+            txtIdeaTitle.Clear();
+            lbCurrency.Items.Clear();
+            lbMajorSector.Items.Clear();
+            lbMinorSector.Items.Clear();
+            lbProducts.Items.Clear();
+        }
+
         public void updateCBIndustryMajor()
         {
             foreach (InvestmentProduct product in products)
