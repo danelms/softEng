@@ -63,8 +63,8 @@ namespace InvestmentIdeasPlatform
         ListBox lbMajorSector = null, lbMinorSector = null, lbCurrency = null, lbProducts = null, lbIdeas = null, lbProductType = null, lbCurrencyRM = null, lbCountryRM = null, lbRegionRM = null, lbMajorSectorRM = null, lbMinorSectorRM = null, lbInstrumentsRM = null;
         RichTextBox txtProductOverview = null;
         TextBox txtIdeaTitle = null;
-        ComboBox cbMajorSector = null, cbMinorSector = null, cbCurrency = null, cbProducts = null, cbRMs = null;
-        ListBox lbMajorSector = null, lbMinorSector = null, lbCurrency = null, lbProducts = null;
+        ComboBox cbRMs = null;
+
         RichTextBox txtIdeaOverview = null;
 
         public void getUI(Panel panel, Form form)
