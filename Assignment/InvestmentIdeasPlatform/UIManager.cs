@@ -39,7 +39,7 @@ namespace InvestmentIdeasPlatform
 
         Button viewIdeas = new Button(), viewClient = new Button(), createUser = new Button(), logout = new Button(), viewSuggestedIdeas = new Button(), createIdea = new Button();
 
-        Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel(), createIdeaPanel = new Panel();
+        Panel viewIdeasPanel = new Panel(), viewClientPanel = new Panel(), createUserPanel = new Panel(), createIdeaPanel = new Panel(), viewSuggestedIdeasPanel = new Panel();
 
         DBConnection con = DBFactory.instance();
         static BusinessMetaLayer bml = BusinessMetaLayer.instance();
@@ -64,6 +64,8 @@ namespace InvestmentIdeasPlatform
         RichTextBox txtProductOverview = null;
         TextBox txtIdeaTitle = null;
         ComboBox cbRMs = null;
+        //Client>View suggested ideas placeholders
+        ListBox lbIdeasClient = null;
 
         RichTextBox txtIdeaOverview = null;
 
@@ -73,7 +75,7 @@ namespace InvestmentIdeasPlatform
             {
                 case 1:
                     addClientMenu(panel);
-                    //addClientPanels(form);
+                    addClientPanels(form);
                     break;
                 case 2:
                     addRmMenu(panel);
@@ -528,6 +530,225 @@ namespace InvestmentIdeasPlatform
             form.Controls.Add(createUserPanel);
         }
 
+        public void addClientPanels(Form form)
+        {
+            stylePanel(viewSuggestedIdeasPanel);
+
+            Padding marginTop = new Padding();
+            marginTop.Top = 30;
+
+            Label lblSuggestedIdeas = new Label();
+            lblSuggestedIdeas.Text = "Suggested Ideas";
+            lblSuggestedIdeas.Font = new Font("Arial", 15, FontStyle.Bold);
+            lblSuggestedIdeas.Location = new Point(100, 40);
+            lblSuggestedIdeas.ForeColor = Color.White;
+            lblSuggestedIdeas.Width = 600;
+            lblSuggestedIdeas.Height = 25;
+            viewSuggestedIdeasPanel.Controls.Add(lblSuggestedIdeas);
+
+            Panel singleIdeaPanel = new Panel();
+            singleIdeaPanel.Location = new Point(100, 150);
+            singleIdeaPanel.Size = new Size(600, 1100);
+            singleIdeaPanel.BackColor = Color.FromArgb(54, 70, 82);
+            singleIdeaPanel.ForeColor = Color.White;
+
+            List<InvestmentIdea> ideas = bml.getSuggestedIdeas(bml.getUserID(currentUser));
+
+            ListBox lbIdeas = new ListBox();
+            foreach (InvestmentIdea idea in ideas)
+            {
+                lbIdeas.Items.Add(idea.getTitle());
+            }
+            lbIdeas.Size = new Size(400, 30);
+            lbIdeas.Location = new Point(100, 100);
+            viewSuggestedIdeasPanel.Controls.Add(lbIdeas);
+  
+            singleIdeaPanel.Padding = marginTop;
+            Label ideaTitle = new Label();
+            ideaTitle.Text = "My Idea Title";
+            ideaTitle.AutoSize = false;
+            ideaTitle.Dock = DockStyle.Top;
+            ideaTitle.TextAlign = ContentAlignment.MiddleCenter;
+            ideaTitle.Font = new Font("Arial", 18);
+
+            singleIdeaPanel.Controls.Add(ideaTitle);
+
+            Label lblIdeaContent = new Label();
+            lblIdeaContent.Text = "Overview";
+            lblIdeaContent.Font = new Font("Arial", 14);
+            lblIdeaContent.Location = new Point(50, 70);
+            singleIdeaPanel.Controls.Add(lblIdeaContent);
+
+            txtIdeaContent = new TextBox();
+            txtIdeaContent.Location = new Point(50, 100);
+            txtIdeaContent.Multiline = true;
+            txtIdeaContent.Size = new Size(500, 100);
+            singleIdeaPanel.Controls.Add(txtIdeaContent);
+
+            Label lblriskLevel = new Label();
+            lblriskLevel.Text = "Risk Level:";
+            lblriskLevel.Font = new Font("Arial", 12);
+            lblriskLevel.Location = new Point(50, 230);
+            singleIdeaPanel.Controls.Add(lblriskLevel);
+
+            Label lblriskLevelValue = new Label();
+            lblriskLevelValue.Text = "3";
+            lblriskLevelValue.Font = new Font("Arial", 12);
+            lblriskLevelValue.Location = new Point(147, 230);
+            singleIdeaPanel.Controls.Add(lblriskLevelValue);
+
+            Label lblProductType = new Label();
+            lblProductType.Text = "Product Type: ";
+            lblProductType.AutoSize = false;
+            lblProductType.Size = new Size(300, 20);
+            lblProductType.Font = new Font("Arial", 12);
+            lblProductType.Location = new Point(50, 280);
+            singleIdeaPanel.Controls.Add(lblProductType);
+
+            lbProductType = new ListBox();
+            lbProductType.Items.Add("Product1");
+            lbProductType.Location = new Point(50, 310);
+            lbProductType.Size = new Size(500, 50);
+            singleIdeaPanel.Controls.Add(lbProductType);
+
+            Label lblCurrency = new Label();
+            lblCurrency.Text = "Currency: ";
+            lblCurrency.MaximumSize = new Size(100, 0);
+            lblCurrency.AutoSize = true;
+            lblCurrency.Font = new Font("Arial", 12);
+            lblCurrency.Location = new Point(50, 400);
+            singleIdeaPanel.Controls.Add(lblCurrency);
+
+            lbCurrencyRM = new ListBox();
+            lbCurrencyRM.Items.Add("USD");
+            lbCurrencyRM.Location = new Point(130, 390);
+            lbCurrencyRM.Size = new Size(420, 50);
+            singleIdeaPanel.Controls.Add(lbCurrencyRM);
+
+            Label lblCountry = new Label();
+            lblCountry.Text = "Country: ";
+            lblCountry.MaximumSize = new Size(100, 0);
+            lblCountry.AutoSize = true;
+            lblCountry.Font = new Font("Arial", 12);
+            lblCountry.Location = new Point(50, 480);
+            singleIdeaPanel.Controls.Add(lblCountry);
+
+            lbCountryRM = new ListBox();
+            lbCountryRM.Items.Add("United Kingdom");
+            lbCountryRM.Location = new Point(130, 470);
+            lbCountryRM.Size = new Size(420, 50);
+            singleIdeaPanel.Controls.Add(lbCountryRM);
+
+            Label lblRegion = new Label();
+            lblRegion.Text = "Region: ";
+            lblRegion.MaximumSize = new Size(100, 0);
+            lblRegion.AutoSize = true;
+            lblRegion.Font = new Font("Arial", 12);
+            lblRegion.Location = new Point(50, 560);
+            singleIdeaPanel.Controls.Add(lblRegion);
+
+            lbRegionRM = new ListBox();
+            lbRegionRM.Items.Add("Europe");
+            lbRegionRM.Location = new Point(130, 550);
+            lbRegionRM.Size = new Size(420, 50);
+            singleIdeaPanel.Controls.Add(lbRegionRM);
+
+            Label lblMajor = new Label();
+            lblMajor.Text = "Major Sector: ";
+            lblMajor.MaximumSize = new Size(100, 0);
+            lblMajor.AutoSize = true;
+            lblMajor.Font = new Font("Arial", 12);
+            lblMajor.Location = new Point(50, 640);
+            singleIdeaPanel.Controls.Add(lblMajor);
+
+            lbMajorSectorRM = new ListBox();
+            lbMajorSectorRM.Items.Add("IT Services");
+            lbMajorSectorRM.Location = new Point(130, 630);
+            lbMajorSectorRM.Size = new Size(420, 50);
+            singleIdeaPanel.Controls.Add(lbMajorSectorRM);
+
+            Label lblMinor = new Label();
+            lblMinor.Text = "Minor Sector: ";
+            lblMinor.MaximumSize = new Size(100, 0);
+            lblMinor.AutoSize = true;
+            lblMinor.Font = new Font("Arial", 12);
+            lblMinor.Location = new Point(50, 720);
+            singleIdeaPanel.Controls.Add(lblMinor);
+
+            lbMinorSectorRM = new ListBox();
+            lbMinorSectorRM.Items.Add("Gaming");
+            lbMinorSectorRM.Location = new Point(130, 710);
+            lbMinorSectorRM.Size = new Size(420, 50);
+            singleIdeaPanel.Controls.Add(lbMinorSectorRM);
+
+            Label lblInstruments = new Label();
+            lblInstruments.Text = "Instruments: ";
+            lblInstruments.MaximumSize = new Size(100, 0);
+            lblInstruments.AutoSize = true;
+            lblInstruments.Font = new Font("Arial", 12);
+            lblInstruments.Location = new Point(50, 800);
+            singleIdeaPanel.Controls.Add(lblInstruments);
+
+            lbInstrumentsRM = new ListBox();
+            lbInstrumentsRM.Items.Add("CON");
+            lbInstrumentsRM.Location = new Point(145, 790);
+            lbInstrumentsRM.Size = new Size(405, 50);
+            singleIdeaPanel.Controls.Add(lbInstrumentsRM);
+
+            Label lblPublished = new Label();
+            lblPublished.Text = "Date Published: ";
+            lblPublished.MaximumSize = new Size(100, 0);
+            lblPublished.AutoSize = true;
+            lblPublished.Font = new Font("Arial", 12);
+            lblPublished.Location = new Point(50, 870);
+            singleIdeaPanel.Controls.Add(lblPublished);
+
+            Label lblPublishedValue = new Label();
+            lblPublishedValue.Text = "00/00/0000";
+            lblPublishedValue.MaximumSize = new Size(100, 0);
+            lblPublishedValue.AutoSize = true;
+            lblPublishedValue.Font = new Font("Arial", 12);
+            lblPublishedValue.Location = new Point(160, 870);
+            singleIdeaPanel.Controls.Add(lblPublishedValue);
+
+            Label lblExpires = new Label();
+            lblExpires.Text = "Expiry Date: ";
+            lblExpires.MaximumSize = new Size(100, 0);
+            lblExpires.AutoSize = true;
+            lblExpires.Font = new Font("Arial", 12);
+            lblExpires.Location = new Point(50, 950);
+            singleIdeaPanel.Controls.Add(lblExpires);
+
+            Label lblExpriesValue = new Label();
+            lblExpriesValue.Text = "00/00/0000";
+            lblExpriesValue.MaximumSize = new Size(100, 0);
+            lblExpriesValue.AutoSize = true;
+            lblExpriesValue.Font = new Font("Arial", 12);
+            lblExpriesValue.Location = new Point(160, 950);
+            singleIdeaPanel.Controls.Add(lblExpriesValue);
+
+            Label lblAuthor = new Label();
+            lblAuthor.Text = "Author: ";
+            lblAuthor.MaximumSize = new Size(100, 0);
+            lblAuthor.AutoSize = true;
+            lblAuthor.Font = new Font("Arial", 12);
+            lblAuthor.Location = new Point(50, 1030);
+            singleIdeaPanel.Controls.Add(lblAuthor);
+
+            Label lblAuthorValue = new Label();
+            lblAuthorValue.Text = "John Cena: Bing Chilling";
+            lblAuthorValue.MaximumSize = new Size(300, 0);
+            lblAuthorValue.AutoSize = true;
+            lblAuthorValue.Font = new Font("Arial", 12);
+            lblAuthorValue.Location = new Point(130, 1030);
+            singleIdeaPanel.Controls.Add(lblAuthorValue);
+
+            viewSuggestedIdeasPanel.Controls.Add(singleIdeaPanel);
+
+            form.Controls.Add(viewSuggestedIdeasPanel);
+
+        }
+
         public void addFAPanels(Form form)
         {
             stylePanel(createIdeaPanel);
@@ -793,6 +1014,7 @@ namespace InvestmentIdeasPlatform
             switch (user.getUserType())
             {
                 case 1:
+                    viewSuggestedIdeas.Click += viewSuggestedIdeas_Click;
                     break;
 
                 case 2:
@@ -812,6 +1034,11 @@ namespace InvestmentIdeasPlatform
                     break;
             }
             
+        }
+
+        private void viewSuggestedIdeas_Click(object sender, EventArgs e)
+        {
+            viewSuggestedIdeasPanel.BringToFront();
         }
 
         private void Logout_Click(object sender, EventArgs e)

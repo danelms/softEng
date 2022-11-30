@@ -78,7 +78,6 @@ namespace InvestmentIdeasPlatform
         public InvestmentProduct getSingleProduct(int pos)
         {
             return products[pos];
-        }
-            
+        } 
     }
 }

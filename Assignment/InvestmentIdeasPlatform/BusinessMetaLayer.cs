@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Xml.Linq;
 using System.Security.Cryptography;
+using System.Drawing;
 
 namespace InvestmentIdeasPlatform
 {
@@ -46,6 +47,7 @@ namespace InvestmentIdeasPlatform
             String displayName = "";
             String instName = "";
             String assetType = "";
+            String subType = "";
             String sectorL1 ="";
             String sectorL2 ="";
             String region = "";
@@ -64,30 +66,30 @@ namespace InvestmentIdeasPlatform
 
             if (con.OpenConnection()) 
             {
-                DbDataReader dr = con.Select("SELECT InstrumentDisplayName, InvestmentName, AssetType, IndustrySectorL1, IndustrySectorL2, Region, Country, Ticker, ISIN, Issuer, StockExchange, PriceCurrency, Denomination, ClosingPrice, PriceClosingDate, IssueDate, MaturityDate, RiskLevel FROM InvestmentProduct");
+                DbDataReader dr = con.Select("SELECT * FROM InvestmentProduct");
                 while (dr.Read()) 
                 {
+                    displayName = dr.GetString(1);
+                    instName = dr.GetString(2);
+                    assetType = dr.GetString(3);
+                    subType = dr.GetString(4);
+                    sectorL1 = dr.GetString(5);
+                    sectorL2 = dr.GetString(6);
+                    region = dr.GetString(7);
+                    country = dr.GetString(8);
+                    ticker = dr.GetString(9);
+                    iSIN = dr.GetString(10);
+                    issuer = dr.GetString(11);
+                    stockExchange = dr.GetString(12);
+                    currency = dr.GetString(13);
+                    denomination = dr.GetInt32(14);
+                    closingPrice = dr.GetDouble(15);
+                    priceClosingDate = dr.GetDateTime(16);
+                    issueDate = dr.GetDateTime(17);
+                    maturityDate = dr.GetDateTime(18);
+                    riskLevel = dr.GetInt32(19);
 
-                    displayName = dr.GetString(0);
-                    instName = dr.GetString(1);
-                    assetType = dr.GetString(2);
-                    sectorL1 = dr.GetString(3);
-                    sectorL2 = dr.GetString(4);
-                    region = dr.GetString(5);
-                    country = dr.GetString(6);
-                    ticker = dr.GetString(7);
-                    iSIN = dr.GetString(8);
-                    issuer = dr.GetString(9);
-                    stockExchange = dr.GetString(10);
-                    currency = dr.GetString(11);
-                    denomination = dr.GetInt32(12);
-                    closingPrice = dr.GetDouble(13);
-                    priceClosingDate = dr.GetDateTime(14);
-                    issueDate = dr.GetDateTime(15);
-                    maturityDate = dr.GetDateTime(16);
-                    riskLevel = dr.GetInt32(17);
-
-                    InvestmentProduct investmentProduct = new InvestmentProduct(displayName,instName, assetType, sectorL1, sectorL2, region, country, ticker, iSIN, issuer, stockExchange, currency, denomination, closingPrice, priceClosingDate, issueDate, maturityDate, riskLevel);
+                    InvestmentProduct investmentProduct = new InvestmentProduct(displayName, instName, assetType, subType, sectorL1, sectorL2, region, country, ticker, iSIN, issuer, stockExchange, currency, denomination, closingPrice, priceClosingDate, issueDate, maturityDate, riskLevel);
                     products.Add(investmentProduct);
                 }
 
@@ -182,6 +184,115 @@ namespace InvestmentIdeasPlatform
                 con.CloseConnection();
                 return 0;
             }
+        }
+
+        public List<InvestmentIdea> getSuggestedIdeas(int clientID)
+        {
+            BusinessMetaLayer bml = BusinessMetaLayer.instance();
+            List<InvestmentIdea> ideas = new List<InvestmentIdea>();
+            InvestmentIdea idea = null;
+            int ideaID;
+            List<int>ideaIDs = new List<int>();
+            DBConnection con = DBFactory.instance();
+            con.OpenConnection();
+            DbDataReader dr = con.Select("SELECT idea_id FROM IdeaSuggestion WHERE client_id ='" + clientID.ToString() + "'");
+
+            while (dr.Read())
+            {
+                ideaID = dr.GetInt32(0);
+                ideaIDs.Add(ideaID);
+            }
+
+            String overview;
+            String publishDate;
+            String expiryDate;
+            String author;
+            String title;
+            List<int> productIDs = new List<int>();
+            List<InvestmentProduct> products = new List<InvestmentProduct>();
+            InvestmentProduct product = null;
+
+            foreach (int id in ideaIDs)
+            {
+                dr = con.Select("SELECT * FROM InvestmentIdea WHERE id ='" + id + "'");
+
+                while (dr.Read())
+                {
+                    overview = dr.GetString(1);
+                    publishDate = dr.GetString(2);
+                    expiryDate = dr.GetString(3);
+                    author = dr.GetString(4);
+                    title = dr.GetString(7);
+
+                    dr = con.Select("SELECT product_id FROM ProductIdeaLink WHERE idea_id='" + id.ToString() + "'");
+
+                    while(dr.Read())
+                    {
+                        productIDs.Add(dr.GetInt32(0));
+                    }
+
+                    String instDisplayName;
+                    String instName;
+                    String type;
+                    String subType;
+                    String sectorL1;
+                    String sectorL2;
+                    String region;
+                    String country;
+                    String ticker;
+                    String ISIN;
+                    String issuer;
+                    String stockX;
+                    String currency;
+                    int denomination;
+                    float closingPrice;
+                    String priceClosingDate;
+                    String issueDate;
+                    String maturityDate;
+                    int coupon;
+                    int riskLevel;
+
+                    foreach(int productID in productIDs)
+                    {
+                        dr = con.Select("SELECT * FROM InvestmentProduct WHERE id='" + productID.ToString() + "'");
+
+                        while (dr.Read())
+                        {
+                            instDisplayName = dr.GetString(1);
+                            instName = dr.GetString(2);
+                            type = dr.GetString(3);
+                            subType = dr.GetString(4);
+                            sectorL1 = dr.GetString(5);
+                            sectorL2 = dr.GetString(6);
+                            region = dr.GetString(7);
+                            country = dr.GetString(8);
+                            ticker = dr.GetString(9);
+                            ISIN = dr.GetString(10);
+                            issuer = dr.GetString(11);
+                            stockX = dr.GetString(12);
+                            currency = dr.GetString(13);
+                            denomination = dr.GetInt32(14);
+                            closingPrice = dr.GetFloat(15);
+                            priceClosingDate = dr.GetString(16);
+                            issueDate = dr.GetString(17);
+                            maturityDate = dr.GetString(18);
+                            coupon = dr.GetInt32(19);
+                            riskLevel = dr.GetInt32(20);
+
+                            product = new InvestmentProduct(instDisplayName, instName, type, subType, sectorL1, sectorL1, region, country, ticker, ISIN, issuer, stockX, currency, denomination, closingPrice, DateTime.Parse(priceClosingDate), DateTime.Parse(issueDate), DateTime.Parse(maturityDate), riskLevel);
+                            products.Add(product);
+                        }
+                    }
+
+                    idea = new InvestmentIdea(title, overview, DateTime.Parse(publishDate), DateTime.Parse(expiryDate), author, products);
+                    ideas.Add(idea);
+                }
+            }
+
+            dr.Close();
+            con.CloseConnection();
+
+            return ideas;
         }
 
         public int getIdeaID(String ideaTitle)

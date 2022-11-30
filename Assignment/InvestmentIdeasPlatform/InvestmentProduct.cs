@@ -11,6 +11,7 @@ namespace InvestmentIdeasPlatform
         private String instDisplayName; //Instrument display name
         private String instName; //Instrument name
         private String assetType; //The type of asset
+        private String subType; //The asset subtype
         private String sectorL1; //Industry sector L1
         private String sectorL2; //Industry sector L2
         private String region; //Region the product exists in e.g. "Europe"
@@ -33,6 +34,7 @@ namespace InvestmentIdeasPlatform
         /// <param name="instDisplayName">Instrument display name</param>
         /// <param name="instName">Instrument name</param>
         /// <param name="assetType">The asset's type</param>
+        /// <param name="subType">The asset's sub-type</param>
         /// <param name="sectorL1">Industry sector L1</param>
         /// <param name="sectorL2">Industry sector L2</param>
         /// <param name="region">Region e.g. "Europe"</param>
@@ -48,11 +50,12 @@ namespace InvestmentIdeasPlatform
         /// <param name="issueDate">Date issued</param>
         /// <param name="maturityDate">Maturity date</param>
         /// <param name="riskLevel">Risk level</param>
-        public InvestmentProduct(String instDisplayName, String instName, String assetType, String sectorL1, String sectorL2, String region, String country, String ticker, String ISIN, String issuer, String stockExchange, String currency, int denomination, double closingPrice, DateTime priceClosingDate, DateTime issueDate, DateTime maturityDate, int riskLevel)
+        public InvestmentProduct(String instDisplayName, String instName, String assetType, String subType, String sectorL1, String sectorL2, String region, String country, String ticker, String ISIN, String issuer, String stockExchange, String currency, int denomination, double closingPrice, DateTime priceClosingDate, DateTime issueDate, DateTime maturityDate, int riskLevel)
         {
             this.instDisplayName = instDisplayName;
             this.instName = instName;
             this.assetType = assetType;
+            this.subType = subType;
             this.sectorL1 = sectorL1;
             this.sectorL2 = sectorL2;
             this.region = region;
@@ -86,6 +89,11 @@ namespace InvestmentIdeasPlatform
         public String getAssetType()
         {
             return assetType;
+        }
+
+        public String getSubType()
+        {
+            return subType;
         }
 
         /// <returns>The industry sector (L1) as a <b>String</b></returns>

@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.Common;
 using System.IO;
 using System.Diagnostics;
+using SQLitePCL;
 namespace InvestmentIdeasPlatform
 {
     /// <summary>
