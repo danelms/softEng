@@ -28,6 +28,9 @@
 - Discussed design options
 - Finalised class diagram
 
+### 14/10/22 S
+- Created sequence diagrams
+
 ### 16/10/22 S
 - Finalised design of login form
 
@@ -123,3 +126,8 @@
 - Implemented more panel styling
 - Implemented insert for ProductIdeaLink (db)
 - FA>Create idea finished
+
+### 30/11/22 SDJ
+- Last minute implementations to project
+- Created a presentation for client meeting
+- client meeting
