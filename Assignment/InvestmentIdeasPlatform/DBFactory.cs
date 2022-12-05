@@ -13,7 +13,7 @@ namespace InvestmentIdeasPlatform
     /// <summary>
     /// Class used to instantiate DBConnection objects
     /// </summary>
-    class DBFactory
+    public class DBFactory
     {
         private static DBConnection memInstance = null;
 

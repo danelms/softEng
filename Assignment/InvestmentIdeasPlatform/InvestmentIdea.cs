@@ -9,7 +9,7 @@ namespace InvestmentIdeasPlatform
     /// <summary>
     /// Class to be used to instantiate InvestmentIdea objects
     /// </summary>
-    class InvestmentIdea
+    public class InvestmentIdea
     {
         private String title; //Idea title
         private String overview; //Description of the idea
