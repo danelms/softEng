@@ -8,7 +8,7 @@ using System.Drawing;
 namespace InvestmentIdeasPlatform
 {
     /// <summary>
-    /// Class used to instantiate a Client object
+    /// Class used to instantiate a Client object (inherits from User)
     /// </summary>
     public class Client : User
     {
@@ -18,7 +18,7 @@ namespace InvestmentIdeasPlatform
         private List<String> preferenceRegion = new List<String>(); //List of preferred regions
 
         /// <summary>
-        /// Class to be utilised as a user account by Clients
+        /// Class constructor
         /// </summary>
         /// <param name="name">Name to be assigned to the new Client</param>
         /// <param name="username">Username to be assigned to the new Client</param>

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace InvestmentIdeasPlatform
 {
     /// <summary>
-    /// Abstract base class that all User types (Client, RM, FA) will inherit from
+    /// Class used to instantiate a User object
     /// </summary>
     public class User
     {

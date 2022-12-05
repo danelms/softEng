@@ -15,8 +15,6 @@
 
 ### 10/10/22 SD
 - Started a class diagram
-
-### 12/10/22 SD
 - Created the coding standards markdown file
 - Started a minutes log in a markdown file
 - Progress on class diagram
@@ -44,6 +42,7 @@
 ### 19/10/22 SD
 - Added the last few get functions to InvestmentIdea Class
 - UI design and programming progress
+- Created sequence diagrams
 
 ### 20/10/22 SD
 - Started to implement data validation in the C# winforms project
@@ -123,3 +122,8 @@
 - Implemented more panel styling
 - Implemented insert for ProductIdeaLink (db)
 - FA>Create idea finished
+
+### 30/11/22 SDJ
+- Last minute implementations to project
+- Created a presentation for client meeting
+- client meeting

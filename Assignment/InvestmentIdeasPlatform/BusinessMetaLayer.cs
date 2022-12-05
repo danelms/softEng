@@ -15,7 +15,7 @@ namespace InvestmentIdeasPlatform
     /// <summary>
     /// Class used to instantiate BusinessMetaLayer objects
     /// </summary>
-    class BusinessMetaLayer
+    public class BusinessMetaLayer
     {
         static private BusinessMetaLayer memInstance = null;
 

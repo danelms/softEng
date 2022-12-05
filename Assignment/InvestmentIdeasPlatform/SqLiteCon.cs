@@ -13,7 +13,7 @@ using System.Xml.Linq;
 namespace InvestmentIdeasPlatform
 {
     /// <summary>
-    /// Class used to instantiate SqLiteCon
+    /// Class used to instantiate SqLiteCon and execute SQL commands / queries
     /// </summary>
     class SqLiteCon : DBConnection
     {

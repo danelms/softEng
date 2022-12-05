@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace InvestmentIdeasPlatform
 {
-    class InvestmentProduct
+    /// <summary>
+    /// Class used to isntantiate an InvestmentProduct object
+    /// </summary>
+    public class InvestmentProduct
     {
         private String instDisplayName; //Instrument display name
         private String instName; //Instrument name
