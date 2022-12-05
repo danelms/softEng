@@ -26,9 +26,6 @@
 - Discussed design options
 - Finalised class diagram
 
-### 14/10/22 S
-- Created sequence diagrams
-
 ### 16/10/22 S
 - Finalised design of login form
 
@@ -45,6 +42,7 @@
 ### 19/10/22 SD
 - Added the last few get functions to InvestmentIdea Class
 - UI design and programming progress
+- Created sequence diagrams
 
 ### 20/10/22 SD
 - Started to implement data validation in the C# winforms project
