@@ -15,8 +15,6 @@
 
 ### 10/10/22 SD
 - Started a class diagram
-
-### 12/10/22 SD
 - Created the coding standards markdown file
 - Started a minutes log in a markdown file
 - Progress on class diagram
